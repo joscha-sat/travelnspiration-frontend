@@ -1,0 +1,11 @@
+.base-container {
+    max-width: min(95%, 90rem);
+    padding-inline: 1em;
+    margin-inline: auto;
+    margin-top: var(--mt, 1.5rem);
+    margin-bottom: var(--mb, 0);
+}
+
+.block:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
