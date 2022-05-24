@@ -1,8 +1,7 @@
 {
   "singleQuote": true,
   "tabWidth": 4,
-  "singleAttributePerLine": true,
-  "endOfLine": "auto"
+  "singleAttributePerLine": true
 }
 
 
