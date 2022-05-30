@@ -11,9 +11,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
 
 @NgModule({
-    declarations: [AppComponent, NavigationComponent],
+    declarations: [AppComponent, NavigationComponent, GermanySvgComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

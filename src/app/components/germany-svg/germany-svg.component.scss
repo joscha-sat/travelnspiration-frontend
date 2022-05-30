@@ -1,0 +1,15 @@
+path {
+    &:hover {
+        fill: #205759;
+        stroke: #930033;
+        stroke-width: 4px;
+        cursor: pointer;
+    }
+}
+
+.toolTipTxt {
+    white-space: pre-line !important;
+    color: #032c58 !important;
+    background-color: #ffc000;
+    font-size: 25px;
+}

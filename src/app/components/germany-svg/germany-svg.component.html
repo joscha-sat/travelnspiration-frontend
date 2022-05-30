@@ -1,0 +1,22 @@
+<figure style="width: min(600px, 95vw)">
+    <svg
+        height="100%"
+        id="Bundesrepublik_Deutschland"
+        overflow="visible"
+        viewBox="0 0 591.504 800.504"
+        width="100%"
+    >
+        <g>
+            <path
+                *ngFor="let state of federalStates"
+                [attr.d]="state.path"
+                [id]="state.name"
+                [matTooltip]="state.name"
+                fill="#B1D1A3"
+                matTooltipClass="toolTipTxt"
+                stroke="#284566"
+                stroke-width="0.5"
+            />
+        </g>
+    </svg>
+</figure>
