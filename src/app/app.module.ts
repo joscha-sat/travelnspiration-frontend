@@ -12,9 +12,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
-    declarations: [AppComponent, NavigationComponent, GermanySvgComponent],
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+        GermanySvgComponent,
+        HomeComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
