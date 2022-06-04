@@ -11,12 +11,12 @@
                 *ngFor="let state of federalStates"
                 [attr.d]="state.path"
                 [id]="state.name"
+                [matTooltipClass]="'tool'"
                 [matTooltip]="state.name"
                 [routerLink]="['/bundesland/', state.name]"
                 fill="#B1D1A3"
-                matTooltipClass="toolTipTxt"
                 stroke="#284566"
-                stroke-width="0.5"
+                stroke-width="1"
             />
         </g>
     </svg>

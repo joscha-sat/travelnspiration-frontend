@@ -1,13 +1,11 @@
 path {
     &:hover {
         fill: #205759;
-        stroke: #930033;
-        stroke-width: 4px;
         cursor: pointer;
     }
 }
 
-.toolTipTxt {
+.tool {
     white-space: pre-line !important;
     color: #032c58 !important;
     background-color: #ffc000;
