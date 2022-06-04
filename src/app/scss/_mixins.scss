@@ -17,3 +17,10 @@
 .pointer:hover {
     cursor: pointer;
 }
+
+// GLOBAL ADJUSTMENTS TO MAT COMPONENTS
+
+[class^='mat-card'] {
+    color: var(--primary_text);
+    background-color: var(--card_bg);
+}
