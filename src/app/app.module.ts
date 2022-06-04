@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
 import { HomeComponent } from './views/home/home.component';
+import { StateComponent } from './views/state/state.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { HomeComponent } from './views/home/home.component';
         NavigationComponent,
         GermanySvgComponent,
         HomeComponent,
+        StateComponent,
     ],
     imports: [
         BrowserModule,
