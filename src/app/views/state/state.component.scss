@@ -1,5 +1,33 @@
 .grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.content {
+    display: grid;
+    gap: 1rem;
+
+    grid-template-columns: 1fr auto;
+}
+
+.filter {
+    display: none;
+}
+
+.btn-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 15rem;
+
+    button {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1072px) {
+    .filter {
+        display: block;
+    }
 }
