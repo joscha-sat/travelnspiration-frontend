@@ -1,24 +1,15 @@
-<div
-    class="base-container"
-    style="--mt: 1.5rem"
->
-    <h1
-        class="title"
-        style="text-align: center"
-    >
+<div class="base-container" style="--mt: 1.5rem">
+    <h1 class="title" style="text-align: center">
         {{ title }} {{ 'STATE.TITLE' | translate }}!
     </h1>
     <p></p>
 
     <div class="content">
         <div class="grid">
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
-            <app-base-card></app-base-card>
+            <app-base-card
+                *ngFor="let onePost of posts"
+                [title]="onePost.title"
+            ></app-base-card>
         </div>
 
         <div class="filter">
@@ -26,24 +17,9 @@
                 <mat-card-title>Filter</mat-card-title>
 
                 <mat-card-actions class="btn-actions">
-                    <button
-                        mat-flat-button
-                        color="primary"
-                    >
-                        Berge
-                    </button>
-                    <button
-                        mat-flat-button
-                        color="primary"
-                    >
-                        Berge
-                    </button>
-                    <button
-                        mat-flat-button
-                        color="primary"
-                    >
-                        Berge
-                    </button>
+                    <button color="primary" mat-flat-button>Berge</button>
+                    <button color="primary" mat-flat-button>Berge</button>
+                    <button color="primary" mat-flat-button>Berge</button>
                 </mat-card-actions>
             </mat-card>
         </div>

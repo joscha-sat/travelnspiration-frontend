@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-base-card',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./base-card.component.scss'],
 })
 export class BaseCardComponent {
-    constructor() {}
+    @Input() title: string;
 }
