@@ -1,14 +1,10 @@
 .grid {
     display: grid;
     gap: 1rem;
+
+    //place-content: center;
+
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-}
-
-.content {
-    display: grid;
-    gap: 2rem;
-
-    grid-template-columns: 1fr auto;
 }
 
 .filter {
@@ -29,5 +25,12 @@
 @media screen and (min-width: 1072px) {
     .filter {
         display: block;
+    }
+
+    .content {
+        display: grid;
+        gap: 2rem;
+
+        grid-template-columns: 1fr auto;
     }
 }

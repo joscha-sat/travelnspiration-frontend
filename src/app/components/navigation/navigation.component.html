@@ -3,7 +3,18 @@
 
     <span class="spacer"></span>
 
-    <button (click)="darkmodeToggle()" color="primary" mat-flat-button>
-        <mat-icon>dark_mode</mat-icon>
-    </button>
+    <div class="buttons flex" style="gap: 1rem">
+        <!-- LOGIN -->
+        <button mat-flat-button routerLink="/login">
+            <div class="loginBtn flex">
+                <p>login</p>
+                <mat-icon>login</mat-icon>
+            </div>
+        </button>
+
+        <!-- DARKMODE -->
+        <button (click)="darkmodeToggle()" mat-flat-button>
+            <mat-icon>dark_mode</mat-icon>
+        </button>
+    </div>
 </mat-toolbar>

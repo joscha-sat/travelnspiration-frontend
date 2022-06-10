@@ -2,14 +2,35 @@
     <mat-card class="mCard">
         <mat-card-title>Login</mat-card-title>
 
+        <!--  EMAIL  -->
+
         <mat-form-field appearance="outline" class="mFField">
-            <mat-label>email</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-label>E-Mail</mat-label>
             <input class="mInput" matInput />
         </mat-form-field>
 
+        <!--  PASSWORT  -->
+
         <mat-form-field appearance="outline" class="mFField">
-            <mat-label>email</mat-label>
-            <input class="mInput" matInput />
+            <mat-label>Passwort</mat-label>
+
+            <input [type]="hide ? 'password' : 'text'" matInput />
+
+            <button
+                (click)="hide = !hide"
+                [attr.aria-pressed]="hide"
+                mat-icon-button
+                matSuffix
+            >
+                <mat-icon>
+                    {{ hide ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+            </button>
         </mat-form-field>
+
+        <mat-card-actions style="padding: 0.5rem">
+            <button color="accent" mat-flat-button>Login</button>
+        </mat-card-actions>
     </mat-card>
 </div>

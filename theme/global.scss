@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use 'src/app/scss/index' as *;
 @import 'primary-palette.scss';
 
 @include mat.core();
@@ -44,4 +45,33 @@ $dark-theme: mat.define-dark-theme(
     @include mat.core-color($light-theme);
     @include mat.button-color($light-theme);
     @include mat.all-component-colors($light-theme);
+}
+
+// CUSTOMIZE ANGULAR MATERIAL THEME
+
+// DARK
+.mat-app-background {
+    background-color: $background_dark;
+}
+
+.mat-card {
+    background-color: $card_dark;
+}
+
+.mat-flat-button {
+    background-color: $card_dark;
+}
+
+// LIGHT
+
+.lightTheme.mat-app-background {
+    background-color: $background_light;
+}
+
+.lightTheme .mat-card {
+    background-color: $card_light;
+}
+
+.lightTheme .mat-flat-button {
+    background-color: $card_light;
 }

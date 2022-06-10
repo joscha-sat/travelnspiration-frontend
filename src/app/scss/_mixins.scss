@@ -26,14 +26,3 @@
 .pointer:hover {
     cursor: pointer;
 }
-
-.mCard {
-    width: min(32rem, 95vw);
-}
-
-// GLOBAL ADJUSTMENTS TO MAT COMPONENTS
-
-//[class^='mat-card'] {
-//    color: var(--primary_text) !important;
-//    background-color: var(--card_bg) !important;
-//}
