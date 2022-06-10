@@ -1,31 +1,8 @@
 @use 'app/scss/index' as *;
+@import 'theme/global.scss';
 
-:root {
-    // Background
-    --background: #{$background_light};
-    --card_bg: #{$card_light};
-
-    // Hover
-    --hover_card: #{$hover_light};
-    --hover_text: #{$hover_text_light};
-
-    // Text
-    --primary_text: #{$primary_text_light};
-    --secondary_text: #{$secondary_text_light};
-}
-
-.dark {
-    // Background
-    --background: #{$background_dark};
-    --card_bg: #{$card_dark};
-
-    // Hover
-    --hover_card: #{$hover_dark};
-    --hover_text: #{$hover_text_dark};
-
-    // Text
-    --primary_text: #{$primary_text_dark};
-    --secondary_text: #{$secondary_text_dark};
+.mat-app-background {
+    background-color: #212121;
 }
 
 /* ------------------- */
