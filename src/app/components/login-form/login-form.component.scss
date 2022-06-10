@@ -1,0 +1,21 @@
+.mInput {
+    color: var(--primary_text) !important;
+}
+
+::ng-deep .mat-form-field-label mat-label {
+    color: var(--primary_text) !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    /*change color of underline*/
+    background-color: var(--primary_text) !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: var(--primary_text) !important;
+}
+
+.mFField {
+    width: 100%;
+}
