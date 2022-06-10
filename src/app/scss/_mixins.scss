@@ -6,6 +6,15 @@
     margin-bottom: var(--mb, 0);
 }
 
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
 .block:not(:last-child) {
     margin-bottom: 1.5rem;
 }
@@ -16,6 +25,10 @@
 
 .pointer:hover {
     cursor: pointer;
+}
+
+.mCard {
+    width: min(32rem, 95vw);
 }
 
 // GLOBAL ADJUSTMENTS TO MAT COMPONENTS

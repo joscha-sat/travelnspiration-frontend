@@ -22,9 +22,10 @@ export class StateComponent implements OnInit {
     ngOnInit(): void {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             this.title = paramMap.get('bundesland');
-            console.log(this.title); // angeklickte Bundesland
         });
 
         this.postService.fetchPosts();
+
+        console.log(this.posts);
     }
 }

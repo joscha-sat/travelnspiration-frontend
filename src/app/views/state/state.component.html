@@ -1,17 +1,23 @@
 <div class="base-container" style="--mt: 1.5rem">
+    <!-- TITLE -->
     <h1 class="title" style="text-align: center">
         {{ title }} {{ 'STATE.TITLE' | translate }}!
     </h1>
-    <p></p>
 
     <div class="content">
+        <!-- CARDS // TODO: ADD DATA FROM DATABASE  -->
         <div class="grid">
             <app-base-card
-                *ngFor="let onePost of posts"
-                [title]="onePost.title"
+                title="Titel 1"
+                image="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+            ></app-base-card>
+            <app-base-card
+                title="Titel 2"
+                image="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
             ></app-base-card>
         </div>
 
+        <!-- FILTER -->
         <div class="filter">
             <mat-card>
                 <mat-card-title>Filter</mat-card-title>

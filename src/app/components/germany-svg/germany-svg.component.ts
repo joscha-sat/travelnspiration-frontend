@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-germany-svg',
     templateUrl: './germany-svg.component.html',
     styleUrls: ['./germany-svg.component.scss'],
 })
-export class GermanySvgComponent implements OnInit {
+export class GermanySvgComponent {
     federalStates = [
         {
             path: `M312.004,351.725l1.845-0.401l3.39,0.274l1.912,0.169
@@ -955,8 +955,4 @@ export class GermanySvgComponent implements OnInit {
     ];
 
     constructor() {}
-
-    ngOnInit() {
-        console.log(this.federalStates);
-    }
 }

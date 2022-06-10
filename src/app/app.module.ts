@@ -15,6 +15,8 @@ import { GermanySvgComponent } from './components/germany-svg/germany-svg.compon
 import { HomeComponent } from './views/home/home.component';
 import { StateComponent } from './views/state/state.component';
 import { BaseCardComponent } from './components/base-card/base-card.component';
+import { LoginComponent } from './views/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import { BaseCardComponent } from './components/base-card/base-card.component';
         HomeComponent,
         StateComponent,
         BaseCardComponent,
+        LoginComponent,
+        LoginFormComponent,
     ],
     imports: [
         BrowserModule,

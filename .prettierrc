@@ -1,8 +1,4 @@
 {
-  "singleQuote": true,
-  "tabWidth": 4,
-  "singleAttributePerLine": true
+    "singleQuote": true,
+    "tabWidth": 4
 }
-
-
-
