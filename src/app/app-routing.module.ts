@@ -3,25 +3,33 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { StateComponent } from './views/state/state.component';
+import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-entry.component';
 
 const routes: Routes = [
     // HOME
     {
         path: '',
-        redirectTo: '/startseite',
+        redirectTo: '/home',
         pathMatch: 'full',
     },
+    // HOME
     {
-        path: 'startseite',
+        path: 'home',
         component: HomeComponent,
     },
+    // LOGIN
     {
         path: 'login',
         component: LoginComponent,
     },
+    // ADD TRAVEL ENTRY
+    {
+        path: 'addTravelEntry',
+        component: AddTravelEntryComponent,
+    },
     // INNER STATE OVERVIEW
     {
-        path: 'bundesland/:bundesland',
+        path: 'state/:state',
         component: StateComponent,
     },
 ];

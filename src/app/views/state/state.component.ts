@@ -24,7 +24,7 @@ export class StateComponent implements OnInit {
 
         // GET THE SELECTED STATE NAME
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
-            this.title = paramMap.get('bundesland');
+            this.title = paramMap.get('state');
         });
 
         // SET THE TRAVEL POST ARRAY TO DATABASE DATA DEPENDING ON STATE NAME

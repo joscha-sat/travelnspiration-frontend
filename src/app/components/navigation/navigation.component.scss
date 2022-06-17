@@ -7,3 +7,13 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+.buttons {
+    display: none;
+}
+
+@media screen and (min-width: 700px) {
+    .buttons {
+        display: flex;
+    }
+}

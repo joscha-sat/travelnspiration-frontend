@@ -37,13 +37,16 @@ html:focus-within {
     scroll-behavior: smooth;
 }
 
+html {
+    font-size: 62.5%; // daruch wird 1rem = 10 px
+}
+
 /* Set core body defaults */
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 
-    background-color: blue;
     color: var(--primary_text);
     font-size: #{$normal_font};
 }

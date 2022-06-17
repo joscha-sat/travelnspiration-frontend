@@ -14,9 +14,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
 import { HomeComponent } from './views/home/home.component';
 import { StateComponent } from './views/state/state.component';
-import { BaseCardComponent } from './components/base-card/base-card.component';
+import { BaseCardComponent } from './components/a-custom-components/base-card/base-card.component';
 import { LoginComponent } from './views/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-entry.component';
+import { TravelEntryFormComponent } from './components/travel-entry-form/travel-entry-form.component';
+import { BaseTextInputComponent } from './components/a-custom-components/base-text-input/base-text-input.component';
+import { BaseTextAreaInputComponent } from './components/a-custom-components/base-text-area-input/base-text-area-input.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +32,10 @@ import { LoginFormComponent } from './components/login-form/login-form.component
         BaseCardComponent,
         LoginComponent,
         LoginFormComponent,
+        AddTravelEntryComponent,
+        TravelEntryFormComponent,
+        BaseTextInputComponent,
+        BaseTextAreaInputComponent,
     ],
     imports: [
         BrowserModule,

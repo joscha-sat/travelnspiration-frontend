@@ -1,36 +1,34 @@
-<div class="base-container flex center" style="--mt: 1.5rem">
-    <mat-card class="mCard">
-        <mat-card-title>Login</mat-card-title>
+<mat-card class="mw600">
+    <mat-card-title>Login</mat-card-title>
 
-        <!--  EMAIL  -->
+    <!--  EMAIL  -->
 
-        <mat-form-field appearance="outline" class="mFField">
-            <mat-icon matSuffix>email</mat-icon>
-            <mat-label>E-Mail</mat-label>
-            <input class="mInput" matInput />
-        </mat-form-field>
+    <mat-form-field appearance="outline" class="w100">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-label>E-Mail</mat-label>
+        <input class="mInput" matInput />
+    </mat-form-field>
 
-        <!--  PASSWORT  -->
+    <!--  PASSWORT  -->
 
-        <mat-form-field appearance="outline" class="mFField">
-            <mat-label>Passwort</mat-label>
+    <mat-form-field appearance="outline" class="w100">
+        <mat-label>Passwort</mat-label>
 
-            <input [type]="hide ? 'password' : 'text'" matInput />
+        <input [type]="hide ? 'password' : 'text'" matInput />
 
-            <button
-                (click)="hide = !hide"
-                [attr.aria-pressed]="hide"
-                mat-icon-button
-                matSuffix
-            >
-                <mat-icon>
-                    {{ hide ? 'visibility_off' : 'visibility' }}
-                </mat-icon>
-            </button>
-        </mat-form-field>
+        <button
+            (click)="hide = !hide"
+            [attr.aria-pressed]="hide"
+            mat-icon-button
+            matSuffix
+        >
+            <mat-icon>
+                {{ hide ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+        </button>
+    </mat-form-field>
 
-        <mat-card-actions style="padding: 0.5rem">
-            <button color="accent" mat-flat-button>Login</button>
-        </mat-card-actions>
-    </mat-card>
-</div>
+    <mat-card-actions style="padding: 0.5rem">
+        <button color="accent" mat-flat-button>Login</button>
+    </mat-card-actions>
+</mat-card>

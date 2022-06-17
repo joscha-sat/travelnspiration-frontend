@@ -1,5 +1,5 @@
 .base-container {
-    max-width: min(95%, 100rem);
+    width: min(100%, 100rem);
     padding-inline: 1em;
     margin-inline: auto;
     margin-top: var(--mt, 0);
@@ -19,8 +19,24 @@
     margin-bottom: 1.5rem;
 }
 
-.title {
-    font-size: 38px;
+//.title {
+//    //font-size: clamp(2rem, 10vw, 3.4rem) !important;
+//    font-weight: 700;
+//    // font-size: 2.6rem !important;
+//}
+
+//.header {
+//    //font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
+//    font-weight: 400;
+//    // font-size: 2.6rem !important;
+//}
+
+.mw600 {
+    max-width: 600px;
+}
+
+.w100 {
+    width: 100%;
 }
 
 .pointer:hover {

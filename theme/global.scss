@@ -76,3 +76,9 @@ $dark-theme: mat.define-dark-theme(
 .lightTheme .mat-flat-button {
     background-color: $card_light;
 }
+
+// GENERAL
+
+.mat-form-field-infix {
+    width: auto !important;
+}
