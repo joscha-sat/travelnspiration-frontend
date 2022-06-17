@@ -4,11 +4,11 @@
     <mat-icon matSuffix>{{ icon }}</mat-icon>
     <mat-label>{{ title }}</mat-label>
     <input
-        #text
-        (change)="setValue(text.value)"
+        #number
+        (change)="setValue(number.value)"
         [required]="required"
         class="mInput"
         matInput
-        type="text"
+        type="number"
     />
 </mat-form-field>

@@ -1,31 +1,71 @@
 <mat-card class="mw600">
-    <mat-card-title class="title">Add Travel Entry</mat-card-title>
+    <mat-card-title class="header">Add Travel Entry</mat-card-title>
 
     <div class="title_location flex">
         <!--  TITLE  -->
-        <app-base-text-input title="Title"></app-base-text-input>
+        <app-base-text-input
+            (emit_value)="setTitle($event)"
+            [required]="true"
+            class="flexChild"
+            icon="title"
+            title="Title"
+        ></app-base-text-input>
 
         <!--  LOCATION  -->
-        <app-base-text-input title="Location"></app-base-text-input>
+        <app-base-text-input
+            (emit_value)="setLocation($event)"
+            [required]="true"
+            class="flexChild"
+            icon="explore"
+            title="Location"
+        ></app-base-text-input>
     </div>
 
-    <!--  LOCATION  -->
+    <!--  Description  -->
 
-    <app-base-text-area-input title="Description"></app-base-text-area-input>
+    <app-base-text-area-input
+        (emit_value)="setDescription($event)"
+        [required]="true"
+        title="Description"
+    ></app-base-text-area-input>
 
-    <!--  LOCATION  -->
+    <!--  Housing type  -->
 
-    <app-base-text-input title="Cost description"></app-base-text-input>
+    <app-base-text-input
+        (emit_value)="setHousingType($event)"
+        icon="house"
+        title="Housing type"
+    ></app-base-text-input>
 
-    <!--  LOCATION  -->
+    <!-- COSTS TOTAL -->
 
-    <app-base-text-input title="Other"></app-base-text-input>
+    <app-base-number-input
+        icon="paid"
+        title="Total cost"
+    ></app-base-number-input>
 
-    <!--  LOCATION  -->
+    <!--  Cost info  -->
 
-    <app-base-text-input title="Housing"></app-base-text-input>
+    <app-base-text-area-input
+        (emit_value)="setCostInfo($event)"
+        title="Cost info"
+    ></app-base-text-area-input>
 
-    <mat-card-actions style="padding: 0.5rem">
-        <button color="accent" mat-flat-button>Login</button>
+    <!--  Other  -->
+
+    <app-base-text-input
+        (emit_value)="setOther($event)"
+        icon="sms"
+        title="Other"
+    ></app-base-text-input>
+
+    <!-- ---------------------------------------------------------------------------- -->
+
+    <!-- BUTTONS -->
+
+    <mat-card-actions
+        style="padding-left: 1rem; padding-top: 0; padding-bottom: 1rem"
+    >
+        <button color="accent" mat-flat-button>save</button>
     </mat-card-actions>
 </mat-card>

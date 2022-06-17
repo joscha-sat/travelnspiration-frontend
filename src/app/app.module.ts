@@ -21,6 +21,8 @@ import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-ent
 import { TravelEntryFormComponent } from './components/travel-entry-form/travel-entry-form.component';
 import { BaseTextInputComponent } from './components/a-custom-components/base-text-input/base-text-input.component';
 import { BaseTextAreaInputComponent } from './components/a-custom-components/base-text-area-input/base-text-area-input.component';
+import { BaseNumberInputComponent } from './components/a-custom-components/base-number-input/base-number-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -36,12 +38,14 @@ import { BaseTextAreaInputComponent } from './components/a-custom-components/bas
         TravelEntryFormComponent,
         BaseTextInputComponent,
         BaseTextAreaInputComponent,
+        BaseNumberInputComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MaterialModule,
+        ReactiveFormsModule,
         // ngx-translate and the loader module
         HttpClientModule,
         TranslateModule.forRoot({
@@ -51,6 +55,7 @@ import { BaseTextAreaInputComponent } from './components/a-custom-components/bas
                 deps: [HttpClient],
             },
         }),
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -81,4 +81,15 @@ $dark-theme: mat.define-dark-theme(
 
 .mat-form-field-infix {
     width: auto !important;
+
+    //font-size: $normal_font;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding-top: 0.9em !important;
+    padding-bottom: 0.9em !important;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 1.5rem !important;
 }

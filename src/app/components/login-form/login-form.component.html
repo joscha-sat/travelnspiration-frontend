@@ -3,18 +3,18 @@
 
     <!--  EMAIL  -->
 
-    <mat-form-field appearance="outline" class="w100">
-        <mat-icon matSuffix>email</mat-icon>
-        <mat-label>E-Mail</mat-label>
-        <input class="mInput" matInput />
-    </mat-form-field>
+    <app-base-text-input
+        [required]="true"
+        icon="email"
+        title="Email"
+    ></app-base-text-input>
 
     <!--  PASSWORT  -->
 
     <mat-form-field appearance="outline" class="w100">
-        <mat-label>Passwort</mat-label>
+        <mat-label>Password</mat-label>
 
-        <input [type]="hide ? 'password' : 'text'" matInput />
+        <input [type]="hide ? 'password' : 'text'" matInput required />
 
         <button
             (click)="hide = !hide"
