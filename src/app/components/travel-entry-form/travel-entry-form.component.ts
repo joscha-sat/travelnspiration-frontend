@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-travel-entry-form',
     templateUrl: './travel-entry-form.component.html',
     styleUrls: ['./travel-entry-form.component.scss'],
 })
-export class TravelEntryFormComponent {
+export class TravelEntryFormComponent implements OnInit {
     title: string;
     state: string;
     location: string;
@@ -15,7 +16,9 @@ export class TravelEntryFormComponent {
     costInfo: string;
     other: string;
 
-    constructor() {}
+    form: FormGroup;
+
+    constructor(private formBuilder: FormBuilder) {}
 
     setTitle($event: string) {
         this.title = $event;
@@ -51,5 +54,11 @@ export class TravelEntryFormComponent {
 
     onSubmit() {
         console.log('hehe');
+    }
+
+    ngOnInit(): void {
+        this.form = this.formBuilder.group({
+            title: ['', [Validators.required]],
+        });
     }
 }
