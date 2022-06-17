@@ -6,6 +6,7 @@
 
 // warn color
 $warn: mat.define-palette(mat.$red-palette, A400);
+// access color as success color
 $success: mat.define-palette(mat.$green-palette);
 
 // Define a light theme
