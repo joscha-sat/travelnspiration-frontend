@@ -93,8 +93,8 @@ export class TravelEntryFormComponent implements OnInit {
 
         this.travelPostService
             .addTravelPosts(newTravelPostEntry)
-            .subscribe((res) => {
-                console.log(res);
+            .subscribe(() => {
+                this.form.reset();
             });
     }
 
