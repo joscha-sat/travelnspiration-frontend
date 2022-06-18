@@ -59,6 +59,9 @@ export class TravelEntryFormComponent implements OnInit {
     ngOnInit(): void {
         this.form = this.formBuilder.group({
             title: ['', [Validators.required]],
+            location: ['', [Validators.required]],
+            housingType: [''],
+            other: [''],
         });
     }
 }

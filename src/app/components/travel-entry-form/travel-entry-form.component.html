@@ -1,73 +1,82 @@
-<mat-card class='mw600'>
-  <mat-card-title class='header'>Add Travel Entry</mat-card-title>
-  <form [formGroup]='form'>
-    <div class='title_location flex'>
-      <!--  TITLE  -->
-      <app-base-text-input
-        (emit_value)='setTitle($event)'
-        [required]='true'
-        class='flexChild'
-        icon='title'
-        title='Title'
-      ></app-base-text-input>
+<mat-card class="mw600">
+    <mat-card-title class="header">Add Travel Entry</mat-card-title>
+    <form [formGroup]="form">
+        <div class="title_location flex">
+            <!--  TITLE  -->
+            <app-base-text-input
+                (emit_value)="setTitle($event)"
+                [formGroup]="form"
+                [required]="true"
+                class="flexChild"
+                fName="title"
+                icon="title"
+                title="Title"
+            ></app-base-text-input>
 
-      <!--  LOCATION  -->
-      <app-base-text-input
-        (emit_value)='setLocation($event)'
-        [required]='true'
-        class='flexChild'
-        icon='explore'
-        title='Location'
-      ></app-base-text-input>
-    </div>
+            <!--  LOCATION  -->
+            <app-base-text-input
+                (emit_value)="setLocation($event)"
+                [formGroup]="form"
+                [required]="true"
+                class="flexChild"
+                fName="location"
+                icon="explore"
+                title="Location"
+            ></app-base-text-input>
+        </div>
 
-    <!--  Description  -->
+        <!--  Description  -->
 
-    <app-base-text-area-input
-      (emit_value)='setDescription($event)'
-      [required]='true'
-      title='Description'
-    ></app-base-text-area-input>
+        <app-base-text-area-input
+            (emit_value)="setDescription($event)"
+            [required]="true"
+            title="Description"
+        ></app-base-text-area-input>
 
-    <!--  Housing type  -->
+        <!--  Housing type  -->
 
-    <app-base-text-input
-      (emit_value)='setHousingType($event)'
-      icon='house'
-      title='Housing type'
-    ></app-base-text-input>
+        <app-base-text-input
+            (emit_value)="setHousingType($event)"
+            [formGroup]="form"
+            fName="housingType"
+            icon="house"
+            title="Housing type"
+        ></app-base-text-input>
 
-    <!-- COSTS TOTAL -->
+        <!-- COSTS TOTAL -->
 
-    <app-base-number-input
-      icon='paid'
-      title='Total cost'
-    ></app-base-number-input>
+        <app-base-number-input
+            icon="paid"
+            title="Total cost"
+        ></app-base-number-input>
 
-    <!--  Cost info  -->
+        <!--  Cost info  -->
 
-    <app-base-text-area-input
-      (emit_value)='setCostInfo($event)'
-      title='Cost info'
-    ></app-base-text-area-input>
+        <app-base-text-area-input
+            (emit_value)="setCostInfo($event)"
+            title="Cost info"
+        ></app-base-text-area-input>
 
-    <!--  Other  -->
+        <!--  Other  -->
 
-    <app-base-text-input
-      (emit_value)='setOther($event)'
-      icon='sms'
-      title='Other'
-    ></app-base-text-input>
+        <app-base-text-input
+            (emit_value)="setOther($event)"
+            [formGroup]="form"
+            fName="other"
+            icon="sms"
+            title="Other"
+        ></app-base-text-input>
 
-    <!-- ---------------------------------------------------------------------------- -->
+        <!-- ---------------------------------------------------------------------------- -->
 
-    <!-- BUTTONS -->
+        <!-- BUTTONS -->
 
-    <mat-card-actions
-      style='padding-left: 1rem; padding-top: 0; padding-bottom: 1rem'
-    >
-      <button color='accent' mat-flat-button>save</button>
-    </mat-card-actions>
-  </form>
-
+        <mat-card-actions
+            style="padding-left: 1rem; padding-top: 0; padding-bottom: 1rem"
+        >
+            <button [disabled]="!form.valid" color="accent" mat-flat-button>
+                save
+            </button>
+        </mat-card-actions>
+    </form>
 </mat-card>
