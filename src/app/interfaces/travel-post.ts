@@ -1,5 +1,5 @@
 export interface TravelPost {
-    id: string;
+    id?: string;
     title: string;
     state: string;
     location: string;

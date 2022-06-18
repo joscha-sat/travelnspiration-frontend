@@ -17,4 +17,12 @@ export class TravelPostService {
             this.baseURL + 'travelPost/state/' + state
         );
     }
+
+    // ADD TRAVEL POST ENTRY
+    addTravelPosts(travelPost: TravelPost) {
+        return this.http.post<TravelPost>(
+            this.baseURL + 'travelPost',
+            travelPost
+        );
+    }
 }

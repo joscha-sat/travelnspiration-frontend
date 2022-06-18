@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TravelPost } from '../../interfaces/travel-post';
+import { TravelPostService } from '../../services/travel-post.service';
 
 @Component({
     selector: 'app-travel-entry-form',
@@ -36,7 +38,10 @@ export class TravelEntryFormComponent implements OnInit {
         'Thüringen',
     ];
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(
+        private formBuilder: FormBuilder,
+        private travelPostService: TravelPostService
+    ) {}
 
     setTitle($event: string) {
         this.title = $event;
@@ -71,7 +76,26 @@ export class TravelEntryFormComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log('hehe');
+        if (this.form.invalid) {
+            return;
+        }
+
+        const newTravelPostEntry: TravelPost = {
+            title: this.title,
+            description: this.description,
+            state: this.state,
+            location: this.location,
+            housing: this.housingType,
+            costsTotal: this.totalCosts,
+            costDescription: this.costInfo,
+            other: this.other,
+        };
+
+        this.travelPostService
+            .addTravelPosts(newTravelPostEntry)
+            .subscribe((res) => {
+                console.log(res);
+            });
     }
 
     ngOnInit(): void {

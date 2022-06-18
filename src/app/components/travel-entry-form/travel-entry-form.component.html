@@ -1,6 +1,6 @@
 <mat-card class="mw600">
     <mat-card-title class="header">Add Travel Entry</mat-card-title>
-    <form [formGroup]="form">
+    <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
         <div class="title_location flex">
             <!--  TITLE  -->
             <app-base-text-input
@@ -58,6 +58,7 @@
         <!-- COSTS TOTAL -->
 
         <app-base-number-input
+            (emit_value)="setTotalCosts($event)"
             icon="euros"
             title="Total cost"
         ></app-base-number-input>
@@ -88,7 +89,12 @@
         <mat-card-actions
             style="padding-left: 1rem; padding-top: 0; padding-bottom: 1rem"
         >
-            <button [disabled]="!form.valid" color="accent" mat-flat-button>
+            <button
+                [disabled]="!form.valid"
+                color="accent"
+                mat-flat-button
+                type="submit"
+            >
                 save
             </button>
         </mat-card-actions>
