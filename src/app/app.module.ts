@@ -22,7 +22,7 @@ import { TravelEntryFormComponent } from './components/travel-entry-form/travel-
 import { BaseTextInputComponent } from './components/a-custom-components/base-text-input/base-text-input.component';
 import { BaseTextAreaInputComponent } from './components/a-custom-components/base-text-area-input/base-text-area-input.component';
 import { BaseNumberInputComponent } from './components/a-custom-components/base-number-input/base-number-input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseSelectComponent } from './components/a-custom-components/base-select/base-select.component';
 
 @NgModule({
@@ -58,6 +58,7 @@ import { BaseSelectComponent } from './components/a-custom-components/base-selec
             },
         }),
         ReactiveFormsModule,
+        FormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

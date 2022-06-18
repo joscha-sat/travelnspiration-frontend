@@ -1,20 +1,23 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-    selector: 'app-base-number-input',
-    templateUrl: './base-number-input.component.html',
-    styleUrls: ['./base-number-input.component.scss'],
+  selector: 'app-base-number-input',
+  templateUrl: './base-number-input.component.html',
+  styleUrls: ['./base-number-input.component.scss'],
 })
 export class BaseNumberInputComponent {
-    @Input() title: string;
-    @Input() icon: string;
-    @Input() required: boolean = false;
+  @Input() title: string;
+  @Input() icon: string;
+  @Input() required: boolean = false;
 
-    @Output() emit_value: EventEmitter<number> = new EventEmitter();
+  value: number
 
-    constructor() {}
+  @Output() emit_value: EventEmitter<number> = new EventEmitter();
 
-    setValue(value: string) {
-        this.emit_value.emit(+value);
-    }
+  constructor() {
+  }
+
+  setValue(value: string) {
+    this.emit_value.emit(+value);
+  }
 }
