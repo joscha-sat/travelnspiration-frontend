@@ -17,6 +17,24 @@ export class TravelEntryFormComponent implements OnInit {
     other: string;
 
     form: FormGroup;
+    states = [
+        'Baden-Württemberg',
+        'Bayern',
+        'Berlin',
+        'Brandenburg',
+        'Bremen',
+        'Hamburg',
+        'Hessen',
+        'Mecklenburg-Vorpommern',
+        'Niedersachsen',
+        'Nordrhein-Westfalen',
+        'Rheinland-Pfalz',
+        'Saarland',
+        'Sachsen',
+        'Sachsen-Anhalt',
+        'Schleswig-Holstein',
+        'Thüringen',
+    ];
 
     constructor(private formBuilder: FormBuilder) {}
 
@@ -58,9 +76,12 @@ export class TravelEntryFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
-            title: ['', [Validators.required]],
+            title: ['', [Validators.required, Validators.minLength(5)]],
+            description: ['', [Validators.required, Validators.minLength(10)]],
+            state: ['', [Validators.required]],
             location: ['', [Validators.required]],
             housingType: [''],
+            costInfo: [''],
             other: [''],
         });
     }

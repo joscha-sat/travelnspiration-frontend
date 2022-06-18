@@ -2,26 +2,25 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 
 @Component({
-    selector: '[formGroup] app-base-text-area-input',
-    templateUrl: './base-text-area-input.component.html',
-    styleUrls: ['./base-text-area-input.component.scss'],
+    selector: '[formGroup] app-base-select',
+    templateUrl: './base-select.component.html',
+    styleUrls: ['./base-select.component.scss'],
 })
-export class BaseTextAreaInputComponent implements OnInit {
+export class BaseSelectComponent implements OnInit {
     @Input() title: string;
-    @Input() required: boolean = false;
-    @Input() fName: string;
-
-    public anyFormGroup: any;
+    @Input() array: any[];
 
     @Output() emit_value: EventEmitter<string> = new EventEmitter();
+    anyFormGroup: any;
+    @Input() fName: any;
 
     constructor(private controlContainer: ControlContainer) {}
 
-    setValue(value: string) {
+    setValue(value: any) {
         this.emit_value.emit(value);
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.anyFormGroup = this.controlContainer.control;
     }
 }

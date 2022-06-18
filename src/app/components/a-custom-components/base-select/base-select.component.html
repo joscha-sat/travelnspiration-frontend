@@ -1,0 +1,13 @@
+<mat-form-field [formGroup]="anyFormGroup" appearance="outline" class="w100">
+    <mat-label>{{ title }}</mat-label>
+    <mat-select
+        #text
+        (selectionChange)="setValue(text.value)"
+        [formControlName]="fName"
+        required
+    >
+        <mat-option *ngFor="let value of array" [value]="value">
+            {{ value }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

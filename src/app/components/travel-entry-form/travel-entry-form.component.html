@@ -25,11 +25,23 @@
             ></app-base-text-input>
         </div>
 
+        <!--   STATES   -->
+
+        <app-base-select
+            (emit_value)="setState($event)"
+            [array]="states"
+            [formGroup]="form"
+            fName="state"
+            title="state"
+        ></app-base-select>
+
         <!--  Description  -->
 
         <app-base-text-area-input
             (emit_value)="setDescription($event)"
+            [formGroup]="form"
             [required]="true"
+            fName="description"
             title="Description"
         ></app-base-text-area-input>
 
@@ -54,6 +66,8 @@
 
         <app-base-text-area-input
             (emit_value)="setCostInfo($event)"
+            [formGroup]="form"
+            fName="costInfo"
             title="Cost info"
         ></app-base-text-area-input>
 
@@ -62,7 +76,7 @@
         <app-base-text-input
             (emit_value)="setOther($event)"
             [formGroup]="form"
-            fName="other"
+            fName="housingType"
             icon="sms"
             title="Other"
         ></app-base-text-input>

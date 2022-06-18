@@ -23,6 +23,7 @@ import { BaseTextInputComponent } from './components/a-custom-components/base-te
 import { BaseTextAreaInputComponent } from './components/a-custom-components/base-text-area-input/base-text-area-input.component';
 import { BaseNumberInputComponent } from './components/a-custom-components/base-number-input/base-number-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BaseSelectComponent } from './components/a-custom-components/base-select/base-select.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         BaseTextInputComponent,
         BaseTextAreaInputComponent,
         BaseNumberInputComponent,
+        BaseSelectComponent,
     ],
     imports: [
         BrowserModule,
