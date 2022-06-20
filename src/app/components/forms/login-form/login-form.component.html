@@ -1,0 +1,50 @@
+<mat-card class="mw600">
+    <mat-card-title class="header">Login</mat-card-title>
+
+    <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
+        <!--  EMAIL  -->
+
+        <app-base-text-input
+            [formGroup]="form"
+            [required]="true"
+            fName="email"
+            icon="email"
+            title="Email"
+        ></app-base-text-input>
+
+        <!--  PASSWORT  -->
+
+        <mat-form-field appearance="outline" class="w100">
+            <mat-label>Password</mat-label>
+
+            <input
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+                matInput
+                required
+            />
+
+            <button
+                (click)="hide = !hide"
+                [attr.aria-pressed]="hide"
+                mat-icon-button
+                matSuffix
+            >
+                <mat-icon>
+                    {{ hide ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-card-actions style="padding: 0.5rem">
+            <button
+                [disabled]="!form.valid"
+                color="accent"
+                mat-flat-button
+                type="submit"
+            >
+                Login
+            </button>
+        </mat-card-actions>
+    </form>
+</mat-card>

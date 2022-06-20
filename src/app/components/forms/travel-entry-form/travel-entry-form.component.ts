@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TravelPost } from '../../interfaces/travel-post';
-import { TravelPostService } from '../../services/travel-post.service';
+import { TravelPost } from '../../../interfaces/travel-post';
+import { TravelPostService } from '../../../services/travel-post.service';
 
 @Component({
     selector: 'app-travel-entry-form',
@@ -18,7 +18,6 @@ export class TravelEntryFormComponent implements OnInit {
     costInfo: string;
     other: string;
 
-    form: FormGroup;
     states = [
         'Baden-Württemberg',
         'Bayern',
@@ -37,6 +36,8 @@ export class TravelEntryFormComponent implements OnInit {
         'Schleswig-Holstein',
         'Thüringen',
     ];
+
+    form: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder,

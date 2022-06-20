@@ -16,14 +16,17 @@ import { HomeComponent } from './views/home/home.component';
 import { StateComponent } from './views/state/state.component';
 import { BaseCardComponent } from './components/a-custom-components/base-card/base-card.component';
 import { LoginComponent } from './views/login/login.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { LoginFormComponent } from './components/forms/login-form/login-form.component';
 import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-entry.component';
-import { TravelEntryFormComponent } from './components/travel-entry-form/travel-entry-form.component';
+import { TravelEntryFormComponent } from './components/forms/travel-entry-form/travel-entry-form.component';
 import { BaseTextInputComponent } from './components/a-custom-components/base-text-input/base-text-input.component';
 import { BaseTextAreaInputComponent } from './components/a-custom-components/base-text-area-input/base-text-area-input.component';
 import { BaseNumberInputComponent } from './components/a-custom-components/base-number-input/base-number-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseSelectComponent } from './components/a-custom-components/base-select/base-select.component';
+import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+import { RegisterComponent } from './views/register/register.component';
+import { FilterTravelButtonComponent } from './components/filter-travel-button/filter-travel-button.component';
 
 @NgModule({
     declarations: [
@@ -41,6 +44,9 @@ import { BaseSelectComponent } from './components/a-custom-components/base-selec
         BaseTextAreaInputComponent,
         BaseNumberInputComponent,
         BaseSelectComponent,
+        RegisterFormComponent,
+        RegisterComponent,
+        FilterTravelButtonComponent,
     ],
     imports: [
         BrowserModule,

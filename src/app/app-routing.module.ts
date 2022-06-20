@@ -4,38 +4,45 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { StateComponent } from './views/state/state.component';
 import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-entry.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
-    // HOME
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-    },
-    // HOME
-    {
-        path: 'home',
-        component: HomeComponent,
-    },
-    // LOGIN
-    {
-        path: 'login',
-        component: LoginComponent,
-    },
-    // ADD TRAVEL ENTRY
-    {
-        path: 'addTravelEntry',
-        component: AddTravelEntryComponent,
-    },
-    // INNER STATE OVERVIEW
-    {
-        path: 'state/:state',
-        component: StateComponent,
-    },
+  // HOME
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  // HOME
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  // REGISTER NEW USER
+  {
+    path: 'signup',
+    component: RegisterComponent,
+  },
+  // LOGIN
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  // ADD TRAVEL ENTRY
+  {
+    path: 'addTravelEntry',
+    component: AddTravelEntryComponent,
+  },
+  // INNER STATE OVERVIEW
+  {
+    path: 'state/:state',
+    component: StateComponent,
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
