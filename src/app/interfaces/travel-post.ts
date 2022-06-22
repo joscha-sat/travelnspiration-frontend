@@ -4,7 +4,7 @@ export interface TravelPost {
     state: string;
     location: string;
     description: string;
-    image?: string;
+    image?: string[];
     housing?: string;
     costsTotal?: number;
     costDescription?: string;

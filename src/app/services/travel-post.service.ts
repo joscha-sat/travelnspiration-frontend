@@ -7,32 +7,49 @@ import { TravelPost } from '../interfaces/travel-post';
     providedIn: 'root',
 })
 export class TravelPostService {
-    baseURL = 'http://localhost:3000/';
+    baseURL = 'http://localhost:3000/travelpost/';
 
     constructor(private http: HttpClient) {}
 
-    // GET FILTERED TRAVEL POSTS BY STATE NAME
-    getTravelPostsByState(state: string | null): Observable<TravelPost[]> {
-        return this.http.get<TravelPost[]>(
-            this.baseURL + 'travelPost/state/' + state
-        );
+    // ADD TRAVEL POST ENTRY
+    addTravelPosts(travelpost: TravelPost) {
+        return this.http.post<TravelPost>(this.baseURL, travelpost);
     }
 
-    // ADD TRAVEL POST ENTRY
-    addTravelPosts(travelPost: TravelPost) {
-        return this.http.post<TravelPost>(
-            this.baseURL + 'travelPost',
-            travelPost
-        );
+    // GET ALL TRAVEL POSTS
+    getTravelPosts(): Observable<TravelPost[]> {
+        return this.http.get<TravelPost[]>(this.baseURL);
     }
+
+    // GET TRAVEL POST BY ID
+    getTravelPostById(id: string): Observable<TravelPost> {
+        return this.http.get<TravelPost>(this.baseURL + id);
+    }
+
+    // GET FILTERED TRAVEL POSTS BY STATE NAME
+    getTravelPostsByState(state: string | null): Observable<TravelPost[]> {
+        return this.http.get<TravelPost[]>(this.baseURL + 'state/' + state);
+    }
+
+    // UPDATE TRAVEL POST BY ID
+    updateTravelPostById(id: string, travelpost: TravelPost) {
+        return this.http.patch(this.baseURL + id, travelpost);
+    }
+
+    // DELETE ALL TRAVEL POSTS
+    deleteTravelPosts() {
+        return this.http.delete(this.baseURL);
+    }
+
+    // IMAGE STUFF ---------------------------------------------------------------------- //
 
     // UPLOAD IMAGE
     uploadImage(file: any) {
-        return this.http.post(this.baseURL + 'travelPost/images', file);
+        return this.http.post(this.baseURL + 'images', file);
     }
 
     // GET IMAGE
     getImage(imgPath: string) {
-        return this.http.get(this.baseURL + 'travelPost/image/' + imgPath);
+        return this.http.get(this.baseURL + 'image/' + imgPath);
     }
 }

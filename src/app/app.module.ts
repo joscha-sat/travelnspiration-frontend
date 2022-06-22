@@ -27,6 +27,7 @@ import { BaseSelectComponent } from './components/a-custom-components/base-selec
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { RegisterComponent } from './views/register/register.component';
 import { FilterTravelButtonComponent } from './components/filter-travel-button/filter-travel-button.component';
+import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { FilterTravelButtonComponent } from './components/filter-travel-button/f
         RegisterFormComponent,
         RegisterComponent,
         FilterTravelButtonComponent,
+        TravelpostDetailedComponent,
     ],
     imports: [
         BrowserModule,
