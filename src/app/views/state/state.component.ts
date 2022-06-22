@@ -11,6 +11,8 @@ import { TravelPost } from '../../interfaces/travel-post';
 export class StateComponent implements OnInit {
     title: string | null = '';
 
+    baseUrl = 'http://localhost:3000/travelpost/image/';
+
     travelPosts: TravelPost[];
 
     constructor(

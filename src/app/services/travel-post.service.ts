@@ -25,4 +25,14 @@ export class TravelPostService {
             travelPost
         );
     }
+
+    // UPLOAD IMAGE
+    uploadImage(file: any) {
+        return this.http.post(this.baseURL + 'travelPost/images', file);
+    }
+
+    // GET IMAGE
+    getImage(imgPath: string) {
+        return this.http.get(this.baseURL + 'travelPost/image/' + imgPath);
+    }
 }

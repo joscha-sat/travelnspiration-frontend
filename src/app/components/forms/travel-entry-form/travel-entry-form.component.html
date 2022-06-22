@@ -4,7 +4,6 @@
         <div class="title_location flex">
             <!--  TITLE  -->
             <app-base-text-input
-                (emit_value)="setTitle($event)"
                 [formGroup]="form"
                 [required]="true"
                 class="flexChild"
@@ -15,7 +14,6 @@
 
             <!--  LOCATION  -->
             <app-base-text-input
-                (emit_value)="setLocation($event)"
                 [formGroup]="form"
                 [required]="true"
                 class="flexChild"
@@ -28,7 +26,6 @@
         <!--   STATES   -->
 
         <app-base-select
-            (emit_value)="setState($event)"
             [array]="states"
             [formGroup]="form"
             fName="state"
@@ -38,7 +35,6 @@
         <!--  Description  -->
 
         <app-base-text-area-input
-            (emit_value)="setDescription($event)"
             [formGroup]="form"
             [required]="true"
             fName="description"
@@ -48,7 +44,6 @@
         <!--  Housing type  -->
 
         <app-base-text-input
-            (emit_value)="setHousingType($event)"
             [formGroup]="form"
             fName="housingType"
             icon="house"
@@ -66,7 +61,6 @@
         <!--  Cost info  -->
 
         <app-base-text-area-input
-            (emit_value)="setCostInfo($event)"
             [formGroup]="form"
             fName="costInfo"
             title="Cost info"
@@ -75,19 +69,44 @@
         <!--  Other  -->
 
         <app-base-text-input
-            (emit_value)="setOther($event)"
             [formGroup]="form"
             fName="housingType"
             icon="sms"
             title="Other"
         ></app-base-text-input>
 
+        <!--  Image  -->
+        <div class="imageUpload">
+            <button (click)="fileInput.click()" mat-raised-button type="button">
+                Choose File
+            </button>
+            <input
+                #fileInput
+                (change)="onImagePicked($event)"
+                hidden
+                id="file"
+                type="file"
+            />
+        </div>
+
+        <div *ngIf="preview" style="padding-top: 1rem">
+            <div class="label">
+                <label> Preview </label>
+            </div>
+
+            <img [src]="preview" alt="Preview" class="preview" />
+        </div>
+
         <!-- ---------------------------------------------------------------------------- -->
+
+        <div style="padding: 2rem">
+            <mat-divider></mat-divider>
+        </div>
 
         <!-- BUTTONS -->
 
         <mat-card-actions
-            style="padding-left: 1rem; padding-top: 0; padding-bottom: 1rem"
+            style="padding-left: 1rem; padding-top: 1rem; padding-bottom: 1rem"
         >
             <button
                 [disabled]="!form.valid"

@@ -9,14 +9,10 @@ import { TravelPostService } from '../../../services/travel-post.service';
     styleUrls: ['./travel-entry-form.component.scss'],
 })
 export class TravelEntryFormComponent implements OnInit {
-    title: string;
-    state: string;
-    location: string;
-    description: string;
-    housingType: string;
     totalCosts: number;
-    costInfo: string;
-    other: string;
+    preview: string;
+    image: any;
+    imagePath: string;
 
     states = [
         'Baden-Württemberg',
@@ -44,36 +40,8 @@ export class TravelEntryFormComponent implements OnInit {
         private travelPostService: TravelPostService
     ) {}
 
-    setTitle($event: string) {
-        this.title = $event;
-    }
-
-    setState($event: string) {
-        this.state = $event;
-    }
-
-    setLocation($event: string) {
-        this.location = $event;
-    }
-
-    setDescription($event: string) {
-        this.description = $event;
-    }
-
-    setHousingType($event: string) {
-        this.housingType = $event;
-    }
-
     setTotalCosts($event: number) {
         this.totalCosts = $event;
-    }
-
-    setCostInfo($event: string) {
-        this.costInfo = $event;
-    }
-
-    setOther($event: string) {
-        this.other = $event;
     }
 
     onSubmit() {
@@ -81,33 +49,64 @@ export class TravelEntryFormComponent implements OnInit {
             return;
         }
 
-        const newTravelPostEntry: TravelPost = {
-            title: this.title,
-            description: this.description,
-            state: this.state,
-            location: this.location,
-            housing: this.housingType,
-            costsTotal: this.totalCosts,
-            costDescription: this.costInfo,
-            other: this.other,
-        };
+        let formData = new FormData();
 
-        this.travelPostService
-            .addTravelPosts(newTravelPostEntry)
-            .subscribe(() => {
-                this.form.reset();
-            });
+        formData.append('image', this.image, this.image.name);
+
+        this.travelPostService.uploadImage(formData).subscribe((res: any) => {
+            const newTravelPostEntry: TravelPost = {
+                title: this.form.value.title,
+                description: this.form.value.description,
+                state: this.form.value.state,
+                location: this.form.value.location,
+                housing: this.form.value.housingType,
+                costsTotal: this.form.value.totalCosts,
+                costDescription: this.form.value.costInfo,
+                image: res[0].filename,
+                other: this.form.value.other,
+            };
+
+            this.travelPostService
+                .addTravelPosts(newTravelPostEntry)
+                .subscribe(() => {
+                    this.form.reset();
+                    this.preview = '';
+                });
+        });
     }
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
-            title: ['', [Validators.required, Validators.minLength(5)]],
+            title: ['', [Validators.required, Validators.minLength(3)]],
             description: ['', [Validators.required, Validators.minLength(10)]],
             state: ['', [Validators.required]],
             location: ['', [Validators.required]],
+            image: [''],
             housingType: [''],
             costInfo: [''],
             other: [''],
         });
+    }
+
+    onImagePicked($event: Event) {
+        // ausgewählte File holen
+        const file = ($event.target as HTMLInputElement).files![0];
+
+        this.image = file;
+
+        // input File an Form übergeben
+        this.form.patchValue({ image: file });
+
+        // form updaten und Validierung prüfen
+        this.form.get('image')!.updateValueAndValidity();
+
+        //  für Image Preview
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            this.preview = reader.result as string;
+        };
+
+        reader.readAsDataURL(file);
     }
 }
