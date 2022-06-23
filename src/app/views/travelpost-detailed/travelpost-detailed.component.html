@@ -3,4 +3,12 @@
     <h1 class="title" style="text-align: center; padding-bottom: 1.5rem">
         {{ travelpost.title }}!
     </h1>
+
+    <div *ngIf="images && images.length" class="carousel">
+        <gallery
+            [imageSize]="'cover'"
+            [items]="images"
+            thumbPosition="left"
+        ></gallery>
+    </div>
 </div>

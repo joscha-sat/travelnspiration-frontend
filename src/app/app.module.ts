@@ -28,6 +28,7 @@ import { RegisterFormComponent } from './components/forms/register-form/register
 import { RegisterComponent } from './views/register/register.component';
 import { FilterTravelButtonComponent } from './components/filter-travel-button/filter-travel-button.component';
 import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
+import { GalleryModule } from 'ng-gallery';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelp
         TravelpostDetailedComponent,
     ],
     imports: [
+        GalleryModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,

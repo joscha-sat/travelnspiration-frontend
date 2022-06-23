@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TravelPost } from '../../interfaces/travel-post';
 import { TravelPostService } from '../../services/travel-post.service';
+import { ImageItem } from 'ng-gallery';
 
 @Component({
     selector: 'app-travelpost-detailed',
@@ -10,6 +11,11 @@ import { TravelPostService } from '../../services/travel-post.service';
 })
 export class TravelpostDetailedComponent implements OnInit {
     id: string | null = '';
+    imageAmount: number;
+
+    baseUrl = 'http://localhost:3000/travelpost/image/';
+
+    images: any[] = [];
 
     travelpost: TravelPost = {} as TravelPost;
 
@@ -31,8 +37,31 @@ export class TravelpostDetailedComponent implements OnInit {
                     .getTravelPostById(this.id.toString())
                     .subscribe((res) => {
                         this.travelpost = res;
+
+                        this.getTravelPostImages();
                     });
             }
         });
+    }
+
+    //    GET ALL POSTS OF THIS STATE AND GET THE IMAGES TO THOSE POSTS
+
+    getTravelPostImages() {
+        this.travelPostService
+            .getTravelPostsImages(this.travelpost.id)
+            .subscribe((res) => {
+                this.imageAmount = res.length;
+
+                console.log(res);
+
+                for (let i = 0; i < res.length; i++) {
+                    this.images.push(
+                        new ImageItem({
+                            src: this.baseUrl + res[i],
+                            thumb: this.baseUrl + res[i],
+                        })
+                    );
+                }
+            });
     }
 }
