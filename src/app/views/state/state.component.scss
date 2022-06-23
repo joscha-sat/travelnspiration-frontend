@@ -2,7 +2,7 @@
     display: grid;
     gap: 1rem;
 
-    //place-content: center;
+    //align-items: center;
 
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
@@ -18,8 +18,8 @@
 
     .content {
         display: grid;
-        gap: 2rem;
+        gap: 1rem;
 
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 6fr 1fr;
     }
 }
