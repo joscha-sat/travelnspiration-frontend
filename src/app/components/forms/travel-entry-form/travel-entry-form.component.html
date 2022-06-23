@@ -1,16 +1,26 @@
 <mat-card class="mw600">
     <mat-card-title class="header">Add Travel Entry</mat-card-title>
     <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
-        <div class="title_location flex">
-            <!--  TITLE  -->
-            <app-base-text-input
+        <!--  TITLE  -->
+        <app-base-text-input
+            [formGroup]="form"
+            [required]="true"
+            class="flexChild"
+            fName="title"
+            icon="title"
+            title="Title"
+        ></app-base-text-input>
+
+        <div class="container flex">
+            <!--   STATES   -->
+
+            <app-base-select
+                [array]="states"
                 [formGroup]="form"
-                [required]="true"
-                class="flexChild"
-                fName="title"
-                icon="title"
-                title="Title"
-            ></app-base-text-input>
+                fName="state"
+                style="min-width: 15rem"
+                title="state"
+            ></app-base-select>
 
             <!--  LOCATION  -->
             <app-base-text-input
@@ -23,15 +33,6 @@
             ></app-base-text-input>
         </div>
 
-        <!--   STATES   -->
-
-        <app-base-select
-            [array]="states"
-            [formGroup]="form"
-            fName="state"
-            title="state"
-        ></app-base-select>
-
         <!--  Description  -->
 
         <app-base-text-area-input
@@ -41,14 +42,26 @@
             title="Description"
         ></app-base-text-area-input>
 
-        <!--  Housing type  -->
+        <div class="container flex">
+            <!--  TITLE  -->
+            <!--  Housing type  -->
 
-        <app-base-text-input
-            [formGroup]="form"
-            fName="housingType"
-            icon="house"
-            title="Housing type"
-        ></app-base-text-input>
+            <app-base-text-input
+                [formGroup]="form"
+                fName="housing"
+                icon="house"
+                title="Housing type"
+            ></app-base-text-input>
+
+            <!--  LOCATION  -->
+            <app-base-text-input
+                [formGroup]="form"
+                class="flexChild"
+                fName="travelType"
+                icon="forest"
+                title="Type of travel"
+            ></app-base-text-input>
+        </div>
 
         <!-- COSTS TOTAL -->
 
@@ -68,16 +81,20 @@
 
         <!--  Other  -->
 
-        <app-base-text-input
+        <app-base-text-area-input
             [formGroup]="form"
-            fName="housingType"
-            icon="sms"
+            fName="other"
             title="Other"
-        ></app-base-text-input>
+        ></app-base-text-area-input>
 
         <!--  Image Input  -->
         <div class="imageUpload">
-            <button (click)="fileInput.click()" mat-raised-button type="button">
+            <button
+                (click)="fileInput.click()"
+                color="primary"
+                mat-flat-button
+                type="button"
+            >
                 Choose File
             </button>
             <input
@@ -90,10 +107,7 @@
             />
         </div>
 
-        <div
-            *ngIf="selectedFiles && selectedFiles.length"
-            style="padding-top: 1rem"
-        >
+        <div *ngIf="previews && previews.length" style="padding-top: 1rem">
             <div class="label">
                 <label> Preview </label>
             </div>

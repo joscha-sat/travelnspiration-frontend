@@ -1,5 +1,21 @@
 .carousel {
-  margin: auto;
-  height: min(75vh, 500px);
-  width: min(100%, 870px);
+    margin: auto;
+    height: min(75vh, 550px);
+    width: min(100%, 870px);
+}
+
+.details-container {
+    margin: auto;
+    width: min(100%, 87rem);
+
+    padding-bottom: 3rem;
+}
+
+.container {
+    margin-top: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
 }

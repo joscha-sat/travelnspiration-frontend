@@ -4,5 +4,16 @@
   },
   "STATE": {
     "TITLE": "Ent DE cken"
+  },
+  "TRAVELPOST": {
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "STATE": "Bundesland",
+    "LOCATION": "Ort",
+    "HOUSING": "Unterkunftsart",
+    "TRAVELTYPE": "Art der Reise",
+    "TOTALCOSTS": "Gesamtkosten",
+    "COSTSINFO": "Kosten Informationen",
+    "OTHER": "Sonstiges"
   }
 }

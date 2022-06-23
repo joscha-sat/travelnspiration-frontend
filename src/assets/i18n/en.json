@@ -4,5 +4,16 @@
   },
   "STATE": {
     "TITLE": "Ent DE cken"
+  },
+  "TRAVELPOST": {
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "STATE": "State",
+    "LOCATION": "Location",
+    "HOUSING": "Housing type",
+    "TRAVELTYPE": "Type of travel",
+    "TOTALCOSTS": "Total costs",
+    "COSTSINFO": "Info to costs",
+    "OTHER": "Other"
   }
 }

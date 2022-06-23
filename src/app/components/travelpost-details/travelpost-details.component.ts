@@ -56,8 +56,6 @@ export class TravelpostDetailsComponent implements OnInit {
             .subscribe((res) => {
                 this.imageAmount = res.length;
 
-                console.log(res);
-
                 for (let i = 0; i < res.length; i++) {
                     this.images.push(
                         new ImageItem({

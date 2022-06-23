@@ -8,7 +8,7 @@ import { TravelPostService } from '../../../services/travel-post.service';
     styleUrls: ['./travel-entry-form.component.scss'],
 })
 export class TravelEntryFormComponent implements OnInit {
-    totalCosts: number = 0;
+    totalCosts: number = null;
     previews: string[];
     image: any;
 
@@ -69,11 +69,12 @@ export class TravelEntryFormComponent implements OnInit {
             this.formData.append('state', this.form.value.state);
             this.formData.append('location', this.form.value.location);
             this.formData.append('housing', this.form.value.housing);
-            this.formData.append('costsTotal', this.totalCosts.toString());
-            this.formData.append(
-                'costDescription',
-                this.form.value.costDescription
-            );
+            this.formData.append('travelType', this.form.value.travelType);
+            if (this.totalCosts) {
+                this.formData.append('costsTotal', this.totalCosts.toString());
+            }
+
+            this.formData.append('costDescription', this.form.value.costInfo);
             this.formData.append('other', this.form.value.other);
 
             // actual http post request to add the travelpost
@@ -83,18 +84,20 @@ export class TravelEntryFormComponent implements OnInit {
                 .subscribe(() => {
                     this.form.reset();
                     this.previews = [];
+                    this.totalCosts = null;
                 });
         }
     }
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
+            images: ['', [Validators.required]],
             title: ['', [Validators.required, Validators.minLength(3)]],
             description: ['', [Validators.required, Validators.minLength(10)]],
             state: ['', [Validators.required]],
             location: ['', [Validators.required]],
-            images: ['', [Validators.required]],
-            housingType: [''],
+            housing: [''],
+            travelType: [''],
             costInfo: [''],
             other: [''],
         });
@@ -128,7 +131,6 @@ export class TravelEntryFormComponent implements OnInit {
         for (let i = 0; i < files.length; i++) {
             const reader = new FileReader();
             reader.onload = (e: any) => {
-                console.log(e.target.result);
                 this.previews.push(e.target.result);
             };
             reader.readAsDataURL(files[i]);
