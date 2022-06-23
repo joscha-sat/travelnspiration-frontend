@@ -30,10 +30,24 @@ export class StateComponent implements OnInit {
         });
 
         // SET THE TRAVEL POST ARRAY TO DATABASE DATA DEPENDING ON STATE NAME
+        this.getTravelPosts();
+    }
+
+    //    GET ALL POSTS OF THIS STATE AND GET THE IMAGES TO THOSE POSTS
+
+    getTravelPosts() {
         this.travelPostService
             .getTravelPostsByState(this.title)
             .subscribe((res) => {
                 this.travelPosts = res;
+
+                for (let i = 0; i < this.travelPosts.length; i++) {
+                    this.travelPostService
+                        .getTravelPostsImages(this.travelPosts[i].id)
+                        .subscribe((res) => {
+                            this.travelPosts[i].image = res[0];
+                        });
+                }
             });
     }
 }

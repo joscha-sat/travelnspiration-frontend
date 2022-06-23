@@ -12,13 +12,18 @@ export class TravelPostService {
     constructor(private http: HttpClient) {}
 
     // ADD TRAVEL POST ENTRY
-    addTravelPosts(travelpost: TravelPost) {
-        return this.http.post<TravelPost>(this.baseURL, travelpost);
+    addTravelPosts(formData: FormData) {
+        return this.http.post<TravelPost>(this.baseURL, formData);
     }
 
     // GET ALL TRAVEL POSTS
     getTravelPosts(): Observable<TravelPost[]> {
         return this.http.get<TravelPost[]>(this.baseURL);
+    }
+
+    // GET ALL TRAVEL POSTS IMAGES
+    getTravelPostsImages(id: string): Observable<string[]> {
+        return this.http.get<string[]>('http://localhost:3000/photos/' + id);
     }
 
     // GET TRAVEL POST BY ID

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TravelPost } from '../../../interfaces/travel-post';
 import { TravelPostService } from '../../../services/travel-post.service';
 
 @Component({
@@ -9,10 +8,14 @@ import { TravelPostService } from '../../../services/travel-post.service';
     styleUrls: ['./travel-entry-form.component.scss'],
 })
 export class TravelEntryFormComponent implements OnInit {
-    totalCosts: number;
+    totalCosts: number = 0;
     preview: string;
     image: any;
-    imagePath: string;
+
+    form: FormGroup;
+    selectedFiles: any[];
+    selFiles: FileList | null;
+    formData: FormData;
 
     states = [
         'Baden-Württemberg',
@@ -33,8 +36,6 @@ export class TravelEntryFormComponent implements OnInit {
         'Thüringen',
     ];
 
-    form: FormGroup;
-
     constructor(
         private formBuilder: FormBuilder,
         private travelPostService: TravelPostService
@@ -49,30 +50,41 @@ export class TravelEntryFormComponent implements OnInit {
             return;
         }
 
-        let formData = new FormData();
+        this.formData = new FormData();
 
-        formData.append('image', this.image, this.image.name);
+        // append all selected images to be uploaded together
 
-        this.travelPostService.uploadImage(formData).subscribe((res: any) => {
-            const newTravelPostEntry: TravelPost = {
-                title: this.form.value.title,
-                description: this.form.value.description,
-                state: this.form.value.state,
-                location: this.form.value.location,
-                housing: this.form.value.housingType,
-                costsTotal: this.form.value.totalCosts,
-                costDescription: this.form.value.costInfo,
-                image: res[0].filename,
-                other: this.form.value.other,
-            };
+        if (this.selectedFiles.length) {
+            for (let i = 0; i < this.selectedFiles.length; i++) {
+                this.formData.append(
+                    'image',
+                    this.selFiles[i],
+                    this.selFiles[i].name
+                );
+            }
+
+            // append all form values
+            this.formData.append('title', this.form.value.title);
+            this.formData.append('description', this.form.value.description);
+            this.formData.append('state', this.form.value.state);
+            this.formData.append('location', this.form.value.location);
+            this.formData.append('housing', this.form.value.housing);
+            this.formData.append('costsTotal', this.totalCosts.toString());
+            this.formData.append(
+                'costDescription',
+                this.form.value.costDescription
+            );
+            this.formData.append('other', this.form.value.other);
+
+            // actual http post request to add the travelpost
 
             this.travelPostService
-                .addTravelPosts(newTravelPostEntry)
+                .addTravelPosts(this.formData)
                 .subscribe(() => {
                     this.form.reset();
                     this.preview = '';
                 });
-        });
+        }
     }
 
     ngOnInit(): void {
@@ -81,32 +93,32 @@ export class TravelEntryFormComponent implements OnInit {
             description: ['', [Validators.required, Validators.minLength(10)]],
             state: ['', [Validators.required]],
             location: ['', [Validators.required]],
-            image: [''],
+            images: ['', [Validators.required]],
             housingType: [''],
             costInfo: [''],
             other: [''],
         });
     }
 
-    onImagePicked($event: Event) {
-        // ausgewählte File holen
-        const file = ($event.target as HTMLInputElement).files![0];
+    onImagePicked($event: Event): void {
+        this.selectedFiles = [];
 
-        this.image = file;
+        const element = $event.currentTarget as HTMLInputElement;
+        this.selFiles = element.files;
 
-        // input File an Form übergeben
-        this.form.patchValue({ image: file });
-
-        // form updaten und Validierung prüfen
-        this.form.get('image')!.updateValueAndValidity();
-
-        //  für Image Preview
-        const reader = new FileReader();
-
-        reader.onload = () => {
-            this.preview = reader.result as string;
-        };
-
-        reader.readAsDataURL(file);
+        let fileList: FileList | null = element.files;
+        if (fileList) {
+            for (let itm in fileList) {
+                let item: File = fileList[itm];
+                if (
+                    itm.match(/\d+/g) != null &&
+                    !this.selectedFiles.includes(item['name'])
+                )
+                    this.selectedFiles.push(item['name']);
+                this.form.patchValue({
+                    images: this.selectedFiles,
+                });
+            }
+        }
     }
 }

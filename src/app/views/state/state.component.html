@@ -5,15 +5,16 @@
     </h1>
 
     <div class="content">
-        <!-- CARDS // TODO: ADD IMAGE FROM DATABASE  -->
         <div class="grid">
-            <app-base-card
-                *ngFor="let travelPost of travelPosts"
-                [image]="baseUrl + travelPost.image"
-                [routerLink]="['/state/', title, travelPost.id]"
-                [subtitle]="travelPost.location"
-                [title]="travelPost.title"
-            ></app-base-card>
+            <ng-container *ngFor="let travelPost of travelPosts">
+                <app-base-card
+                    *ngIf="travelPost.image"
+                    [image]="baseUrl + travelPost.image"
+                    [routerLink]="['/state/', title, travelPost.id]"
+                    [subtitle]="travelPost.location"
+                    [title]="travelPost.title"
+                ></app-base-card>
+            </ng-container>
         </div>
 
         <!-- FILTER -->
