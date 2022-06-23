@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TravelPost } from '../../interfaces/travel-post';
 import { TravelPostService } from '../../services/travel-post.service';
@@ -12,21 +12,26 @@ import { ImageItem } from 'ng-gallery';
 export class TravelpostDetailedComponent implements OnInit {
     id: string | null = '';
     imageAmount: number;
-
     baseUrl = 'http://localhost:3000/travelpost/image/';
-
     images: any[] = [];
-
     travelpost: TravelPost = {} as TravelPost;
+    screenWidth: number;
 
     constructor(
         private route: ActivatedRoute,
         private travelPostService: TravelPostService
     ) {}
 
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.screenWidth = event.target.innerWidth;
+    }
+
     ngOnInit(): void {
         // RESET TITLE
         this.id = '';
+
+        this.screenWidth = window.innerWidth;
 
         // GET THE SELECTED STATE NAME
         this.route.paramMap.subscribe((paramMap: ParamMap) => {

@@ -8,7 +8,7 @@
         <gallery
             [imageSize]="'cover'"
             [items]="images"
-            thumbPosition="left"
+            [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
         ></gallery>
     </div>
 </div>
