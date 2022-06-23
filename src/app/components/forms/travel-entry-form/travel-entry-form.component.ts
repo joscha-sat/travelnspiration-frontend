@@ -9,7 +9,7 @@ import { TravelPostService } from '../../../services/travel-post.service';
 })
 export class TravelEntryFormComponent implements OnInit {
     totalCosts: number = 0;
-    preview: string;
+    previews: string[];
     image: any;
 
     form: FormGroup;
@@ -82,7 +82,7 @@ export class TravelEntryFormComponent implements OnInit {
                 .addTravelPosts(this.formData)
                 .subscribe(() => {
                     this.form.reset();
-                    this.preview = '';
+                    this.previews = [];
                 });
         }
     }
@@ -102,11 +102,15 @@ export class TravelEntryFormComponent implements OnInit {
 
     onImagePicked($event: Event): void {
         this.selectedFiles = [];
+        this.previews = [];
+
+        let files = ($event.target as HTMLInputElement).files;
 
         const element = $event.currentTarget as HTMLInputElement;
         this.selFiles = element.files;
 
         let fileList: FileList | null = element.files;
+
         if (fileList) {
             for (let itm in fileList) {
                 let item: File = fileList[itm];
@@ -119,6 +123,15 @@ export class TravelEntryFormComponent implements OnInit {
                     images: this.selectedFiles,
                 });
             }
+        }
+
+        for (let i = 0; i < files.length; i++) {
+            const reader = new FileReader();
+            reader.onload = (e: any) => {
+                console.log(e.target.result);
+                this.previews.push(e.target.result);
+            };
+            reader.readAsDataURL(files[i]);
         }
     }
 }

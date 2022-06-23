@@ -1,15 +1,3 @@
 <div class="base-container" style="--mt: 1.5rem">
-    <!-- TITLE -->
-    <h1 class="title" style="text-align: center; padding-bottom: 1.5rem">
-        {{ travelpost.title }}!
-    </h1>
-
-    <div *ngIf="images && images.length" class="carousel">
-        <gallery
-            [imageSize]="'cover'"
-            [items]="images"
-            [loadingStrategy]="'lazy'"
-            [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
-        ></gallery>
-    </div>
+    <app-travelpost-details></app-travelpost-details>
 </div>

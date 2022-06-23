@@ -90,12 +90,22 @@
             />
         </div>
 
-        <div *ngIf="preview" style="padding-top: 1rem">
+        <div
+            *ngIf="selectedFiles && selectedFiles.length"
+            style="padding-top: 1rem"
+        >
             <div class="label">
                 <label> Preview </label>
             </div>
 
-            <img [src]="preview" alt="Preview" class="preview" />
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+                <img
+                    *ngFor="let src of previews"
+                    [src]="src"
+                    alt="Preview"
+                    class="preview"
+                />
+            </div>
         </div>
 
         <!-- ---------------------------------------------------------------------------- -->
