@@ -26,50 +26,39 @@
     </ng-container>
 
     <div class="container">
-        <div *ngIf="travelpost.state">
-            <div class="header">
-                {{ 'TRAVELPOST.STATE' | translate }}
-            </div>
-            {{ travelpost.state }}
-        </div>
-        <div *ngIf="travelpost.location">
-            <div class="header">
-                {{ 'TRAVELPOST.LOCATION' | translate }}
-            </div>
-            {{ travelpost.location }}
-        </div>
+        <app-single-info
+            [info]="travelpost.state"
+            ngTranslate="TRAVELPOST.STATE"
+        ></app-single-info>
+
+        <app-single-info
+            [info]="travelpost.location"
+            ngTranslate="TRAVELPOST.LOCATION"
+        ></app-single-info>
     </div>
 
     <div class="container">
-        <div *ngIf="travelpost.travelType">
-            <div class="header">
-                {{ 'TRAVELPOST.TRAVELTYPE' | translate }}
-            </div>
-            {{ travelpost.travelType }}
-        </div>
+        <app-single-info
+            [info]="travelpost.housing"
+            ngTranslate="TRAVELPOST.HOUSING"
+        ></app-single-info>
 
-        <div *ngIf="travelpost.housing">
-            <div class="header">
-                {{ 'TRAVELPOST.HOUSING' | translate }}
-            </div>
-            {{ travelpost.housing }}
-        </div>
+        <app-single-info
+            [info]="travelpost.travelType"
+            ngTranslate="TRAVELPOST.TRAVELTYPE"
+        ></app-single-info>
     </div>
 
     <div class="container">
-        <div *ngIf="travelpost.costsTotal">
-            <div class="header">
-                {{ 'TRAVELPOST.TOTALCOSTS' | translate }}
-            </div>
-            {{ travelpost.costsTotal }}
-        </div>
+        <app-single-info
+            [info]="travelpost.costsTotal"
+            ngTranslate="TRAVELPOST.TOTALCOSTS"
+        ></app-single-info>
 
-        <div *ngIf="travelpost.costDescription">
-            <div class="header">
-                {{ 'TRAVELPOST.COSTSINFO' | translate }}
-            </div>
-            {{ travelpost.costDescription }}
-        </div>
+        <app-single-info
+            [info]="travelpost.costDescription"
+            ngTranslate="TRAVELPOST.COSTINFO"
+        ></app-single-info>
     </div>
 
     <!-- OTHER -->
