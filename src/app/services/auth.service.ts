@@ -31,6 +31,10 @@ export class AuthService {
         return user;
     }
 
+    get isLogged() {
+        return this.isLoggedIn;
+    }
+
     register(createUser: CreateUser) {
         return this.http.post(this.baseURL + 'register', createUser);
     }
@@ -46,6 +50,7 @@ export class AuthService {
                             JSON.stringify(user)
                         );
                         this.currentUser = user;
+                        this.isLoggedIn = true;
                     }
                     return user;
                 })

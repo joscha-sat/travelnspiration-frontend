@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
     templateUrl: './navigation.component.html',
     styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
     constructor(public auth: AuthService) {}
 
     darkmodeToggle() {
@@ -15,10 +15,5 @@ export class NavigationComponent implements OnInit {
 
     logout() {
         this.auth.logout();
-        console.log(this.auth.isLoggedIn);
-    }
-
-    ngOnInit(): void {
-        console.log(this.auth.isLoggedIn);
     }
 }

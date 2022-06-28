@@ -5,7 +5,11 @@
 
     <div class="buttons flex" style="gap: 1rem">
         <!-- LOGIN -->
-        <button mat-flat-button routerLink="/login">
+        <button
+            *ngIf="!this.auth.isLoggedIn"
+            mat-flat-button
+            routerLink="/login"
+        >
             <div class="loginBtn flex">
                 <p>login</p>
                 <mat-icon>login</mat-icon>
@@ -13,7 +17,11 @@
         </button>
 
         <!-- SIGN UP -->
-        <button mat-flat-button routerLink="/signup">
+        <button
+            *ngIf="!this.auth.isLoggedIn"
+            mat-flat-button
+            routerLink="/signup"
+        >
             <div class="loginBtn flex">
                 <p>Signup</p>
                 <mat-icon>person_add</mat-icon>
@@ -21,7 +29,11 @@
         </button>
 
         <!-- ADD TRAVEL ENTRY -->
-        <button mat-flat-button routerLink="/addTravelEntry">
+        <button
+            *ngIf="this.auth.isLoggedIn"
+            mat-flat-button
+            routerLink="/addTravelEntry"
+        >
             <div class="loginBtn flex">
                 <p>add travel</p>
                 <mat-icon> add_circle</mat-icon>
@@ -34,7 +46,7 @@
         </button>
 
         <!-- LOGIN -->
-        <button (click)="logout()" mat-flat-button>
+        <button (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-flat-button>
             <div class="loginBtn flex">
                 <p>logout</p>
                 <mat-icon>logout</mat-icon>
