@@ -31,6 +31,7 @@ import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelp
 import { GalleryModule } from 'ng-gallery';
 import { TravelpostDetailsComponent } from './components/travelpost-details/travelpost-details.component';
 import { SingleInfoComponent } from './components/travelpost-details/single-info/single-info.component';
+import { BaseSnackbarComponent } from './components/a-custom-components/base-snackbar/base-snackbar.component';
 
 @NgModule({
     declarations: [
@@ -54,6 +55,7 @@ import { SingleInfoComponent } from './components/travelpost-details/single-info
         TravelpostDetailedComponent,
         TravelpostDetailsComponent,
         SingleInfoComponent,
+        BaseSnackbarComponent,
     ],
     imports: [
         GalleryModule,
@@ -74,7 +76,7 @@ import { SingleInfoComponent } from './components/travelpost-details/single-info
         ReactiveFormsModule,
         FormsModule,
     ],
-    providers: [],
+    providers: [BaseSnackbarComponent],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
