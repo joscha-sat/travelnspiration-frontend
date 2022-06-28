@@ -9,7 +9,11 @@ import { MaterialModule } from '../material/material.module';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+    HTTP_INTERCEPTORS,
+    HttpClient,
+    HttpClientModule,
+} from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
 import { HomeComponent } from './views/home/home.component';
@@ -32,6 +36,7 @@ import { GalleryModule } from 'ng-gallery';
 import { TravelpostDetailsComponent } from './components/travelpost-details/travelpost-details.component';
 import { SingleInfoComponent } from './components/travelpost-details/single-info/single-info.component';
 import { BaseSnackbarComponent } from './components/a-custom-components/base-snackbar/base-snackbar.component';
+import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor';
 
 @NgModule({
     declarations: [
@@ -76,7 +81,14 @@ import { BaseSnackbarComponent } from './components/a-custom-components/base-sna
         ReactiveFormsModule,
         FormsModule,
     ],
-    providers: [BaseSnackbarComponent],
+    providers: [
+        BaseSnackbarComponent,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HeaderTokenInterceptor,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

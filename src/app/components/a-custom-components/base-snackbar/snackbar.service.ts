@@ -28,10 +28,3 @@ export class SnackbarService {
     }
 }
 
-
-// panelClass: [
-//   _snackType === 'success' ? 'snackBarSuccess' : 'snackBarInfo',
-//   _snackType === 'info' ? 'snackBarInfo' : 'snackBarInfo',
-//   _snackType === 'warn' ? 'snackBarWarn' : 'snackBarInfo',
-//   _snackType === 'error' ? 'snackBarError' : 'snackBarInfo',
-// ],
