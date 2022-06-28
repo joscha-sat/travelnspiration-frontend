@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TravelPostService } from '../../../services/travel-post.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'app-travel-entry-form',
@@ -38,7 +39,8 @@ export class TravelEntryFormComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private travelPostService: TravelPostService
+        private travelPostService: TravelPostService,
+        private auth: AuthService
     ) {}
 
     setTotalCosts($event: number) {
@@ -63,7 +65,12 @@ export class TravelEntryFormComponent implements OnInit {
                 );
             }
 
+            const userId = this.auth.me.id;
+
+            console.log(userId);
+
             // append all form values
+            this.formData.append('userId', userId);
             this.formData.append('title', this.form.value.title);
             this.formData.append('description', this.form.value.description);
             this.formData.append('state', this.form.value.state);
@@ -78,6 +85,10 @@ export class TravelEntryFormComponent implements OnInit {
             this.formData.append('other', this.form.value.other);
 
             // actual http post request to add the travelpost
+
+            if (!userId) {
+                return;
+            }
 
             this.travelPostService
                 .addTravelPosts(this.formData)
