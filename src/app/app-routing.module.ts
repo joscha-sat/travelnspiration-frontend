@@ -6,6 +6,7 @@ import { StateComponent } from './views/state/state.component';
 import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-entry.component';
 import { RegisterComponent } from './views/register/register.component';
 import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
+import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
 
 const routes: Routes = [
     // HOME
@@ -43,6 +44,11 @@ const routes: Routes = [
     {
         path: 'state/:state/:id',
         component: TravelpostDetailedComponent,
+    },
+    // TRAVEL POST DETAILED
+    {
+        path: 'myTravelPosts/:id',
+        component: MyTravelpostsComponent,
     },
 ];
 

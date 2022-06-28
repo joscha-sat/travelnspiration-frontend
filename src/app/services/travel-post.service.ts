@@ -36,6 +36,11 @@ export class TravelPostService {
         return this.http.get<TravelPost[]>(this.baseURL + 'state/' + state);
     }
 
+    // GET FILTERED TRAVEL POSTS BY USER ID
+    getTravelPostsByUserId(id: string | null): Observable<TravelPost[]> {
+        return this.http.get<TravelPost[]>(this.baseURL + 'user/' + id);
+    }
+
     // UPDATE TRAVEL POST BY ID
     updateTravelPostById(id: string, travelpost: TravelPost) {
         return this.http.patch(this.baseURL + id, travelpost);
@@ -44,6 +49,11 @@ export class TravelPostService {
     // DELETE ALL TRAVEL POSTS
     deleteTravelPosts() {
         return this.http.delete(this.baseURL);
+    }
+
+    // DELETE ONE TRAVEL POSTS
+    deleteOneTravelPosts(id: string) {
+        return this.http.delete(this.baseURL + id);
     }
 
     // IMAGE STUFF ---------------------------------------------------------------------- //

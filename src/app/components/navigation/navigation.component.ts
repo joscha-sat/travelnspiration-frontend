@@ -2,18 +2,21 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-    selector: 'app-navigation',
-    templateUrl: './navigation.component.html',
-    styleUrls: ['./navigation.component.scss'],
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-    constructor(public auth: AuthService) {}
+  currentUser = this.auth.me
 
-    darkmodeToggle() {
-        document.body.classList.toggle('lightTheme');
-    }
+  constructor(public auth: AuthService) {
+  }
 
-    logout() {
-        this.auth.logout();
-    }
+  darkmodeToggle() {
+    document.body.classList.toggle('lightTheme');
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 }

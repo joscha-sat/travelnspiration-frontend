@@ -11,4 +11,17 @@
     <mat-card-subtitle style="padding-inline: 0.5rem">
         {{ subtitle }}</mat-card-subtitle
     >
+
+    <mat-card-actions *ngIf="editable" class="btnActions">
+        <button class="child" color="accent" mat-flat-button>edit</button>
+
+        <button
+            (click)="deletePost(travelPost.id)"
+            class="child"
+            color="warn"
+            mat-flat-button
+        >
+            delete
+        </button>
+    </mat-card-actions>
 </mat-card>

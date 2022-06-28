@@ -1,0 +1,12 @@
+<div class="flex">
+    <ng-container *ngFor="let travelPost of myTravelPosts">
+        <app-base-card
+            *ngIf="travelPost.image"
+            [editable]="true"
+            [image]="baseUrl + travelPost.image"
+            [subtitle]="travelPost.location"
+            [title]="travelPost.title"
+            [travelPost]="travelPost"
+        ></app-base-card>
+    </ng-container>
+</div>

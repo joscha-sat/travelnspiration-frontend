@@ -15,6 +15,17 @@
     }
 }
 
+.btnActions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .child {
+        flex-grow: 1;
+    }
+}
+
 @media screen and (min-width: 763px) {
     .mCard {
         max-width: 350px;

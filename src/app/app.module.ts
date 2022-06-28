@@ -37,6 +37,8 @@ import { TravelpostDetailsComponent } from './components/travelpost-details/trav
 import { SingleInfoComponent } from './components/travelpost-details/single-info/single-info.component';
 import { BaseSnackbarComponent } from './components/a-custom-components/base-snackbar/base-snackbar.component';
 import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor';
+import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
+import { MyTravelpostGridComponent } from './components/my-travelpost-grid/my-travelpost-grid.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +63,8 @@ import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor'
         TravelpostDetailsComponent,
         SingleInfoComponent,
         BaseSnackbarComponent,
+        MyTravelpostsComponent,
+        MyTravelpostGridComponent,
     ],
     imports: [
         GalleryModule,
