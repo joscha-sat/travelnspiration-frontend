@@ -1,9 +1,12 @@
 <div class="flex">
     <ng-container *ngFor="let travelPost of myTravelPosts">
         <app-base-card
+            (deletePost)="deletePost(travelPost.id)"
+            (editPost)="editPost(travelPost.id)"
             *ngIf="travelPost.image"
             [editable]="true"
             [image]="baseUrl + travelPost.image"
+            [routerLink]="['/state/', travelPost.state, travelPost.id]"
             [subtitle]="travelPost.location"
             [title]="travelPost.title"
             [travelPost]="travelPost"

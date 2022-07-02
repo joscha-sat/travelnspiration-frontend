@@ -1,23 +1,30 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ControlContainer } from '@angular/forms';
 
 @Component({
-  selector: 'app-base-number-input',
-  templateUrl: './base-number-input.component.html',
-  styleUrls: ['./base-number-input.component.scss'],
+    selector: '[formGroup] app-base-number-input',
+    templateUrl: './base-number-input.component.html',
+    styleUrls: ['./base-number-input.component.scss'],
 })
-export class BaseNumberInputComponent {
-  @Input() title: string;
-  @Input() icon: string;
-  @Input() required: boolean = false;
+export class BaseNumberInputComponent implements OnInit {
+    @Input() title: string;
+    @Input() icon: string;
+    @Input() required: boolean = false;
+    @Input() fName: string;
 
-  value: number
+    public anyFormGroup: any;
 
-  @Output() emit_value: EventEmitter<number> = new EventEmitter();
+    value: number;
 
-  constructor() {
-  }
+    @Output() emit_value: EventEmitter<number> = new EventEmitter();
 
-  setValue(value: string) {
-    this.emit_value.emit(+value);
-  }
+    constructor(private controlContainer: ControlContainer) {}
+
+    setValue(value: string) {
+        this.emit_value.emit(+value);
+    }
+
+    ngOnInit() {
+        this.anyFormGroup = this.controlContainer.control;
+    }
 }

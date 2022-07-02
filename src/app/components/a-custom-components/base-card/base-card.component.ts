@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TravelPost } from '../../../interfaces/travel-post';
-import { TravelPostService } from '../../../services/travel-post.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'app-base-card',
@@ -15,23 +13,16 @@ export class BaseCardComponent {
     @Input() editable: boolean = false;
     @Input() travelPost: TravelPost;
 
-    constructor(
-        private travelpostService: TravelPostService,
-        private route: ActivatedRoute
-    ) {}
+    @Output() deletePost: EventEmitter<any> = new EventEmitter();
+    @Output() editPost: EventEmitter<any> = new EventEmitter();
 
-    deletePost(id: string) {
-        this.travelpostService.deleteOneTravelPosts(id).subscribe(() => {
-            // GET THE SELECTED USER ID
-            this.route.paramMap.subscribe((paramMap: ParamMap) => {
-                let userId = paramMap.get('id');
+    constructor() {}
 
-                this.travelpostService
-                    .getTravelPostsByUserId(userId)
-                    .subscribe((res) => {
-                        console.log(res);
-                    });
-            });
-        });
+    deletePostEmit() {
+        this.deletePost.emit();
+    }
+
+    editPostEmit() {
+        this.editPost.emit();
     }
 }

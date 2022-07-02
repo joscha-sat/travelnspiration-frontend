@@ -1,5 +1,12 @@
 <mat-card class="mw600">
-    <mat-card-title class="header">Add Travel Entry</mat-card-title>
+    <mat-card-title *ngIf="mode === 'add'" class="header">
+        Add Travel Entry
+    </mat-card-title>
+
+    <mat-card-title *ngIf="mode === 'edit'" class="header">
+        Edit Travel Entry
+    </mat-card-title>
+
     <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
         <!--  TITLE  -->
         <app-base-text-input
@@ -66,7 +73,8 @@
         <!-- COSTS TOTAL -->
 
         <app-base-number-input
-            (emit_value)="setTotalCosts($event)"
+            [formGroup]="form"
+            fName="costsTotal"
             icon="euros"
             title="Total cost"
         ></app-base-number-input>
@@ -88,7 +96,7 @@
         ></app-base-text-area-input>
 
         <!--  Image Input  -->
-        <div class="imageUpload">
+        <div *ngIf="mode === 'add'" class="imageUpload">
             <button
                 (click)="fileInput.click()"
                 color="primary"

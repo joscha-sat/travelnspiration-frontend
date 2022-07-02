@@ -13,10 +13,17 @@
     >
 
     <mat-card-actions *ngIf="editable" class="btnActions">
-        <button class="child" color="accent" mat-flat-button>edit</button>
+        <button
+            (click)="editPostEmit()"
+            class="child"
+            color="accent"
+            mat-flat-button
+        >
+            edit
+        </button>
 
         <button
-            (click)="deletePost(travelPost.id)"
+            (click)="deletePostEmit()"
             class="child"
             color="warn"
             mat-flat-button

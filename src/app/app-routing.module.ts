@@ -32,7 +32,12 @@ const routes: Routes = [
     },
     // ADD TRAVEL ENTRY
     {
-        path: 'addTravelEntry',
+        path: 'addTravelpost',
+        component: AddTravelEntryComponent,
+    },
+    // EDIT TRAVEL POSTS
+    {
+        path: 'editTravelpost/:id',
         component: AddTravelEntryComponent,
     },
     // INNER STATE OVERVIEW
@@ -45,7 +50,7 @@ const routes: Routes = [
         path: 'state/:state/:id',
         component: TravelpostDetailedComponent,
     },
-    // TRAVEL POST DETAILED
+    // MY TRAVEL POSTS
     {
         path: 'myTravelPosts/:id',
         component: MyTravelpostsComponent,

@@ -1,68 +1,68 @@
-<mat-toolbar class="w100" color="primary">
-    <span class="pointer header" routerLink="/home">Travelnspiration</span>
+<mat-toolbar class='w100' color='primary'>
+  <span class='pointer header' routerLink='/home'>Travelnspiration</span>
 
-    <span class="spacer"></span>
+  <span class='spacer'></span>
 
-    <div class="buttons flex" style="gap: 1rem">
-        <!-- LOGIN -->
-        <button
-            *ngIf="!this.auth.isLoggedIn"
-            mat-flat-button
-            routerLink="/login"
-        >
-            <div class="loginBtn flex">
-                <p>login</p>
-                <mat-icon>login</mat-icon>
-            </div>
-        </button>
+  <div class='buttons flex' style='gap: 1rem'>
+    <!-- LOGIN -->
+    <button
+      *ngIf='!this.auth.isLoggedIn'
+      mat-flat-button
+      routerLink='/login'
+    >
+      <div class='loginBtn flex'>
+        <p>login</p>
+        <mat-icon>login</mat-icon>
+      </div>
+    </button>
 
-        <!-- SIGN UP -->
-        <button
-            *ngIf="!this.auth.isLoggedIn"
-            mat-flat-button
-            routerLink="/signup"
-        >
-            <div class="loginBtn flex">
-                <p>Signup</p>
-                <mat-icon>person_add</mat-icon>
-            </div>
-        </button>
+    <!-- SIGN UP -->
+    <button
+      *ngIf='!this.auth.isLoggedIn'
+      mat-flat-button
+      routerLink='/signup'
+    >
+      <div class='loginBtn flex'>
+        <p>Signup</p>
+        <mat-icon>person_add</mat-icon>
+      </div>
+    </button>
 
-        <!-- ADD TRAVEL ENTRY -->
-        <button
-            *ngIf="this.auth.isLoggedIn"
-            mat-flat-button
-            routerLink="/addTravelEntry"
-        >
-            <div class="loginBtn flex">
-                <p>add travel</p>
-                <mat-icon> add_circle</mat-icon>
-            </div>
-        </button>
+    <!-- ADD TRAVEL ENTRY -->
+    <button
+      *ngIf='this.auth.isLoggedIn'
+      mat-flat-button
+      routerLink='/addTravelpost'
+    >
+      <div class='loginBtn flex'>
+        <p>add travel</p>
+        <mat-icon> add_circle</mat-icon>
+      </div>
+    </button>
 
-        <!-- MY TRAVEL POSTS -->
-        <button
-            *ngIf="this.auth.isLoggedIn"
-            [routerLink]="['/myTravelPosts/', currentUser.id]"
-            mat-flat-button
-        >
-            <div class="loginBtn flex">
-                <p>My travels</p>
-                <mat-icon> add_circle</mat-icon>
-            </div>
-        </button>
+    <!-- MY TRAVEL POSTS -->
+    <button
+      *ngIf='this.auth.isLoggedIn'
+      [routerLink]="['/myTravelPosts/', currentUser.id]"
+      mat-flat-button
+    >
+      <div class='loginBtn flex'>
+        <p>My travels</p>
+        <mat-icon> add_circle</mat-icon>
+      </div>
+    </button>
 
-        <!-- DARK-MODE -->
-        <button (click)="darkmodeToggle()" mat-flat-button>
-            <mat-icon>dark_mode</mat-icon>
-        </button>
+    <!-- DARK-MODE -->
+    <button (click)='darkmodeToggle()' mat-flat-button>
+      <mat-icon>dark_mode</mat-icon>
+    </button>
 
-        <!-- LOGIN -->
-        <button (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-flat-button>
-            <div class="loginBtn flex">
-                <p>logout</p>
-                <mat-icon>logout</mat-icon>
-            </div>
-        </button>
-    </div>
+    <!-- LOGIN -->
+    <button (click)='logout()' *ngIf='this.auth.isLoggedIn' mat-flat-button>
+      <div class='loginBtn flex'>
+        <p>logout</p>
+        <mat-icon>logout</mat-icon>
+      </div>
+    </button>
+  </div>
 </mat-toolbar>

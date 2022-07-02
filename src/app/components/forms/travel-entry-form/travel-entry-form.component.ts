@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TravelPostService } from '../../../services/travel-post.service';
 import { AuthService } from '../../../services/auth.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { TravelPost } from '../../../interfaces/travel-post';
 
 @Component({
     selector: 'app-travel-entry-form',
@@ -12,6 +14,9 @@ export class TravelEntryFormComponent implements OnInit {
     totalCosts: number = null;
     previews: string[];
     image: any;
+    mode: string = 'add';
+
+    selectedTravelpost: TravelPost;
 
     form: FormGroup;
     selectedFiles: any[];
@@ -40,78 +45,157 @@ export class TravelEntryFormComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private travelPostService: TravelPostService,
-        private auth: AuthService
+        private auth: AuthService,
+        private route: ActivatedRoute,
+        private router: Router
     ) {}
-
-    setTotalCosts($event: number) {
-        this.totalCosts = $event;
-    }
 
     onSubmit() {
         if (this.form.invalid) {
             return;
         }
 
-        this.formData = new FormData();
+        if (this.mode === 'add') {
+            this.formData = new FormData();
 
-        // append all selected images to be uploaded together
+            // append all selected images to be uploaded together
 
-        if (this.selectedFiles.length) {
-            for (let i = 0; i < this.selectedFiles.length; i++) {
+            if (this.selectedFiles.length) {
+                for (let i = 0; i < this.selectedFiles.length; i++) {
+                    this.formData.append(
+                        'image',
+                        this.selFiles[i],
+                        this.selFiles[i].name
+                    );
+                }
+
+                const userId = this.auth.me.id;
+
+                // append all form values
+                this.formData.append('userId', userId);
+                this.formData.append('title', this.form.value.title);
                 this.formData.append(
-                    'image',
-                    this.selFiles[i],
-                    this.selFiles[i].name
+                    'description',
+                    this.form.value.description
                 );
+                this.formData.append('state', this.form.value.state);
+                this.formData.append('location', this.form.value.location);
+                this.formData.append('housing', this.form.value.housing);
+                this.formData.append('travelType', this.form.value.travelType);
+                if (this.totalCosts) {
+                    this.formData.append(
+                        'costsTotal',
+                        this.form.value.costsTotal.toString()
+                    );
+                }
+
+                this.formData.append(
+                    'costDescription',
+                    this.form.value.costInfo
+                );
+                this.formData.append('other', this.form.value.other);
+
+                // actual http post request to add the travelpost
+
+                if (!userId) {
+                    return;
+                }
+
+                this.travelPostService
+                    .addTravelPosts(this.formData)
+                    .subscribe(() => {
+                        this.form.reset();
+                        this.previews = [];
+                    });
             }
-
-            const userId = this.auth.me.id;
-
-            console.log(userId);
-
-            // append all form values
-            this.formData.append('userId', userId);
-            this.formData.append('title', this.form.value.title);
-            this.formData.append('description', this.form.value.description);
-            this.formData.append('state', this.form.value.state);
-            this.formData.append('location', this.form.value.location);
-            this.formData.append('housing', this.form.value.housing);
-            this.formData.append('travelType', this.form.value.travelType);
-            if (this.totalCosts) {
-                this.formData.append('costsTotal', this.totalCosts.toString());
-            }
-
-            this.formData.append('costDescription', this.form.value.costInfo);
-            this.formData.append('other', this.form.value.other);
-
-            // actual http post request to add the travelpost
-
-            if (!userId) {
-                return;
-            }
+        } else {
+            const updateTravelpost: TravelPost = {
+                title: this.form.value.title,
+                description: this.form.value.description,
+                state: this.form.value.state,
+                location: this.form.value.location,
+                travelType: this.form.value.travelType,
+                housing: this.form.value.housing,
+                costsTotal: this.form.value.costsTotal,
+                costDescription: this.form.value.costDescription,
+                other: this.form.value.other,
+            };
 
             this.travelPostService
-                .addTravelPosts(this.formData)
+                .updateTravelPostById(
+                    this.selectedTravelpost.id,
+                    updateTravelpost
+                )
                 .subscribe(() => {
-                    this.form.reset();
-                    this.previews = [];
-                    this.totalCosts = null;
+                    this.router
+                        .navigate(['myTravelPosts/', this.auth.me.id])
+                        .then();
                 });
         }
     }
 
     ngOnInit(): void {
-        this.form = this.formBuilder.group({
-            images: ['', [Validators.required]],
-            title: ['', [Validators.required, Validators.minLength(3)]],
-            description: ['', [Validators.required, Validators.minLength(10)]],
-            state: ['', [Validators.required]],
-            location: ['', [Validators.required]],
-            housing: [''],
-            travelType: [''],
-            costInfo: [''],
-            other: [''],
+        this.route.paramMap.subscribe((paramMap: ParamMap) => {
+            if (paramMap.has('id')) {
+                this.mode = 'edit';
+                let id = paramMap.get('id');
+
+                this.travelPostService
+                    .getTravelPostById(id)
+                    .subscribe((result) => {
+                        this.selectedTravelpost = result;
+
+                        this.form.setValue({
+                            title: this.selectedTravelpost.title,
+                            description: this.selectedTravelpost.description,
+                            state: this.selectedTravelpost.state,
+                            location: this.selectedTravelpost.location,
+                            housing: this.selectedTravelpost.housing,
+                            travelType: this.selectedTravelpost.travelType,
+                            costsTotal: this.selectedTravelpost.costsTotal,
+                            costInfo: this.selectedTravelpost.costDescription,
+                            other: this.selectedTravelpost.other,
+                            images: '',
+                        });
+                    });
+            } else {
+                this.mode = 'add';
+            }
         });
+
+        if (this.mode === 'add') {
+            this.form = this.formBuilder.group({
+                images: ['', [Validators.required]],
+                title: ['', [Validators.required, Validators.minLength(3)]],
+                description: [
+                    '',
+                    [Validators.required, Validators.minLength(10)],
+                ],
+                state: ['', [Validators.required]],
+                location: ['', [Validators.required]],
+                housing: [''],
+                travelType: [''],
+                costsTotal: [''],
+                costInfo: [''],
+                other: [''],
+            });
+        } else {
+            this.form = this.formBuilder.group({
+                images: [''],
+                title: ['', [Validators.required, Validators.minLength(3)]],
+                description: [
+                    '',
+                    [Validators.required, Validators.minLength(10)],
+                ],
+                state: ['', [Validators.required]],
+                location: ['', [Validators.required]],
+                housing: [''],
+                travelType: [''],
+                costsTotal: [''],
+                costInfo: [''],
+                other: [''],
+            });
+        }
     }
 
     onImagePicked($event: Event): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelPost } from '../../interfaces/travel-post';
 import { TravelPostService } from '../../services/travel-post.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
     selector: 'app-my-travelpost-grid',
@@ -15,7 +15,8 @@ export class MyTravelpostGridComponent implements OnInit {
 
     constructor(
         private travelpostService: TravelPostService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -42,5 +43,18 @@ export class MyTravelpostGridComponent implements OnInit {
                         });
                 }
             });
+    }
+
+    deletePost(id: string) {
+        this.travelpostService.deleteOneTravelPosts(id).subscribe(() => {
+            // GET THE SELECTED USER ID
+            this.route.paramMap.subscribe(() => {
+                this.getMyTravelPosts();
+            });
+        });
+    }
+
+    editPost(id: string) {
+        this.router.navigate(['editTravelpost/', id]).then();
     }
 }

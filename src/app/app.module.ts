@@ -39,6 +39,7 @@ import { BaseSnackbarComponent } from './components/a-custom-components/base-sna
 import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor';
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
 import { MyTravelpostGridComponent } from './components/my-travelpost-grid/my-travelpost-grid.component';
+import { EditTravelpostComponent } from './views/edit-travelpost/edit-travelpost.component';
 
 @NgModule({
     declarations: [
@@ -65,6 +66,7 @@ import { MyTravelpostGridComponent } from './components/my-travelpost-grid/my-tr
         BaseSnackbarComponent,
         MyTravelpostsComponent,
         MyTravelpostGridComponent,
+        EditTravelpostComponent,
     ],
     imports: [
         GalleryModule,
