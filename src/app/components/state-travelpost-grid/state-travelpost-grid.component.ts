@@ -3,6 +3,7 @@ import { TravelPost } from '../../interfaces/travel-post';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TravelPostService } from '../../services/travel-post.service';
 import { AuthService } from '../../services/auth.service';
+import { SnackbarService } from '../a-custom-components/base-snackbar/snackbar.service';
 
 @Component({
     selector: 'app-state-travelpost-grid',
@@ -19,7 +20,8 @@ export class StateTravelpostGridComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private travelPostService: TravelPostService,
-        private auth: AuthService
+        private auth: AuthService,
+        private snackBarService: SnackbarService
     ) {}
 
     ngOnInit(): void {
@@ -59,6 +61,13 @@ export class StateTravelpostGridComponent implements OnInit {
 
         this.travelPostService
             .addTravelPostToFav(this.auth.me.id, postId)
-            .subscribe();
+            .subscribe((res) => {
+                console.log(res);
+                this.snackBarService.openSnackBar(
+                    'successfully added',
+                    'ok',
+                    'success'
+                );
+            });
     }
 }

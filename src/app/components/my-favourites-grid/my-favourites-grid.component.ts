@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TravelPost } from '../../interfaces/travel-post';
 import { TravelPostService } from '../../services/travel-post.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-my-favourites-grid',
@@ -15,7 +16,8 @@ export class MyFavouritesGridComponent implements OnInit {
 
     constructor(
         private travelpostService: TravelPostService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private auth: AuthService
     ) {}
 
     ngOnInit(): void {
@@ -27,7 +29,7 @@ export class MyFavouritesGridComponent implements OnInit {
         this.getMyFavouritePosts();
     }
 
-    //    GET ALL POSTS OF THIS CURRENT USER AND GET THE IMAGES TO THOSE POSTS
+    //    GET ALL FAV POSTS OF THIS CURRENT USER AND GET THE IMAGES TO THOSE POSTS
     getMyFavouritePosts() {
         this.travelpostService
             .getFavPostsByUserId(this.userId)
@@ -41,6 +43,18 @@ export class MyFavouritesGridComponent implements OnInit {
                             this.myFavPosts[i].image = res[0];
                         });
                 }
+            });
+    }
+
+    deleteFavPost(postId: string) {
+        if (!this.auth.me || !this.auth.isLoggedIn) {
+            return;
+        }
+
+        this.travelpostService
+            .deleteOneFavTravelPost(this.userId, postId)
+            .subscribe(() => {
+                this.getMyFavouritePosts();
             });
     }
 }

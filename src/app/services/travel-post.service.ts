@@ -73,7 +73,7 @@ export class TravelPostService {
 
     // DELETE ONE TRAVEL POSTS IN MY FAV
     deleteOneFavTravelPost(userId: string, postId: string) {
-        return this.http.post(`http://localhost:3000/users/delete/favPost`, {
+        return this.http.put(`http://localhost:3000/users/delete/favPost`, {
             userId: userId,
             postId: postId,
         });

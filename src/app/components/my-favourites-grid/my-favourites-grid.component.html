@@ -1,6 +1,7 @@
 <div class="flex center">
     <ng-container *ngFor="let travelPost of myFavPosts">
         <app-base-card
+            (deletePost)="deleteFavPost(travelPost.id)"
             *ngIf="travelPost.image"
             [deletable]="true"
             [id]="travelPost.id"

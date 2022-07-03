@@ -47,10 +47,7 @@ export class MyTravelpostGridComponent implements OnInit {
 
     deletePost(id: string) {
         this.travelpostService.deleteOneTravelPosts(id).subscribe(() => {
-            // GET THE SELECTED USER ID
-            this.route.paramMap.subscribe(() => {
-                this.getMyTravelPosts();
-            });
+            this.getMyTravelPosts();
         });
     }
 
