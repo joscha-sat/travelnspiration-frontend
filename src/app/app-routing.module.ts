@@ -7,6 +7,7 @@ import { AddTravelEntryComponent } from './views/add-travel-entry/add-travel-ent
 import { RegisterComponent } from './views/register/register.component';
 import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
+import { FavouriteListComponent } from './views/favourite-list/favourite-list.component';
 
 const routes: Routes = [
     // HOME
@@ -54,6 +55,11 @@ const routes: Routes = [
     {
         path: 'myTravelPosts/:id',
         component: MyTravelpostsComponent,
+    },
+    // MY FAVOURITES
+    {
+        path: 'myFavourites/:userId',
+        component: FavouriteListComponent,
     },
 ];
 

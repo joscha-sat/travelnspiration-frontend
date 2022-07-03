@@ -39,7 +39,11 @@ import { BaseSnackbarComponent } from './components/a-custom-components/base-sna
 import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor';
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
 import { MyTravelpostGridComponent } from './components/my-travelpost-grid/my-travelpost-grid.component';
-import { EditTravelpostComponent } from './views/edit-travelpost/edit-travelpost.component';
+import { FavouriteListComponent } from './views/favourite-list/favourite-list.component';
+import { MyFavouritesGridComponent } from './components/my-favourites-grid/my-favourites-grid.component';
+import { GlobalMatSpinnerComponent } from './components/global-mat-spinner/global-mat-spinner.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { StateTravelpostGridComponent } from './components/state-travelpost-grid/state-travelpost-grid.component';
 
 @NgModule({
     declarations: [
@@ -66,7 +70,10 @@ import { EditTravelpostComponent } from './views/edit-travelpost/edit-travelpost
         BaseSnackbarComponent,
         MyTravelpostsComponent,
         MyTravelpostGridComponent,
-        EditTravelpostComponent,
+        FavouriteListComponent,
+        MyFavouritesGridComponent,
+        GlobalMatSpinnerComponent,
+        StateTravelpostGridComponent,
     ],
     imports: [
         GalleryModule,
@@ -87,11 +94,17 @@ import { EditTravelpostComponent } from './views/edit-travelpost/edit-travelpost
         ReactiveFormsModule,
         FormsModule,
     ],
+
     providers: [
         BaseSnackbarComponent,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HeaderTokenInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
             multi: true,
         },
     ],

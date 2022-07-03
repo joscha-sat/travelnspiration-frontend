@@ -11,7 +11,8 @@
     .title_and_favorite {
         display: flex;
         justify-content: space-between;
-        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
     }
 }
 
@@ -26,8 +27,14 @@
     }
 }
 
+.favBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (min-width: 763px) {
     .mCard {
-        max-width: 350px;
+        max-width: 425px;
     }
 }

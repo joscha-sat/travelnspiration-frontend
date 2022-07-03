@@ -16,6 +16,14 @@ export class TravelPostService {
         return this.http.post<TravelPost>(this.baseURL, formData);
     }
 
+    // ADD TRAVEL POST TO FAV LIST
+    addTravelPostToFav(userId: string, postId: string) {
+        return this.http.put(`http://localhost:3000/users/addFavPost`, {
+            userId: userId,
+            postId: postId,
+        });
+    }
+
     // GET ALL TRAVEL POSTS
     getTravelPosts(): Observable<TravelPost[]> {
         return this.http.get<TravelPost[]>(this.baseURL);
@@ -41,6 +49,13 @@ export class TravelPostService {
         return this.http.get<TravelPost[]>(this.baseURL + 'user/' + id);
     }
 
+    // GET FILTERED TRAVEL POSTS BY FAVOURITES
+    getFavPostsByUserId(id: string | null): Observable<TravelPost[]> {
+        return this.http.get<TravelPost[]>(
+            'http://localhost:3000/users/favourites/' + id
+        );
+    }
+
     // UPDATE TRAVEL POST BY ID
     updateTravelPostById(id: string, travelpost: TravelPost) {
         return this.http.patch(this.baseURL + id, travelpost);
@@ -54,6 +69,14 @@ export class TravelPostService {
     // DELETE ONE TRAVEL POSTS
     deleteOneTravelPosts(id: string) {
         return this.http.delete(this.baseURL + id);
+    }
+
+    // DELETE ONE TRAVEL POSTS IN MY FAV
+    deleteOneFavTravelPost(userId: string, postId: string) {
+        return this.http.post(`http://localhost:3000/users/delete/favPost`, {
+            userId: userId,
+            postId: postId,
+        });
     }
 
     // IMAGE STUFF ---------------------------------------------------------------------- //

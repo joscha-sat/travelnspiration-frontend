@@ -1,11 +1,8 @@
-<div class="flex">
-    <ng-container *ngFor="let travelPost of myTravelPosts">
+<div class="flex center">
+    <ng-container *ngFor="let travelPost of myFavPosts">
         <app-base-card
-            (deletePost)="deletePost(travelPost.id)"
-            (editPost)="editPost(travelPost.id)"
             *ngIf="travelPost.image"
             [deletable]="true"
-            [editable]="true"
             [id]="travelPost.id"
             [image]="baseUrl + travelPost.image"
             [state]="travelPost.state"

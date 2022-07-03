@@ -1,20 +1,27 @@
-<mat-card class="mCard pointer">
+<mat-card [routerLink]="['/state/', state, id]" class="mCard pointer">
     <!-- IMAGE -->
     <img [src]="image" alt="Reisebild" class="img" />
 
     <!-- TITLE & FAVORITE -->
     <div class="title_and_favorite">
         <mat-card-title> {{ title }}</mat-card-title>
-        <mat-icon>favorite</mat-icon>
+        <button
+            (click)="addFavPost(); $event.stopPropagation()"
+            *ngIf="loggedIn && favouritable"
+            class="favBtn"
+            color="accent"
+            mat-flat-button
+        >
+            <mat-icon class="favIcon">favorite</mat-icon>
+        </button>
     </div>
 
-    <mat-card-subtitle style="padding-inline: 0.5rem">
-        {{ subtitle }}</mat-card-subtitle
-    >
+    <mat-card-subtitle> {{ subtitle }}</mat-card-subtitle>
 
-    <mat-card-actions *ngIf="editable" class="btnActions">
+    <mat-card-actions class="btnActions">
         <button
-            (click)="editPostEmit()"
+            (click)="editPostEmit(); $event.stopPropagation()"
+            *ngIf="editable"
             class="child"
             color="accent"
             mat-flat-button
@@ -23,7 +30,8 @@
         </button>
 
         <button
-            (click)="deletePostEmit()"
+            (click)="deletePostEmit(); $event.stopPropagation()"
+            *ngIf="deletable"
             class="child"
             color="warn"
             mat-flat-button

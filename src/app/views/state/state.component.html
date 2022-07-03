@@ -1,25 +1,15 @@
-<div class="base-container" style="--mt: 1.5rem">
-    <!-- TITLE -->
-    <h1 class="title" style="text-align: center; padding-bottom: 1.5rem">
-        {{ title }} {{ 'STATE.TITLE' | translate }}!
-    </h1>
+<div class='base-container' style='--mt: 1.5rem'>
+  <!-- TITLE -->
+  <h1 class='title' style='text-align: center; padding-bottom: 1.5rem'>
+    {{ title }} {{ 'STATE.TITLE' | translate }}!
+  </h1>
 
-    <div class="content">
-        <div class="grid">
-            <ng-container *ngFor="let travelPost of travelPosts">
-                <app-base-card
-                    *ngIf="travelPost.image"
-                    [image]="baseUrl + travelPost.image"
-                    [routerLink]="['/state/', title, travelPost.id]"
-                    [subtitle]="travelPost.location"
-                    [title]="travelPost.title"
-                ></app-base-card>
-            </ng-container>
-        </div>
+  <div class='content'>
 
-        <!-- FILTER -->
-        <div class="filter">
-            <app-filter-travel-button></app-filter-travel-button>
-        </div>
+    <app-state-travelpost-grid></app-state-travelpost-grid>
+    <!-- FILTER -->
+    <div class='filter'>
+      <app-filter-travel-button></app-filter-travel-button>
     </div>
+  </div>
 </div>
