@@ -43,7 +43,7 @@
         <!-- MY TRAVEL POSTS -->
         <button
             *ngIf="this.auth.isLoggedIn"
-            [routerLink]="['/myTravelPosts/', currentUser.id]"
+            [routerLink]="['/myTravelPosts/', auth.me.id]"
             mat-flat-button
         >
             <div class="loginBtn flex">
@@ -55,7 +55,7 @@
         <!-- MY TRAVEL POSTS -->
         <button
             *ngIf="this.auth.isLoggedIn"
-            [routerLink]="['/myFavourites/', currentUser.id]"
+            [routerLink]="['/myFavourites/', auth.me.id]"
             mat-flat-button
         >
             <div class="loginBtn flex">
@@ -69,7 +69,7 @@
             <mat-icon>dark_mode</mat-icon>
         </button>
 
-        <!-- LOGIN -->
+        <!-- LOGOUT -->
         <button (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-flat-button>
             <div class="loginBtn flex">
                 <p>logout</p>

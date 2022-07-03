@@ -61,8 +61,7 @@ export class StateTravelpostGridComponent implements OnInit {
 
         this.travelPostService
             .addTravelPostToFav(this.auth.me.id, postId)
-            .subscribe((res) => {
-                console.log(res);
+            .subscribe(() => {
                 this.snackBarService.openSnackBar(
                     'successfully added',
                     'ok',

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CreateUser } from '../interfaces/create-user';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
@@ -11,7 +12,7 @@ export class AuthService {
     currentUser;
     isLoggedIn = false;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
     get accessToken() {
         const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -27,6 +28,7 @@ export class AuthService {
             return;
         }
         this.isLoggedIn = true;
+        this.currentUser = user;
 
         return user;
     }
@@ -51,6 +53,7 @@ export class AuthService {
                         );
                         this.currentUser = user;
                         this.isLoggedIn = true;
+                        this.me;
                     }
                     return user;
                 })
@@ -61,5 +64,7 @@ export class AuthService {
         localStorage.removeItem('currentUser');
         this.currentUser = null;
         this.isLoggedIn = false;
+
+        this.router.navigate(['login']).then();
     }
 }
