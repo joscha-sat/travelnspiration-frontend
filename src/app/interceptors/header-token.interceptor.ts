@@ -28,6 +28,7 @@ export class HeaderTokenInterceptor implements HttpInterceptor {
                 setHeaders: { Authorization: fullToken },
             });
             return next.handle(authReq).pipe(
+                // In case a http error occurred display a visual feedback in form of a snackbar
                 catchError((error: HttpErrorResponse) => {
                     let errorMessage = 'An unknown error occurred!';
 
@@ -44,7 +45,9 @@ export class HeaderTokenInterceptor implements HttpInterceptor {
                 })
             );
         }
+
         return next.handle(request).pipe(
+            // In case a http error occurred display a visual feedback in form of a snackbar
             catchError((error: HttpErrorResponse) => {
                 let errorMessage = 'An unknown error occurred!';
 
