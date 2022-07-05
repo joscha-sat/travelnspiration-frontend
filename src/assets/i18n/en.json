@@ -2,6 +2,15 @@
   "HOME": {
     "TITLE": "Gehe auf Ent DE ckung"
   },
+  "NAV": {
+    "LOGIN": "Login",
+    "SIGNUP": "Signup",
+    "LOGOUT": "Logout",
+    "MY_POSTS": "My posts",
+    "MY_FAVS": "My favourites",
+    "ADD_POST": "Add post",
+    "THEME": "Theme"
+  },
   "STATE": {
     "TITLE": "Ent DE cken"
   },
