@@ -30,7 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseSelectComponent } from './components/a-custom-components/base-select/base-select.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { RegisterComponent } from './views/register/register.component';
-import { FilterTravelButtonComponent } from './components/filter-travel-button/filter-travel-button.component';
 import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
 import { GalleryModule } from 'ng-gallery';
 import { TravelpostDetailsComponent } from './components/travelpost-details/travelpost-details.component';
@@ -66,7 +65,6 @@ import { SearchComponent } from './components/grids/search/search.component';
         BaseSelectComponent,
         RegisterFormComponent,
         RegisterComponent,
-        FilterTravelButtonComponent,
         TravelpostDetailedComponent,
         TravelpostDetailsComponent,
         SingleInfoComponent,
