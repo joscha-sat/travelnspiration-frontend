@@ -46,6 +46,7 @@ import { StateTravelpostGridComponent } from './components/grids/state-travelpos
 import { BaseTitleComponent } from './components/a-custom-components/base-title/base-title.component';
 import { EmptyTravelsComponent } from './components/a-custom-components/empty-travels/empty-travels.component';
 import { SearchComponent } from './components/grids/search/search.component';
+import { LoggedGuard } from './guards/logged.guard';
 
 @NgModule({
     declarations: [
@@ -111,6 +112,7 @@ import { SearchComponent } from './components/grids/search/search.component';
             useClass: LoaderInterceptor,
             multi: true,
         },
+        LoggedGuard,
     ],
     bootstrap: [AppComponent],
 })
@@ -118,5 +120,5 @@ export class AppModule {}
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http);
 }

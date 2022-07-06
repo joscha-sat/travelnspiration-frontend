@@ -8,6 +8,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelpost-detailed.component';
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
 import { FavouriteListComponent } from './views/favourite-list/favourite-list.component';
+import { LoggedGuard } from './guards/logged.guard';
 
 const routes: Routes = [
     // HOME
@@ -35,11 +36,13 @@ const routes: Routes = [
     {
         path: 'addTravelpost',
         component: AddTravelEntryComponent,
+        canActivate: [LoggedGuard],
     },
     // EDIT TRAVEL POSTS
     {
         path: 'editTravelpost/:id',
         component: AddTravelEntryComponent,
+        canActivate: [LoggedGuard],
     },
     // INNER STATE OVERVIEW
     {
@@ -55,12 +58,15 @@ const routes: Routes = [
     {
         path: 'myTravelPosts/:id',
         component: MyTravelpostsComponent,
+        canActivate: [LoggedGuard],
     },
     // MY FAVOURITES
     {
         path: 'myFavourites/:userId',
         component: FavouriteListComponent,
+        canActivate: [LoggedGuard],
     },
+    { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
