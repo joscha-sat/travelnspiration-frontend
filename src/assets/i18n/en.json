@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "TITLE": "Gehe auf Ent DE ckung"
+    "TITLE": "Explore Germany"
   },
   "NAV": {
     "LOGIN": "Login",
@@ -12,7 +12,7 @@
     "THEME": "Theme"
   },
   "STATE": {
-    "TITLE": "Ent DE cken"
+    "TITLE": "gets explored"
   },
   "TRAVELPOST": {
     "TITLE": "Title",
@@ -24,5 +24,8 @@
     "TOTALCOSTS": "Total costs",
     "COSTSINFO": "Info to costs",
     "OTHER": "Other"
+  },
+  "FAVS": {
+    "TITLE": "My favourites"
   }
 }

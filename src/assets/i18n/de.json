@@ -24,5 +24,8 @@
     "TOTALCOSTS": "Gesamtkosten",
     "COSTSINFO": "Kosten Informationen",
     "OTHER": "Sonstiges"
+  },
+  "FAVS": {
+    "TITLE": "Meine Favoriten"
   }
 }
