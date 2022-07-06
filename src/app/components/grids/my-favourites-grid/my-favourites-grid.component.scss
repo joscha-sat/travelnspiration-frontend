@@ -1,8 +1,8 @@
-.grid {
+.flex {
     display: grid;
     gap: 2rem;
-
-    //align-items: center;
-
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+
+    justify-content: center;
+    place-items: center;
 }

@@ -3,7 +3,8 @@
     "DELETE": "Delete",
     "EDIT": "Edit",
     "FILTER": "Filters",
-    "EMPTY": "No entries yet!"
+    "EMPTY": "No entries yet!",
+    "SEARCH": "Search..."
   },
   "HOME": {
     "TITLE": "Explore Germany"

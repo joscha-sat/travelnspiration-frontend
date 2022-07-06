@@ -3,7 +3,8 @@
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
     "FILTER": "Filter",
-    "EMPTY": "Noch keine Einträge vorhanden!"
+    "EMPTY": "Noch keine Einträge vorhanden!",
+    "SEARCH": "Suchen..."
   },
   "HOME": {
     "TITLE": "Gehe auf Ent DE ckung"

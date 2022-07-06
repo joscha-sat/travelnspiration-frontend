@@ -1,0 +1,11 @@
+<mat-form-field appearance="legacy" class="w100">
+    <mat-icon matSuffix>search</mat-icon>
+    <input
+        #mySearch
+        (keyup)="emitSearch(mySearch.value)"
+        class="w100"
+        matInput
+        placeholder="{{ ngTranslate | translate }}"
+        type="text"
+    />
+</mat-form-field>

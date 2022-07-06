@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TravelPost } from '../../interfaces/travel-post';
-import { TravelPostService } from '../../services/travel-post.service';
+import { TravelPost } from '../../../interfaces/travel-post';
+import { TravelPostService } from '../../../services/travel-post.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'app-my-favourites-grid',

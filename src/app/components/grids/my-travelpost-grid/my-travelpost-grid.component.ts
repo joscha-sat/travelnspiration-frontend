@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TravelPost } from '../../interfaces/travel-post';
-import { TravelPostService } from '../../services/travel-post.service';
+import { TravelPost } from '../../../interfaces/travel-post';
+import { TravelPostService } from '../../../services/travel-post.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({

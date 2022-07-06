@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TravelPost } from '../../interfaces/travel-post';
+import { TravelPost } from '../../../interfaces/travel-post';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { TravelPostService } from '../../services/travel-post.service';
-import { AuthService } from '../../services/auth.service';
-import { SnackbarService } from '../a-custom-components/base-snackbar/snackbar.service';
+import { TravelPostService } from '../../../services/travel-post.service';
+import { AuthService } from '../../../services/auth.service';
+import { SnackbarService } from '../../a-custom-components/base-snackbar/snackbar.service';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
     selector: 'app-state-travelpost-grid',
@@ -16,12 +17,15 @@ export class StateTravelpostGridComponent implements OnInit {
     baseUrl = 'http://localhost:3000/travelpost/image/';
 
     travelPosts: TravelPost[];
+    //    GET ALL POSTS OF THIS STATE AND GET THE IMAGES TO THOSE POSTS
+    search: string = '';
 
     constructor(
         private route: ActivatedRoute,
         private travelPostService: TravelPostService,
         private auth: AuthService,
-        private snackBarService: SnackbarService
+        private snackBarService: SnackbarService,
+        public filterService: FilterService
     ) {}
 
     ngOnInit(): void {
@@ -37,7 +41,6 @@ export class StateTravelpostGridComponent implements OnInit {
         this.getTravelPosts();
     }
 
-    //    GET ALL POSTS OF THIS STATE AND GET THE IMAGES TO THOSE POSTS
     getTravelPosts() {
         this.travelPostService
             .getTravelPostsByState(this.title)
@@ -68,5 +71,9 @@ export class StateTravelpostGridComponent implements OnInit {
                     'success'
                 );
             });
+    }
+
+    setSearch($event: any) {
+        this.search = $event;
     }
 }

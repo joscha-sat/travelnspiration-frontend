@@ -1,0 +1,30 @@
+<div class="container">
+    <app-search
+        (searchEmit)="setSearch($event)"
+        ngTranslate="GENERAL.SEARCH"
+    ></app-search>
+
+    <div class="grid">
+        <ng-container
+            *ngFor="
+                let travelPost of filterService.filterArray(travelPosts, search)
+            "
+        >
+            <app-base-card
+                (AddFavPostEvent)="addToFavList(travelPost.id)"
+                *ngIf="travelPost.image"
+                [favouritable]="true"
+                [id]="travelPost.id"
+                [image]="baseUrl + travelPost.image"
+                [state]="travelPost.state"
+                [subtitle]="travelPost.location"
+                [title]="travelPost.title"
+            ></app-base-card>
+        </ng-container>
+    </div>
+</div>
+
+<app-empty-travels
+    [travelPosts]="travelPosts"
+    info="GENERAL.EMPTY"
+></app-empty-travels>

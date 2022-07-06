@@ -38,14 +38,15 @@ import { SingleInfoComponent } from './components/travelpost-details/single-info
 import { BaseSnackbarComponent } from './components/a-custom-components/base-snackbar/base-snackbar.component';
 import { HeaderTokenInterceptor } from './interceptors/header-token.interceptor';
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
-import { MyTravelpostGridComponent } from './components/my-travelpost-grid/my-travelpost-grid.component';
+import { MyTravelpostGridComponent } from './components/grids/my-travelpost-grid/my-travelpost-grid.component';
 import { FavouriteListComponent } from './views/favourite-list/favourite-list.component';
-import { MyFavouritesGridComponent } from './components/my-favourites-grid/my-favourites-grid.component';
+import { MyFavouritesGridComponent } from './components/grids/my-favourites-grid/my-favourites-grid.component';
 import { GlobalMatSpinnerComponent } from './components/global-mat-spinner/global-mat-spinner.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { StateTravelpostGridComponent } from './components/state-travelpost-grid/state-travelpost-grid.component';
+import { StateTravelpostGridComponent } from './components/grids/state-travelpost-grid/state-travelpost-grid.component';
 import { BaseTitleComponent } from './components/a-custom-components/base-title/base-title.component';
 import { EmptyTravelsComponent } from './components/a-custom-components/empty-travels/empty-travels.component';
+import { SearchComponent } from './components/grids/search/search.component';
 
 @NgModule({
     declarations: [
@@ -78,6 +79,7 @@ import { EmptyTravelsComponent } from './components/a-custom-components/empty-tr
         StateTravelpostGridComponent,
         BaseTitleComponent,
         EmptyTravelsComponent,
+        SearchComponent,
     ],
     imports: [
         GalleryModule,

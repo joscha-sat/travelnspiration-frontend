@@ -1,0 +1,9 @@
+.flex {
+  display: grid;
+  gap: 2rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+
+  justify-content: center;
+  place-items: center;
+}
