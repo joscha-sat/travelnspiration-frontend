@@ -1,42 +1,42 @@
 .base-container {
-  width: min(100%, 135rem);
-  padding-inline: 1em;
-  margin-inline: auto;
-  margin-top: var(--mt, 0);
-  margin-bottom: var(--mb, 0);
+    width: min(100%, 135rem);
+    padding-inline: 1em;
+    margin-inline: auto;
+    margin-top: var(--mt, 0);
+    margin-bottom: var(--mb, 2rem);
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .center {
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .block:not(:last-child) {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .title {
-  font-size: clamp(2rem, 10vw, 3.5rem) !important;
-  font-weight: 700;
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+    font-weight: 700;
 }
 
 .header {
-  font-size: clamp(1.8rem, 6vw, 2.88rem) !important;
-  font-weight: 500;
+    font-size: clamp(1.8rem, 6vw, 2.88rem) !important;
+    font-weight: 500;
 }
 
 .mw600 {
-  max-width: 600px;
+    max-width: 600px;
 }
 
 .w100 {
-  width: 100%;
+    width: 100%;
 }
 
 .pointer:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
