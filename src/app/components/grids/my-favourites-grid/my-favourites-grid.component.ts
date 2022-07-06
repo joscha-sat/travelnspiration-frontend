@@ -3,6 +3,7 @@ import { TravelPost } from '../../../interfaces/travel-post';
 import { TravelPostService } from '../../../services/travel-post.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
     selector: 'app-my-favourites-grid',
@@ -13,11 +14,13 @@ export class MyFavouritesGridComponent implements OnInit {
     userId: string;
     myFavPosts: TravelPost[];
     baseUrl = 'http://localhost:3000/travelpost/image/';
+    search: string = '';
 
     constructor(
         private travelpostService: TravelPostService,
         private route: ActivatedRoute,
-        private auth: AuthService
+        private auth: AuthService,
+        public filterService: FilterService
     ) {}
 
     ngOnInit(): void {
@@ -56,5 +59,9 @@ export class MyFavouritesGridComponent implements OnInit {
             .subscribe(() => {
                 this.getMyFavouritePosts();
             });
+    }
+
+    setSearch($event: any) {
+        this.search = $event;
     }
 }

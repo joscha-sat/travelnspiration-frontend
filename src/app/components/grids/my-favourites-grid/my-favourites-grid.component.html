@@ -1,19 +1,28 @@
-<div class='flex center'>
-  <ng-container *ngFor='let travelPost of myFavPosts'>
-    <app-base-card
-      (deletePost)='deleteFavPost(travelPost.id)'
-      *ngIf='travelPost.image'
-      [deletable]='true'
-      [id]='travelPost.id'
-      [image]='baseUrl + travelPost.image'
-      [state]='travelPost.state'
-      [subtitle]='travelPost.location'
-      [title]='travelPost.title'
-      [travelPost]='travelPost'
-      style='min-width: 325px'
-    ></app-base-card>
-  </ng-container>
+<div class='container'>
+  <app-search
+    (searchEmit)='setSearch($event)'
+    ngTranslate='GENERAL.SEARCH'
+  ></app-search>
+
+  <div class='flex center'>
+    <ng-container *ngFor='let travelPost of filterService.filterArray(myFavPosts, search)'>
+      <app-base-card
+        (deletePost)='deleteFavPost(travelPost.id)'
+        *ngIf='travelPost.image'
+        [deletable]='true'
+        [id]='travelPost.id'
+        [image]='baseUrl + travelPost.image'
+        [state]='travelPost.state'
+        [subtitle]='travelPost.location'
+        [title]='travelPost.title'
+        [travelPost]='travelPost'
+        style='min-width: 325px'
+      ></app-base-card>
+    </ng-container>
+  </div>
+
 </div>
+
 
 <app-empty-travels
   [travelPosts]='myFavPosts'

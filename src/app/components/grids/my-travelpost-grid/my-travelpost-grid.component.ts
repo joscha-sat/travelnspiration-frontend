@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TravelPost } from '../../../interfaces/travel-post';
 import { TravelPostService } from '../../../services/travel-post.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
     selector: 'app-my-travelpost-grid',
@@ -12,11 +13,13 @@ export class MyTravelpostGridComponent implements OnInit {
     userId: string;
     myTravelPosts: TravelPost[];
     baseUrl = 'http://localhost:3000/travelpost/image/';
+    search: string = '';
 
     constructor(
         private travelpostService: TravelPostService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        public filterService: FilterService
     ) {}
 
     ngOnInit(): void {
@@ -53,5 +56,9 @@ export class MyTravelpostGridComponent implements OnInit {
 
     editPost(id: string) {
         this.router.navigate(['editTravelpost/', id]).then();
+    }
+
+    setSearch($event: any) {
+        this.search = $event;
     }
 }
