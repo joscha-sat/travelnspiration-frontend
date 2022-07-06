@@ -8,10 +8,10 @@
         <button
             *ngIf="!this.auth.isLoggedIn"
             mat-flat-button
+            matTooltip="{{ 'NAV.LOGIN' | translate }}"
             routerLink="/login"
         >
             <div class="loginBtn flex">
-                <p>login</p>
                 <mat-icon>login</mat-icon>
             </div>
         </button>
@@ -20,10 +20,10 @@
         <button
             *ngIf="!this.auth.isLoggedIn"
             mat-flat-button
+            matTooltip="{{ 'NAV.SIGNUP' | translate }}"
             routerLink="/signup"
         >
             <div class="loginBtn flex">
-                <p>Signup</p>
                 <mat-icon>person_add</mat-icon>
             </div>
         </button>
@@ -32,10 +32,10 @@
         <button
             *ngIf="this.auth.isLoggedIn"
             mat-flat-button
+            matTooltip="{{ 'NAV.ADD_POST' | translate }}"
             routerLink="/addTravelpost"
         >
             <div class="loginBtn flex">
-                <p>add travel</p>
                 <mat-icon>add_circle</mat-icon>
             </div>
         </button>
@@ -45,27 +45,31 @@
             *ngIf="this.auth.isLoggedIn"
             [routerLink]="['/myTravelPosts/', auth.me.id]"
             mat-flat-button
+            matTooltip="{{ 'NAV.MY_POSTS' | translate }}"
         >
             <div class="loginBtn flex">
-                <p>My travels</p>
                 <mat-icon>explore</mat-icon>
             </div>
         </button>
 
-        <!-- MY TRAVEL POSTS -->
+        <!-- MY FAV TRAVEL POSTS -->
         <button
             *ngIf="this.auth.isLoggedIn"
             [routerLink]="['/myFavourites/', auth.me.id]"
             mat-flat-button
+            matTooltip="{{ 'NAV.MY_FAVS' | translate }}"
         >
             <div class="loginBtn flex">
-                <p>My favourites</p>
                 <mat-icon>favorite</mat-icon>
             </div>
         </button>
 
-        <!-- DARK-MODE -->
-        <button (click)="toggleLanguage()" mat-flat-button>
+        <!-- LANGUAGE CHANGE -->
+        <button
+            (click)="toggleLanguage()"
+            mat-flat-button
+            matTooltip="{{ 'NAV.LANGUAGE_CHANGE' | translate }}"
+        >
             <div
                 style="
                     width: 24px;
@@ -86,14 +90,22 @@
         </button>
 
         <!-- DARK-MODE -->
-        <button (click)="darkmodeToggle()" mat-flat-button>
+        <button
+            (click)="darkmodeToggle()"
+            mat-flat-button
+            matTooltip="{{ 'NAV.THEME' | translate }}"
+        >
             <mat-icon>dark_mode</mat-icon>
         </button>
 
         <!-- LOGOUT -->
-        <button (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-flat-button>
+        <button
+            (click)="logout()"
+            *ngIf="this.auth.isLoggedIn"
+            mat-flat-button
+            matTooltip="{{ 'NAV.LOGOUT' | translate }}"
+        >
             <div class="loginBtn flex">
-                <p>logout</p>
                 <mat-icon>logout</mat-icon>
             </div>
         </button>

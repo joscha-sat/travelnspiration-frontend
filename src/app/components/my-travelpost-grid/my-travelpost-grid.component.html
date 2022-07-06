@@ -1,18 +1,23 @@
-<div class="flex">
-    <ng-container *ngFor="let travelPost of myTravelPosts">
-        <app-base-card
-            (deletePost)="deletePost(travelPost.id)"
-            (editPost)="editPost(travelPost.id)"
-            *ngIf="travelPost.image"
-            [deletable]="true"
-            [editable]="true"
-            [id]="travelPost.id"
-            [image]="baseUrl + travelPost.image"
-            [state]="travelPost.state"
-            [subtitle]="travelPost.location"
-            [title]="travelPost.title"
-            [travelPost]="travelPost"
-            style="min-width: 325px"
-        ></app-base-card>
-    </ng-container>
+<div class='flex'>
+  <ng-container *ngFor='let travelPost of myTravelPosts'>
+    <app-base-card
+      (deletePost)='deletePost(travelPost.id)'
+      (editPost)='editPost(travelPost.id)'
+      *ngIf='travelPost.image'
+      [deletable]='true'
+      [editable]='true'
+      [id]='travelPost.id'
+      [image]='baseUrl + travelPost.image'
+      [state]='travelPost.state'
+      [subtitle]='travelPost.location'
+      [title]='travelPost.title'
+      [travelPost]='travelPost'
+      style='min-width: 325px'
+    ></app-base-card>
+  </ng-container>
 </div>
+
+<app-empty-travels
+  [travelPosts]='myTravelPosts'
+  info='GENERAL.EMPTY'
+></app-empty-travels>

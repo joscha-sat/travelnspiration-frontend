@@ -12,10 +12,11 @@
     "LOGIN": "Einloggen",
     "SIGNUP": "Registrieren",
     "LOGOUT": "Ausloggen",
-    "MY_POSTS": "Meine Posts",
+    "MY_POSTS": "Meine Reisen",
     "MY_FAVS": "Meine Favoriten",
-    "ADD_POST": "Post hinzufügen",
-    "THEME": "Theme"
+    "ADD_POST": "Reise erstellen",
+    "THEME": "Theme wechseln",
+    "LANGUAGE_CHANGE": "Sprache wechseln"
   },
   "STATE": {
     "TITLE": "Ent DE cken"

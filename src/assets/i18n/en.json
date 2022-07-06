@@ -12,10 +12,11 @@
     "LOGIN": "Login",
     "SIGNUP": "Signup",
     "LOGOUT": "Logout",
-    "MY_POSTS": "My posts",
+    "MY_POSTS": "My travels",
     "MY_FAVS": "My favourites",
-    "ADD_POST": "Add post",
-    "THEME": "Theme"
+    "ADD_POST": "Add travel",
+    "THEME": "Change theme",
+    "LANGUAGE_CHANGE": "Change language"
   },
   "STATE": {
     "TITLE": "explorations"
