@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class SingleInfoComponent {
     @Input() info: string | number;
     @Input() ngTranslate: string;
+    @Input() costs: boolean = false;
 
     constructor() {}
 }

@@ -1,4 +1,9 @@
 {
+  "GENERAL": {
+    "DELETE": "Löschen",
+    "EDIT": "Bearbeiten",
+    "FILTER": "Filter"
+  },
   "HOME": {
     "TITLE": "Gehe auf Ent DE ckung"
   },
@@ -27,5 +32,34 @@
   },
   "FAVS": {
     "TITLE": "Meine Favoriten"
+  },
+  "MY_POSTS": {
+    "TITLE": "Meine Reisen"
+  },
+  "LOGIN": {
+    "LOGIN": "Einloggen",
+    "PASSWORD": "Passwort",
+    "USERNAME": "Benutzername"
+  },
+  "REGISTER": {
+    "PASSWORD": "Passwort",
+    "USERNAME": "Benutzername",
+    "REGISTER": "Registrieren"
+  },
+  "ADD_POST": {
+    "ADD": "Post erstellen",
+    "EDIT": "Post bearbeiten",
+    "TITLE": "Titel",
+    "STATE": "Bundesland",
+    "LOCATION": "Ort",
+    "DESCRIPTION": "Beschreibung",
+    "HOUSING": "Unterkunftsart",
+    "TYPE_OF_TRAVEL": "Art der Reise (Camping, ...)",
+    "TOTAL_COSTS": "Gesamtkosten",
+    "COSTS_INFO": "Weitere Infos zu den Kosten",
+    "OTHER": "Sonstiges",
+    "IMAGE_UPLOAD": "Bilder hochladen",
+    "PREVIEW": "Bildvorschau",
+    "SAVE": "Speichern"
   }
 }

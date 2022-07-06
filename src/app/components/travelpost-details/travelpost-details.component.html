@@ -1,74 +1,75 @@
 <!-- TITLE -->
-<h1 class="title" style="text-align: center; padding-bottom: 1.5rem">
-    {{ travelpost.title }}
+<h1 class='title' style='text-align: center; padding-bottom: 1.5rem'>
+  {{ travelpost.title }}
 </h1>
 
-<div *ngIf="images && images.length" class="carousel">
-    <gallery
-        [imageSize]="'cover'"
-        [items]="images"
-        [loadingStrategy]="'lazy'"
-        [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
-        style="height: 100%; width: 100%"
-    ></gallery>
+<div *ngIf='images && images.length' class='carousel'>
+  <gallery
+    [imageSize]="'cover'"
+    [items]='images'
+    [loadingStrategy]="'lazy'"
+    [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
+    style='height: 100%; width: 100%'
+  ></gallery>
 </div>
 
-<div class="details-container">
-    <!-- DESCRIPTION -->
-    <ng-container *ngIf="travelpost.description">
-        <div class="header" style="margin-top: 3rem">
-            {{ 'TRAVELPOST.DESCRIPTION' | translate }}
-        </div>
-
-        <div class="text">
-            {{ travelpost.description }}
-        </div>
-    </ng-container>
-
-    <div class="container">
-        <app-single-info
-            [info]="travelpost.state"
-            ngTranslate="TRAVELPOST.STATE"
-        ></app-single-info>
-
-        <app-single-info
-            [info]="travelpost.location"
-            ngTranslate="TRAVELPOST.LOCATION"
-        ></app-single-info>
+<div class='details-container'>
+  <!-- DESCRIPTION -->
+  <ng-container *ngIf='travelpost.description'>
+    <div class='header' style='margin-top: 3rem'>
+      {{ 'TRAVELPOST.DESCRIPTION' | translate }}
     </div>
 
-    <div class="container">
-        <app-single-info
-            [info]="travelpost.housing"
-            ngTranslate="TRAVELPOST.HOUSING"
-        ></app-single-info>
+    <div class='text'>
+      {{ travelpost.description }}
+    </div>
+  </ng-container>
 
-        <app-single-info
-            [info]="travelpost.travelType"
-            ngTranslate="TRAVELPOST.TRAVELTYPE"
-        ></app-single-info>
+  <div class='container'>
+    <app-single-info
+      [info]='travelpost.state'
+      ngTranslate='TRAVELPOST.STATE'
+    ></app-single-info>
+
+    <app-single-info
+      [info]='travelpost.location'
+      ngTranslate='TRAVELPOST.LOCATION'
+    ></app-single-info>
+  </div>
+
+  <div class='container'>
+    <app-single-info
+      [info]='travelpost.housing'
+      ngTranslate='TRAVELPOST.HOUSING'
+    ></app-single-info>
+
+    <app-single-info
+      [info]='travelpost.travelType'
+      ngTranslate='TRAVELPOST.TRAVELTYPE'
+    ></app-single-info>
+  </div>
+
+  <div class='container'>
+    <app-single-info
+      [costs]='true'
+      [info]='travelpost.costsTotal'
+      ngTranslate='TRAVELPOST.TOTALCOSTS'
+    ></app-single-info>
+
+    <app-single-info
+      [info]='travelpost.costDescription'
+      ngTranslate='TRAVELPOST.COSTSINFO'
+    ></app-single-info>
+  </div>
+
+  <!-- OTHER -->
+  <ng-container *ngIf='travelpost.other'>
+    <div class='header' style='margin-top: 2rem'>
+      {{ 'TRAVELPOST.OTHER' | translate }}
     </div>
 
-    <div class="container">
-        <app-single-info
-            [info]="travelpost.costsTotal"
-            ngTranslate="TRAVELPOST.TOTALCOSTS"
-        ></app-single-info>
-
-        <app-single-info
-            [info]="travelpost.costDescription"
-            ngTranslate="TRAVELPOST.COSTSINFO"
-        ></app-single-info>
+    <div class='text'>
+      {{ travelpost.other }}
     </div>
-
-    <!-- OTHER -->
-    <ng-container *ngIf="travelpost.other">
-        <div class="header" style="margin-top: 2rem">
-            {{ 'TRAVELPOST.OTHER' | translate }}
-        </div>
-
-        <div class="text">
-            {{ travelpost.other }}
-        </div>
-    </ng-container>
+  </ng-container>
 </div>

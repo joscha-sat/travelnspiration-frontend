@@ -1,42 +1,42 @@
-<mat-card [routerLink]="['/state/', state, id]" class="mCard pointer">
-    <!-- IMAGE -->
-    <img [src]="image" alt="Reisebild" class="img" />
+<mat-card [routerLink]="['/state/', state, id]" class='mCard pointer'>
+  <!-- IMAGE -->
+  <img [src]='image' alt='Reisebild' class='img' />
 
-    <!-- TITLE & FAVORITE -->
-    <div class="title_and_favorite">
-        <mat-card-title> {{ title }}</mat-card-title>
-        <button
-            (click)="addFavPost(); $event.stopPropagation()"
-            *ngIf="loggedIn && favouritable"
-            class="favBtn"
-            color="accent"
-            mat-flat-button
-        >
-            <mat-icon class="favIcon">favorite</mat-icon>
-        </button>
-    </div>
+  <!-- TITLE & FAVORITE -->
+  <div class='title_and_favorite'>
+    <mat-card-title> {{ title }}</mat-card-title>
+    <button
+      (click)='addFavPost(); $event.stopPropagation()'
+      *ngIf='loggedIn && favouritable'
+      class='favBtn'
+      color='accent'
+      mat-flat-button
+    >
+      <mat-icon class='favIcon'>favorite</mat-icon>
+    </button>
+  </div>
 
-    <mat-card-subtitle> {{ subtitle }}</mat-card-subtitle>
+  <mat-card-subtitle> {{ subtitle }}</mat-card-subtitle>
 
-    <mat-card-actions class="btnActions">
-        <button
-            (click)="editPostEmit(); $event.stopPropagation()"
-            *ngIf="editable"
-            class="child"
-            color="accent"
-            mat-flat-button
-        >
-            edit
-        </button>
+  <mat-card-actions class='btnActions'>
+    <button
+      (click)='editPostEmit(); $event.stopPropagation()'
+      *ngIf='editable'
+      class='child'
+      color='accent'
+      mat-flat-button
+    >
+      {{ 'GENERAL.EDIT' | translate }}
+    </button>
 
-        <button
-            (click)="deletePostEmit(); $event.stopPropagation()"
-            *ngIf="deletable"
-            class="child"
-            color="warn"
-            mat-flat-button
-        >
-            delete
-        </button>
-    </mat-card-actions>
+    <button
+      (click)='deletePostEmit(); $event.stopPropagation()'
+      *ngIf='deletable'
+      class='child'
+      color='warn'
+      mat-flat-button
+    >
+      {{ 'GENERAL.DELETE' | translate }}
+    </button>
+  </mat-card-actions>
 </mat-card>

@@ -44,6 +44,7 @@ import { MyFavouritesGridComponent } from './components/my-favourites-grid/my-fa
 import { GlobalMatSpinnerComponent } from './components/global-mat-spinner/global-mat-spinner.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { StateTravelpostGridComponent } from './components/state-travelpost-grid/state-travelpost-grid.component';
+import { BaseTitleComponent } from './components/a-custom-components/base-title/base-title.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +75,7 @@ import { StateTravelpostGridComponent } from './components/state-travelpost-grid
         MyFavouritesGridComponent,
         GlobalMatSpinnerComponent,
         StateTravelpostGridComponent,
+        BaseTitleComponent,
     ],
     imports: [
         GalleryModule,

@@ -1,4 +1,4 @@
 <div *ngIf="info">
     <div class="header">{{ ngTranslate | translate }}</div>
-    {{ info }}
+    {{ info }} <span *ngIf="costs">€</span>
 </div>

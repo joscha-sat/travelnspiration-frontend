@@ -1,4 +1,9 @@
 {
+  "GENERAL": {
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "FILTER": "Filters"
+  },
   "HOME": {
     "TITLE": "Explore Germany"
   },
@@ -27,5 +32,34 @@
   },
   "FAVS": {
     "TITLE": "My favourites"
+  },
+  "MY_POSTS": {
+    "TITLE": "My travels"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "PASSWORD": "Password",
+    "USERNAME": "Username"
+  },
+  "REGISTER": {
+    "PASSWORD": "Password",
+    "USERNAME": "Username",
+    "REGISTER": "Sign up"
+  },
+  "ADD_POST": {
+    "ADD": "Add Post",
+    "EDIT": "Edit Post",
+    "TITLE": "Title",
+    "STATE": "State",
+    "LOCATION": "Location",
+    "DESCRIPTION": "Description",
+    "HOUSING": "Housing",
+    "TYPE_OF_TRAVEL": "Type of travel (camping, ...)",
+    "TOTAL_COSTS": "Total costs",
+    "COSTS_INFO": "Additional info to the costs",
+    "OTHER": "Other",
+    "IMAGE_UPLOAD": "Upload images",
+    "PREVIEW": "Image preview",
+    "SAVE": "Save"
   }
 }
