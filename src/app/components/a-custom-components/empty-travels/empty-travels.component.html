@@ -1,0 +1,8 @@
+<div *ngIf="travelPosts && !travelPosts.length" class="empty">
+    <mat-card style="padding-inline: 8rem; padding-block: 2.5rem">
+        <mat-card-content class="content">
+            <mat-icon class="icon">info</mat-icon>
+            <div style="font-size: 2rem">{{ info | translate }}</div>
+        </mat-card-content>
+    </mat-card>
+</div>

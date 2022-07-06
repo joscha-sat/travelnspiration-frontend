@@ -1,0 +1,17 @@
+
+.empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .icon {
+    transform: scale(1.2);
+  }
+
+  .content {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+}

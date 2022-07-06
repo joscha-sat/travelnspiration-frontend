@@ -45,6 +45,7 @@ import { GlobalMatSpinnerComponent } from './components/global-mat-spinner/globa
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { StateTravelpostGridComponent } from './components/state-travelpost-grid/state-travelpost-grid.component';
 import { BaseTitleComponent } from './components/a-custom-components/base-title/base-title.component';
+import { EmptyTravelsComponent } from './components/a-custom-components/empty-travels/empty-travels.component';
 
 @NgModule({
     declarations: [
@@ -76,6 +77,7 @@ import { BaseTitleComponent } from './components/a-custom-components/base-title/
         GlobalMatSpinnerComponent,
         StateTravelpostGridComponent,
         BaseTitleComponent,
+        EmptyTravelsComponent,
     ],
     imports: [
         GalleryModule,

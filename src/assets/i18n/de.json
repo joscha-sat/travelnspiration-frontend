@@ -2,7 +2,8 @@
   "GENERAL": {
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
-    "FILTER": "Filter"
+    "FILTER": "Filter",
+    "EMPTY": "Noch keine Einträge vorhanden!"
   },
   "HOME": {
     "TITLE": "Gehe auf Ent DE ckung"

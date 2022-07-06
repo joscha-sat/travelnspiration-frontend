@@ -2,7 +2,8 @@
   "GENERAL": {
     "DELETE": "Delete",
     "EDIT": "Edit",
-    "FILTER": "Filters"
+    "FILTER": "Filters",
+    "EMPTY": "No entries yet!"
   },
   "HOME": {
     "TITLE": "Explore Germany"
