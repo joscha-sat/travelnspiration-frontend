@@ -65,6 +65,27 @@
         </button>
 
         <!-- DARK-MODE -->
+        <button (click)="toggleLanguage()" mat-flat-button>
+            <div
+                style="
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                "
+            >
+                <img
+                    *ngIf="de"
+                    alt="germany_flag"
+                    src="assets/flag/germany.png"
+                />
+
+                <img *ngIf="!de" alt="uk_flag" src="assets/flag/uk.png" />
+            </div>
+        </button>
+
+        <!-- DARK-MODE -->
         <button (click)="darkmodeToggle()" mat-flat-button>
             <mat-icon>dark_mode</mat-icon>
         </button>

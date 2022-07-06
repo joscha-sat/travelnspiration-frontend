@@ -17,3 +17,8 @@
         display: flex;
     }
 }
+
+::ng-deep .mat-button-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+}
