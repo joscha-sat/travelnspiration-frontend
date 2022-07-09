@@ -29,19 +29,23 @@ export class MyFavouritesGridComponent implements OnInit {
             this.userId = paramMap.get('userId');
         });
 
+        this.travelpostService.updater$.subscribe(() => {
+            this.getMyFavouritePosts();
+        });
+
         this.getMyFavouritePosts();
     }
 
     //    GET ALL FAV POSTS OF THIS CURRENT USER AND GET THE IMAGES TO THOSE POSTS
     getMyFavouritePosts() {
         this.travelpostService
-            .getFavPostsByUserId(this.userId)
+            .getFavPostsByUserId(this.userId.toString())
             .subscribe((res) => {
                 this.myFavPosts = res;
 
                 for (let i = 0; i < this.myFavPosts.length; i++) {
                     this.travelpostService
-                        .getTravelPostsImages(this.myFavPosts[i].id)
+                        .getTravelPostsImages(this.myFavPosts[i].id.toString())
                         .subscribe((res) => {
                             this.myFavPosts[i].image = res[0];
                         });
@@ -56,9 +60,7 @@ export class MyFavouritesGridComponent implements OnInit {
 
         this.travelpostService
             .deleteOneFavTravelPost(this.userId, postId)
-            .subscribe(() => {
-                this.getMyFavouritePosts();
-            });
+            .subscribe();
     }
 
     setSearch($event: any) {

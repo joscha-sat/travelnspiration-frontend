@@ -8,7 +8,7 @@
     </mat-card-title>
 
     <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
-        <!--  TITLE  -->
+        <!-- TITLE -->
         <app-base-text-input
             [formGroup]="form"
             [required]="true"
@@ -18,30 +18,62 @@
             title="{{ 'ADD_POST.TITLE' | translate }}"
         ></app-base-text-input>
 
+        <!-- TITLE ERROR -->
+        <app-base-validation-error
+            [form]="form"
+            fName="title"
+            ngxTranslate="ERROR.REQUIRED.TITLE"
+            ngxTranslate2="ERROR.MINLENGTH.TITLE"
+            validator="required"
+            validator2="minlength"
+        ></app-base-validation-error>
+
+        <!-- //  -------------------------------------------------------------------------- // -->
+
         <div class="container flex">
-            <!--   STATES   -->
+            <div class="flexChild" style="min-width: 17rem">
+                <!-- STATE -->
+                <app-base-select
+                    [array]="states"
+                    [formGroup]="form"
+                    fName="state"
+                    title="{{ 'ADD_POST.STATE' | translate }}"
+                ></app-base-select>
 
-            <app-base-select
-                [array]="states"
-                [formGroup]="form"
-                fName="state"
-                style="min-width: 17rem"
-                title="{{ 'ADD_POST.STATE' | translate }}"
-            ></app-base-select>
+                <!-- STATE ERROR -->
+                <app-base-validation-error
+                    [form]="form"
+                    fName="state"
+                    ngxTranslate="ERROR.REQUIRED.STATE"
+                    validator="required"
+                ></app-base-validation-error>
+            </div>
 
-            <!--  LOCATION  -->
-            <app-base-text-input
-                [formGroup]="form"
-                [required]="true"
-                class="flexChild"
-                fName="location"
-                icon="explore"
-                title="{{ 'ADD_POST.LOCATION' | translate }}"
-            ></app-base-text-input>
+            <!-- //  -------------------------------------------------------------------------- // -->
+
+            <div class="flexChild">
+                <!-- LOCATION -->
+                <app-base-text-input
+                    [formGroup]="form"
+                    [required]="true"
+                    fName="location"
+                    icon="explore"
+                    title="{{ 'ADD_POST.LOCATION' | translate }}"
+                ></app-base-text-input>
+
+                <!-- LOCATION ERROR -->
+                <app-base-validation-error
+                    [form]="form"
+                    fName="location"
+                    ngxTranslate="ERROR.REQUIRED.LOCATION"
+                    validator="required"
+                ></app-base-validation-error>
+            </div>
         </div>
 
-        <!--  Description  -->
+        <!-- //  -------------------------------------------------------------------------- // -->
 
+        <!-- DESCRIPTION -->
         <app-base-text-area-input
             [formGroup]="form"
             [required]="true"
@@ -49,8 +81,18 @@
             title="{{ 'ADD_POST.DESCRIPTION' | translate }}"
         ></app-base-text-area-input>
 
+        <!-- DESCRIPTION ERROR -->
+        <app-base-validation-error
+            [form]="form"
+            fName="description"
+            ngxTranslate="ERROR.REQUIRED.DESCRIPTION"
+            ngxTranslate2="ERROR.MINLENGTH.DESCRIPTION"
+            validator="required"
+            validator2="minlength"
+        ></app-base-validation-error>
+
         <div class="container flex">
-            <!--  HOUSING TYPE  -->
+            <!-- HOUSING TYPE -->
             <app-base-text-input
                 [formGroup]="form"
                 fName="housing"
@@ -58,7 +100,7 @@
                 title="{{ 'ADD_POST.HOUSING' | translate }}"
             ></app-base-text-input>
 
-            <!--  TYPE OF TRAVEL  -->
+            <!-- TYPE OF TRAVEL -->
             <app-base-text-input
                 [formGroup]="form"
                 class="flexChild"
@@ -69,7 +111,6 @@
         </div>
 
         <!-- COSTS TOTAL -->
-
         <app-base-number-input
             [formGroup]="form"
             fName="costsTotal"
@@ -77,23 +118,21 @@
             title="{{ 'ADD_POST.TOTAL_COSTS' | translate }}"
         ></app-base-number-input>
 
-        <!--  Cost info  -->
-
+        <!-- COST INFO -->
         <app-base-text-area-input
             [formGroup]="form"
             fName="costInfo"
             title="{{ 'ADD_POST.COSTS_INFO' | translate }}"
         ></app-base-text-area-input>
 
-        <!--  Other  -->
-
+        <!-- OTHER  -->
         <app-base-text-area-input
             [formGroup]="form"
             fName="other"
             title="{{ 'ADD_POST.OTHER' | translate }}"
         ></app-base-text-area-input>
 
-        <!--  Image Input  -->
+        <!--  IMAGE INPUT  -->
         <div *ngIf="mode === 'add'" class="imageUpload">
             <button
                 (click)="fileInput.click()"
@@ -113,6 +152,7 @@
             />
         </div>
 
+        <!-- IMAGE PREVIEW -->
         <div *ngIf="previews && previews.length" style="padding-top: 1rem">
             <div class="label">
                 <label> {{ 'ADD_POST.PREVIEW' | translate }} </label>
@@ -134,7 +174,7 @@
             <mat-divider></mat-divider>
         </div>
 
-        <!-- BUTTONS -->
+        <!-- SUBMIT BUTTON -->
 
         <mat-card-actions
             style="padding-left: 1rem; padding-top: 1rem; padding-bottom: 1rem"

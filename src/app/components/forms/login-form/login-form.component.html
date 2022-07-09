@@ -1,50 +1,67 @@
-<mat-card class="mw600">
-    <mat-card-title class="header">Login</mat-card-title>
+<mat-card class='mw600'>
+  <mat-card-title class='header'>Login</mat-card-title>
 
-    <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
-        <!--  EMAIL  -->
+  <form (ngSubmit)='form.valid && onSubmit()' [formGroup]='form'>
+    <!--  USERNAME  -->
+    <app-base-text-input
+      [formGroup]='form'
+      [required]='true'
+      fName='username'
+      icon='person'
+      title="{{ 'LOGIN.USERNAME' | translate }}"
+    ></app-base-text-input>
 
-        <app-base-text-input
-            [formGroup]="form"
-            [required]="true"
-            fName="username"
-            icon="person"
-            title="{{ 'LOGIN.USERNAME' | translate }}"
-        ></app-base-text-input>
+    <!--  USERNAME ERROR  -->
+    <app-base-validation-error
+      [form]='form'
+      fName='username'
+      ngxTranslate='ERROR.REQUIRED.USERNAME'
+      validator='required'
+    ></app-base-validation-error>
 
-        <!--  PASSWORT  -->
+    <!--  PASSWORD  -->
+    <mat-form-field appearance='outline' class='w100'>
+      <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
 
-        <mat-form-field appearance="outline" class="w100">
-            <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
+      <input
+        [type]="hide ? 'password' : 'text'"
+        formControlName='password'
+        matInput
+        required
+      />
 
-            <input
-                [type]="hide ? 'password' : 'text'"
-                formControlName="password"
-                matInput
-                required
-            />
+      <button
+        (click)='hide = !hide'
+        [attr.aria-pressed]='hide'
+        mat-icon-button
+        matSuffix
+      >
+        <mat-icon>
+          {{ hide ? 'visibility_off' : 'visibility' }}
+        </mat-icon>
+      </button>
+    </mat-form-field>
 
-            <button
-                (click)="hide = !hide"
-                [attr.aria-pressed]="hide"
-                mat-icon-button
-                matSuffix
-            >
-                <mat-icon>
-                    {{ hide ? 'visibility_off' : 'visibility' }}
-                </mat-icon>
-            </button>
-        </mat-form-field>
+    <!--  PASSWORD ERROR  -->
+    <app-base-validation-error
+      [form]='form'
+      fName='password'
+      ngxTranslate='ERROR.REQUIRED.PASSWORD'
+      ngxTranslate2='ERROR.MINLENGTH.PASSWORD'
+      validator='required'
+      validator2='minlength'
+    ></app-base-validation-error>
 
-        <mat-card-actions style="padding: 0.5rem">
-            <button
-                [disabled]="!form.valid"
-                color="accent"
-                mat-flat-button
-                type="submit"
-            >
-                {{ 'LOGIN.LOGIN' | translate }}
-            </button>
-        </mat-card-actions>
-    </form>
+    <!-- SUBMIT BUTTON -->
+    <mat-card-actions style='padding: 0.5rem'>
+      <button
+        [disabled]='!form.valid'
+        color='accent'
+        mat-flat-button
+        type='submit'
+      >
+        {{ 'LOGIN.LOGIN' | translate }}
+      </button>
+    </mat-card-actions>
+  </form>
 </mat-card>

@@ -4,8 +4,7 @@
     }}</mat-card-title>
 
     <form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form">
-        <!--  EMAIL  -->
-
+        <!--  USERNAME  -->
         <app-base-text-input
             [formGroup]="form"
             [required]="true"
@@ -14,8 +13,15 @@
             title="{{ 'REGISTER.USERNAME' | translate }}"
         ></app-base-text-input>
 
-        <!--  EMAIL  -->
+        <!-- ERROR USERNAME -->
+        <app-base-validation-error
+            [form]="form"
+            fName="username"
+            ngxTranslate="ERROR.REQUIRED.USERNAME"
+            validator="required"
+        ></app-base-validation-error>
 
+        <!--  EMAIL  -->
         <app-base-text-input
             [formGroup]="form"
             [required]="true"
@@ -24,8 +30,17 @@
             title="Email"
         ></app-base-text-input>
 
-        <!--  PASSWORT  -->
+        <!-- ERROR EMAIL -->
+        <app-base-validation-error
+            [form]="form"
+            fName="email"
+            ngxTranslate="ERROR.REQUIRED.EMAIL"
+            ngxTranslate2="ERROR.EMAIL"
+            validator="required"
+            validator2="email"
+        ></app-base-validation-error>
 
+        <!--  PASSWORD  -->
         <mat-form-field appearance="outline" class="w100">
             <mat-label>{{ 'REGISTER.PASSWORD' | translate }}</mat-label>
 
@@ -48,6 +63,17 @@
             </button>
         </mat-form-field>
 
+        <!-- ERROR PASSWORD -->
+        <app-base-validation-error
+            [form]="form"
+            fName="password"
+            ngxTranslate="ERROR.REQUIRED.PASSWORD"
+            ngxTranslate2="ERROR.MINLENGTH.PASSWORD"
+            validator="required"
+            validator2="minlength"
+        ></app-base-validation-error>
+
+        <!-- SUBMIT BUTTON -->
         <mat-card-actions style="padding: 0.5rem">
             <button
                 [disabled]="!form.valid"

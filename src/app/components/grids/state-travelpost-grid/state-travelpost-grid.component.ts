@@ -5,6 +5,7 @@ import { TravelPostService } from '../../../services/travel-post.service';
 import { AuthService } from '../../../services/auth.service';
 import { SnackbarService } from '../../a-custom-components/base-snackbar/snackbar.service';
 import { FilterService } from '../../../services/filter.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-state-travelpost-grid',
@@ -25,7 +26,8 @@ export class StateTravelpostGridComponent implements OnInit {
         private travelPostService: TravelPostService,
         private auth: AuthService,
         private snackBarService: SnackbarService,
-        public filterService: FilterService
+        public filterService: FilterService,
+        private translate: TranslateService
     ) {}
 
     ngOnInit(): void {
@@ -65,8 +67,16 @@ export class StateTravelpostGridComponent implements OnInit {
         this.travelPostService
             .addTravelPostToFav(this.auth.me.id, postId)
             .subscribe(() => {
+                let snackInfoText;
+
+                this.translate
+                    .get('SNACKBAR.SUCCESSFUL_ADDED')
+                    .subscribe((res) => {
+                        snackInfoText = res;
+                    });
+
                 this.snackBarService.openSnackBar(
-                    'successfully added',
+                    snackInfoText,
                     'ok',
                     'success'
                 );

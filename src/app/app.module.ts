@@ -47,6 +47,7 @@ import { BaseTitleComponent } from './components/a-custom-components/base-title/
 import { EmptyTravelsComponent } from './components/a-custom-components/empty-travels/empty-travels.component';
 import { SearchComponent } from './components/grids/search/search.component';
 import { LoggedGuard } from './guards/logged.guard';
+import { BaseValidationErrorComponent } from './components/a-custom-components/base-validation-error/base-validation-error.component';
 
 @NgModule({
     declarations: [
@@ -79,6 +80,7 @@ import { LoggedGuard } from './guards/logged.guard';
         BaseTitleComponent,
         EmptyTravelsComponent,
         SearchComponent,
+        BaseValidationErrorComponent,
     ],
     imports: [
         GalleryModule,

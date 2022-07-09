@@ -1,0 +1,12 @@
+<div
+    *ngIf="form.get(fName).touched && form.get(fName).invalid"
+    style="margin-bottom: 2rem"
+>
+    <small *ngIf="form.get(fName).errors?.[validator]" style="color: #f11f4a">
+        {{ ngxTranslate | translate }}
+    </small>
+
+    <small *ngIf="form.get(fName).errors?.[validator2]" style="color: #f11f4a">
+        {{ ngxTranslate2 | translate }}
+    </small>
+</div>

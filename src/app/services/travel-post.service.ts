@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { TravelPost } from '../interfaces/travel-post';
 
 @Injectable({
@@ -10,6 +10,12 @@ export class TravelPostService {
     baseURL = 'http://localhost:3000/travelpost/';
 
     constructor(private http: HttpClient) {}
+
+    private _updater$ = new Subject<void>();
+
+    get updater$() {
+        return this._updater$;
+    }
 
     // ADD TRAVEL POST ENTRY
     addTravelPosts(formData: FormData) {
@@ -73,10 +79,16 @@ export class TravelPostService {
 
     // DELETE ONE TRAVEL POSTS IN MY FAV
     deleteOneFavTravelPost(userId: string, postId: string) {
-        return this.http.put(`http://localhost:3000/users/delete/favPost`, {
-            userId: userId,
-            postId: postId,
-        });
+        return this.http
+            .put(`http://localhost:3000/users/delete/favPost`, {
+                userId: userId,
+                postId: postId,
+            })
+            .pipe(
+                tap(() => {
+                    this._updater$.next();
+                })
+            );
     }
 
     // IMAGE STUFF ---------------------------------------------------------------------- //

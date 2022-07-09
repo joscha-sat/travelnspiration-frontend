@@ -64,5 +64,26 @@
     "IMAGE_UPLOAD": "Upload images",
     "PREVIEW": "Image preview",
     "SAVE": "Save"
+  },
+  "ERROR": {
+    "REQUIRED": {
+      "TITLE": "Title is required!",
+      "USERNAME": "Username is required!",
+      "PASSWORD": "Password is required!",
+      "EMAIL": "Email is required!",
+      "STATE": "State is required!",
+      "LOCATION": "Location is required!",
+      "DESCRIPTION": "Description is required!"
+    },
+    "MINLENGTH": {
+      "PASSWORD": "Password needs at least 8 characters!",
+      "TITLE": "Title needs at least 3 characters!",
+      "DESCRIPTION": "Description needs at least 10 characters!"
+    },
+    "EMAIL": "Invalid Email!"
+  },
+  "SNACKBAR": {
+    "SUCCESSFUL_ADDED": "Successfully added",
+    "SUCCESSFUL_LOGGED": "Successfully logged in"
   }
 }
