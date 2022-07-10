@@ -1,37 +1,37 @@
-<div class="container">
-    <app-search
-        (searchEmit)="setSearch($event)"
-        ngTranslate="GENERAL.SEARCH"
-    ></app-search>
+<div class='container'>
+  <app-search
+    (searchEmit)='setSearch($event)'
+    ngTranslate='GENERAL.SEARCH'
+  ></app-search>
 
-    <div class="flex">
-        <ng-container
-            *ngFor="
+  <div class='grid'>
+    <ng-container
+      *ngFor='
                 let travelPost of filterService.filterArray(
                     myTravelPosts,
                     search
                 )
-            "
-        >
-            <app-base-card
-                (deletePost)="deletePost(travelPost.id)"
-                (editPost)="editPost(travelPost.id)"
-                *ngIf="travelPost.image"
-                [deletable]="true"
-                [editable]="true"
-                [id]="travelPost.id"
-                [image]="baseUrl + travelPost.image"
-                [state]="travelPost.state"
-                [subtitle]="travelPost.location"
-                [title]="travelPost.title"
-                [travelPost]="travelPost"
-                style="min-width: 325px"
-            ></app-base-card>
-        </ng-container>
-    </div>
+            '
+    >
+      <app-base-card
+        (deletePost)='deletePost(travelPost.id)'
+        (editPost)='editPost(travelPost.id)'
+        *ngIf='travelPost.image'
+        [deletable]='true'
+        [editable]='true'
+        [id]='travelPost.id'
+        [image]='baseUrl + travelPost.image'
+        [state]='travelPost.state'
+        [subtitle]='travelPost.location'
+        [title]='travelPost.title'
+        [travelPost]='travelPost'
+        style='min-width: 325px'
+      ></app-base-card>
+    </ng-container>
+  </div>
 </div>
 
 <app-empty-travels
-    [travelPosts]="myTravelPosts"
-    info="GENERAL.EMPTY"
+  [travelPosts]='myTravelPosts'
+  info='GENERAL.EMPTY'
 ></app-empty-travels>
