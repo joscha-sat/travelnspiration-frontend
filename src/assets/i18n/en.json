@@ -17,7 +17,9 @@
     "MY_FAVS": "My favourites",
     "ADD_POST": "Add travel",
     "THEME": "Change theme",
-    "LANGUAGE_CHANGE": "Change language"
+    "THEME_MOBILE": "Theme",
+    "LANGUAGE_CHANGE": "Change language",
+    "LANGUAGE_MOBILE": "English"
   },
   "STATE": {
     "TITLE": "explorations"

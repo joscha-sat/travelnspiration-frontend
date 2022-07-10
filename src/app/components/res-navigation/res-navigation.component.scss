@@ -1,0 +1,57 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+// Custom scss
+
+.hidden {
+    display: none;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.navItemBtn {
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+}
+
+.navItemMobile {
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+}
+
+::ng-deep .mat-button-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.buttons {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .buttons {
+        display: flex;
+    }
+}

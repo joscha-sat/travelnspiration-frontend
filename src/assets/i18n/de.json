@@ -17,7 +17,9 @@
     "MY_FAVS": "Meine Favoriten",
     "ADD_POST": "Reise erstellen",
     "THEME": "Theme wechseln",
-    "LANGUAGE_CHANGE": "Sprache wechseln"
+    "THEME_MOBILE": "Theme",
+    "LANGUAGE_CHANGE": "Sprache wechseln",
+    "LANGUAGE_MOBILE": "Deutsch"
   },
   "STATE": {
     "TITLE": "Ent DE cken"

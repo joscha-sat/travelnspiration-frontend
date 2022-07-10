@@ -1,0 +1,245 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #drawer
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [ngClass]="{ hidden: (isHandset$ | async) === false }"
+        [opened]="(isHandset$ | async) === false"
+        class="sidenav"
+        fixedInViewport="false"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <!-- LOGIN -->
+            <a *ngIf="!auth.isLoggedIn" mat-list-item routerLink="/login">
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.LOGIN' | translate }}</span>
+                    <mat-icon>login</mat-icon>
+                </div>
+            </a>
+
+            <!-- SIGN UP -->
+            <a
+                *ngIf="!this.auth.isLoggedIn"
+                mat-list-item
+                routerLink="/register"
+            >
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.SIGNUP' | translate }}</span>
+                    <mat-icon>person_add</mat-icon>
+                </div>
+            </a>
+
+            <!-- ADD TRAVEL ENTRY -->
+            <a
+                *ngIf="this.auth.isLoggedIn"
+                mat-list-item
+                routerLink="/addTravelpost"
+            >
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.ADD_POST' | translate }}</span>
+                    <mat-icon>add_circle</mat-icon>
+                </div>
+            </a>
+
+            <!-- MY TRAVEL POSTS -->
+            <a
+                *ngIf="this.auth.isLoggedIn"
+                [routerLink]="['/myTravelPosts/', auth.me.id]"
+                mat-list-item
+            >
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.MY_POSTS' | translate }}</span>
+                    <mat-icon>explore</mat-icon>
+                </div>
+            </a>
+
+            <!-- MY FAV TRAVEL POSTS -->
+            <a
+                *ngIf="this.auth.isLoggedIn"
+                [routerLink]="['/myFavourites/', auth.me.id]"
+                mat-list-item
+            >
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.MY_FAVS' | translate }}</span>
+                    <mat-icon>favorite</mat-icon>
+                </div>
+            </a>
+
+            <!-- DARK MODE -->
+            <a (click)="darkmodeToggle()" mat-list-item>
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.THEME_MOBILE' | translate }}</span>
+                    <mat-icon>dark_mode</mat-icon>
+                </div>
+            </a>
+
+            <!-- LANGUAGE CHANGE -->
+            <a (click)="toggleLanguage()" mat-list-item>
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.LANGUAGE_MOBILE' | translate }}</span>
+                    <div
+                        style="
+                            width: 24px;
+                            height: 24px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        "
+                    >
+                        <img
+                            *ngIf="de"
+                            alt="germany_flag"
+                            src="assets/flag/germany.png"
+                        />
+
+                        <img
+                            *ngIf="!de"
+                            alt="uk_flag"
+                            src="assets/flag/uk.png"
+                        />
+                    </div>
+                </div>
+            </a>
+
+            <!-- LOGOUT -->
+            <a (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-list-item>
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.LOGOUT' | translate }}</span>
+                    <mat-icon>logout</mat-icon>
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                type="button"
+            >
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="pointer header" routerLink="/home">
+                Travelnspiration
+            </span>
+
+            <span class="spacer"></span>
+
+            <div class="buttons flex" style="gap: 1rem">
+                <!-- LOGIN -->
+                <button
+                    *ngIf="!this.auth.isLoggedIn"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.LOGIN' | translate }}"
+                    routerLink="/login"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>login</mat-icon>
+                    </div>
+                </button>
+
+                <!-- SIGN UP -->
+                <button
+                    *ngIf="!this.auth.isLoggedIn"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.SIGNUP' | translate }}"
+                    routerLink="/signup"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>person_add</mat-icon>
+                    </div>
+                </button>
+
+                <!-- ADD TRAVEL ENTRY -->
+                <button
+                    *ngIf="this.auth.isLoggedIn"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.ADD_POST' | translate }}"
+                    routerLink="/addTravelpost"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>add_circle</mat-icon>
+                    </div>
+                </button>
+
+                <!-- MY TRAVEL POSTS -->
+                <button
+                    *ngIf="this.auth.isLoggedIn"
+                    [routerLink]="['/myTravelPosts/', auth.me.id]"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.MY_POSTS' | translate }}"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>explore</mat-icon>
+                    </div>
+                </button>
+
+                <!-- MY FAV TRAVEL POSTS -->
+                <button
+                    *ngIf="this.auth.isLoggedIn"
+                    [routerLink]="['/myFavourites/', auth.me.id]"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.MY_FAVS' | translate }}"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>favorite</mat-icon>
+                    </div>
+                </button>
+
+                <!-- DARK-MODE -->
+                <button
+                    (click)="darkmodeToggle()"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.THEME' | translate }}"
+                >
+                    <mat-icon>dark_mode</mat-icon>
+                </button>
+
+                <!-- LANGUAGE CHANGE -->
+                <button
+                    (click)="toggleLanguage()"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.LANGUAGE_CHANGE' | translate }}"
+                >
+                    <div
+                        style="
+                            width: 24px;
+                            height: 24px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        "
+                    >
+                        <img
+                            *ngIf="de"
+                            alt="germany_flag"
+                            src="assets/flag/germany.png"
+                        />
+
+                        <img
+                            *ngIf="!de"
+                            alt="uk_flag"
+                            src="assets/flag/uk.png"
+                        />
+                    </div>
+                </button>
+
+                <!-- LOGOUT -->
+                <button
+                    (click)="logout()"
+                    *ngIf="this.auth.isLoggedIn"
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.LOGOUT' | translate }}"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>logout</mat-icon>
+                    </div>
+                </button>
+            </div>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

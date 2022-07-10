@@ -14,7 +14,6 @@ import {
     HttpClient,
     HttpClientModule,
 } from '@angular/common/http';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { GermanySvgComponent } from './components/germany-svg/germany-svg.component';
 import { HomeComponent } from './views/home/home.component';
 import { StateComponent } from './views/state/state.component';
@@ -48,11 +47,17 @@ import { EmptyTravelsComponent } from './components/a-custom-components/empty-tr
 import { SearchComponent } from './components/grids/search/search.component';
 import { LoggedGuard } from './guards/logged.guard';
 import { BaseValidationErrorComponent } from './components/a-custom-components/base-validation-error/base-validation-error.component';
+import { ResNavigationComponent } from './components/res-navigation/res-navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavigationComponent,
         GermanySvgComponent,
         HomeComponent,
         StateComponent,
@@ -81,6 +86,7 @@ import { BaseValidationErrorComponent } from './components/a-custom-components/b
         EmptyTravelsComponent,
         SearchComponent,
         BaseValidationErrorComponent,
+        ResNavigationComponent,
     ],
     imports: [
         GalleryModule,
@@ -100,6 +106,12 @@ import { BaseValidationErrorComponent } from './components/a-custom-components/b
         }),
         ReactiveFormsModule,
         FormsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
     ],
 
     providers: [
@@ -122,5 +134,5 @@ export class AppModule {}
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+    return new TranslateHttpLoader(http);
 }
