@@ -1,21 +1,23 @@
+@use '../../../scss/index' as *;
+
 ::ng-deep .success {
     color: white;
-    background-color: #009366;
+    background-color: $green-success;
 }
 
 ::ng-deep .info {
     color: white;
-    background-color: #2abde0;
+    background-color: $blue-info;
 }
 
 ::ng-deep .warn {
     color: white;
-    background-color: #e0a45b;
+    background-color: $orange-warn;
 }
 
 ::ng-deep .error {
     color: white;
-    background-color: #f11f4a;
+    background-color: $red-error;
 }
 
 .container {

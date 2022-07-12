@@ -87,5 +87,23 @@
   "SNACKBAR": {
     "SUCCESSFUL_ADDED": "Successfully added",
     "SUCCESSFUL_LOGGED": "Successfully logged in"
+  },
+  "STATES": {
+    "BREMEN": "Bremen",
+    "HAMBURG": "Hamburg",
+    "BERLIN": "Berlin",
+    "SAARLAND": "SAARLAND",
+    "SCHLESWIG_HOLSTEIN": "Schleswig Holstein",
+    "THURINGIA": "Thuringia",
+    "SAXONY": "Saxony",
+    "RHINELAND_PALATINATE": "Rhineland-Palatinate",
+    "SAXONY_ANHALT": "Saxony-Anhalt",
+    "HESSE": "Hesse",
+    "MECKLENBURG_WESTERN_POMERANIA": "Mecklenburg-Western-Pomerania",
+    "BRANDENBURG": "Brandenburg",
+    "NORTHRHINE_WESTFALIA": "Northrhine-Westfalia",
+    "BADEN_WÜRTTEMBERG": "Baden-Württemberg",
+    "LOWER_SAXONY": "Lower Saxony",
+    "BAVARIA": "Bavaria"
   }
 }

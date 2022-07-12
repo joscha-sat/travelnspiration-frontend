@@ -30,11 +30,6 @@ export class TravelPostService {
         });
     }
 
-    // GET ALL TRAVEL POSTS
-    getTravelPosts(): Observable<TravelPost[]> {
-        return this.http.get<TravelPost[]>(this.baseURL);
-    }
-
     // GET ALL TRAVEL POSTS IMAGES
     getTravelPostsImages(id: string): Observable<string[]> {
         return this.http.get<string[]>('http://localhost:3000/photos/' + id);
@@ -67,11 +62,6 @@ export class TravelPostService {
         return this.http.patch(this.baseURL + id, travelpost);
     }
 
-    // DELETE ALL TRAVEL POSTS
-    deleteTravelPosts() {
-        return this.http.delete(this.baseURL);
-    }
-
     // DELETE ONE TRAVEL POSTS
     deleteOneTravelPosts(id: string) {
         return this.http.delete(this.baseURL + id);
@@ -89,17 +79,5 @@ export class TravelPostService {
                     this._updater$.next();
                 })
             );
-    }
-
-    // IMAGE STUFF ---------------------------------------------------------------------- //
-
-    // UPLOAD IMAGE
-    uploadImage(file: any) {
-        return this.http.post(this.baseURL + 'images', file);
-    }
-
-    // GET IMAGE
-    getImage(imgPath: string) {
-        return this.http.get(this.baseURL + 'image/' + imgPath);
     }
 }

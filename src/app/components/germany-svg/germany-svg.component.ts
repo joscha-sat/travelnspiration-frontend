@@ -953,6 +953,4 @@ export class GermanySvgComponent {
             name: 'Baden-Württemberg',
         },
     ];
-
-    constructor() {}
 }
