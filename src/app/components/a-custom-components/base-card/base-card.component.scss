@@ -1,3 +1,5 @@
+@use './src/app/scss/index' as *;
+
 .mCard {
     .img {
         width: 100%;
@@ -24,6 +26,14 @@
 
     .child {
         flex-grow: 1;
+    }
+
+    .edit {
+        color: $green-success-dark;
+    }
+
+    .delete {
+        color: $red-error-dark;
     }
 }
 

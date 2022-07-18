@@ -21,7 +21,7 @@
         <button
             (click)="editPostEmit(); $event.stopPropagation()"
             *ngIf="editable"
-            class="child"
+            class="child edit"
             color="accent"
             mat-flat-button
         >
@@ -31,7 +31,7 @@
         <button
             (click)="deletePostEmit(); $event.stopPropagation()"
             *ngIf="deletable"
-            class="child"
+            class="child delete"
             color="warn"
             mat-flat-button
         >
