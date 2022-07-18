@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { SnackbarService } from '../../a-custom-components/base-snackbar/snackbar.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-login-form',
@@ -15,6 +17,8 @@ export class LoginFormComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
+        private snackBarService: SnackbarService,
+        private translate: TranslateService,
         private router: Router
     ) {}
 
@@ -31,6 +35,16 @@ export class LoginFormComponent implements OnInit {
         this.authService
             .login(loginUser.username, loginUser.password)
             .subscribe(() => {
+                let snackInfoText;
+
+                this.translate
+                    .get('SNACKBAR.SUCCESSFUL_LOGGED')
+                    .subscribe((res) => {
+                        snackInfoText = res;
+                    });
+                // Open success snackbar
+                this.snackBarService.openSnackBar(snackInfoText, '', 'success');
+                // navigate to home after login
                 this.router.navigate(['/home']).then();
             });
     }

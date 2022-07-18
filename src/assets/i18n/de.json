@@ -82,7 +82,8 @@
       "TITLE": "Titel muss mindestens 3 Zeichen haben!",
       "DESCRIPTION": "Beschreibung muss mindestens 10 Zeichen haben!"
     },
-    "EMAIL": "Keine zulässige Email!"
+    "EMAIL": "Keine zulässige Email!",
+    "INVALID_USER": "Error, Sie Versuchen die URL zu manipulieren!"
   },
   "SNACKBAR": {
     "SUCCESSFUL_ADDED": "Erfolgreich hinzugefügt",

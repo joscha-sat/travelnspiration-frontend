@@ -15,6 +15,7 @@ export class MyFavouritesGridComponent implements OnInit {
     myFavPosts: TravelPost[];
     baseUrl = 'http://localhost:3000/travelpost/image/';
     search: string = '';
+    rightUser: boolean = true;
 
     constructor(
         private travelpostService: TravelPostService,
@@ -28,6 +29,11 @@ export class MyFavouritesGridComponent implements OnInit {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             this.userId = paramMap.get('userId');
         });
+
+        if (+this.userId !== this.auth.me.id) {
+            this.rightUser = false;
+            return;
+        }
 
         this.travelpostService.updater$.subscribe(() => {
             this.getMyFavouritePosts();

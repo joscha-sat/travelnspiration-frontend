@@ -26,7 +26,11 @@
     </div>
 </div>
 
+<!-- CASE NO TRAVELS YET -->
 <app-empty-travels
     [travelPosts]="myFavPosts"
     info="GENERAL.EMPTY"
 ></app-empty-travels>
+
+<!-- CASE USER MANIPULATED URL -->
+<app-base-check-user [rightUser]="rightUser"></app-base-check-user>

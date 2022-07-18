@@ -1,0 +1,10 @@
+<div *ngIf="!rightUser" class="empty">
+    <mat-card style="padding-inline: 8rem; padding-block: 2.5rem">
+        <mat-card-content class="content">
+            <mat-icon class="icon">error</mat-icon>
+            <div style="font-size: 2rem">
+                {{ 'ERROR.INVALID_USER' | translate }}
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

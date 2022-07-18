@@ -3,6 +3,7 @@ import { TravelPost } from '../../../interfaces/travel-post';
 import { TravelPostService } from '../../../services/travel-post.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FilterService } from '../../../services/filter.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'app-my-travelpost-grid',
@@ -14,11 +15,13 @@ export class MyTravelpostGridComponent implements OnInit {
     myTravelPosts: TravelPost[];
     baseUrl = 'http://localhost:3000/travelpost/image/';
     search: string = '';
+    rightUser: boolean = true;
 
     constructor(
         private travelpostService: TravelPostService,
         private route: ActivatedRoute,
         private router: Router,
+        private auth: AuthService,
         public filterService: FilterService
     ) {}
 
@@ -27,6 +30,11 @@ export class MyTravelpostGridComponent implements OnInit {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             this.userId = paramMap.get('id');
         });
+
+        if (+this.userId !== this.auth.me.id) {
+            this.rightUser = false;
+            return;
+        }
 
         this.getMyTravelPosts();
     }

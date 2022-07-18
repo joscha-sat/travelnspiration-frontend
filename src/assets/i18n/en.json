@@ -82,7 +82,8 @@
       "TITLE": "Title needs at least 3 characters!",
       "DESCRIPTION": "Description needs at least 10 characters!"
     },
-    "EMAIL": "Invalid Email!"
+    "EMAIL": "Invalid Email!",
+    "INVALID_USER": "Error, you are trying to manipulate the URL!"
   },
   "SNACKBAR": {
     "SUCCESSFUL_ADDED": "Successfully added",
