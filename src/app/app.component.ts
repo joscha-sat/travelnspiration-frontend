@@ -13,7 +13,14 @@ export class AppComponent implements OnInit {
         private auth: AuthService
     ) {
         translate.setDefaultLang('de');
-        translate.use('de');
+
+        const language = localStorage.getItem('LANGUAGE');
+
+        if (language === 'DE') {
+            this.translate.use('de');
+        } else {
+            this.translate.use('en');
+        }
     }
 
     ngOnInit(): void {

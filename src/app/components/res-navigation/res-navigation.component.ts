@@ -32,13 +32,23 @@ export class ResNavigationComponent implements AfterViewInit {
         this.auth.logout();
     }
 
+    enableGER(): void {
+        this.translate.use('de');
+        localStorage.setItem('LANGUAGE', 'DE');
+        this.de = true;
+    }
+
+    enableENG(): void {
+        this.translate.use('en');
+        localStorage.setItem('LANGUAGE', 'ENG');
+        this.de = false;
+    }
+
     toggleLanguage() {
         if (this.de) {
-            this.translate.use('en');
-            this.de = false;
+            this.enableENG();
         } else {
-            this.translate.use('de');
-            this.de = true;
+            this.enableGER();
         }
     }
 
@@ -73,6 +83,14 @@ export class ResNavigationComponent implements AfterViewInit {
             this.enableDarkMode();
         } else {
             this.disableDarkMode();
+        }
+
+        const language = localStorage.getItem('LANGUAGE');
+
+        if (language === 'DE') {
+            this.enableGER();
+        } else {
+            this.enableENG();
         }
     }
 }
