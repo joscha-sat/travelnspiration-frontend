@@ -26,24 +26,26 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.auth.me;
 
-        let cc = window as any;
+        this.translate.get('GENERAL.COOKIES').subscribe((res) => {
+            let cc = window as any;
 
-        cc.cookieconsent.initialise({
-            palette: {
-                popup: {
-                    background: '#776955',
+            cc.cookieconsent.initialise({
+                palette: {
+                    popup: {
+                        background: '#776955',
+                    },
+                    button: {
+                        background: '#ffe000',
+                        text: '#000000',
+                    },
                 },
-                button: {
-                    background: '#ffe000',
-                    text: '#000000',
+                theme: 'classic',
+                content: {
+                    message: res,
+                    dismiss: 'OK!',
+                    link: '',
                 },
-            },
-            theme: 'classic',
-            content: {
-                message: 'haha',
-                dismiss: 'OK!',
-                link: '',
-            },
+            });
         });
     }
 }

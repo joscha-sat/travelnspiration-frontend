@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
     templateUrl: './res-navigation.component.html',
     styleUrls: ['./res-navigation.component.scss'],
 })
-export class ResNavigationComponent implements AfterViewInit {
+export class ResNavigationComponent implements OnInit {
     isHandset$: Observable<boolean> = this.breakpointObserver
         .observe(Breakpoints.Handset)
         .pipe(
@@ -75,8 +75,7 @@ export class ResNavigationComponent implements AfterViewInit {
         }
     }
 
-    // check local storage which theme the user has selected to activate it after reload
-    ngAfterViewInit(): void {
+    ngOnInit(): void {
         this.darkMode = localStorage.getItem('THEME');
 
         if (this.darkMode === 'DARK') {
