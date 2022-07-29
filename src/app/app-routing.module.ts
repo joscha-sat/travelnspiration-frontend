@@ -9,9 +9,10 @@ import { TravelpostDetailedComponent } from './views/travelpost-detailed/travelp
 import { MyTravelpostsComponent } from './views/my-travelposts/my-travelposts.component';
 import { FavouriteListComponent } from './views/favourite-list/favourite-list.component';
 import { LoggedGuard } from './guards/logged.guard';
+import { ImprintComponent } from './views/imprint/imprint.component';
 
 const routes: Routes = [
-    // HOME
+    // REDIRECT TO HOME
     {
         path: '',
         redirectTo: '/home',
@@ -66,6 +67,12 @@ const routes: Routes = [
         component: FavouriteListComponent,
         canActivate: [LoggedGuard],
     },
+    // IMPRINT
+    {
+        path: 'imprint',
+        component: ImprintComponent,
+    },
+    // if a "wrong/different" url is entered, redirect to home
     { path: '**', redirectTo: '/home' },
 ];
 

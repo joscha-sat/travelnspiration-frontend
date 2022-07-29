@@ -4,7 +4,10 @@
     "EDIT": "Edit",
     "FILTER": "Filters",
     "EMPTY": "No entries yet!",
-    "SEARCH": "Search..."
+    "SEARCH": "Search...",
+    "CEO": "Managing Director",
+    "COURT": "District Court",
+    "PHONE": "Phone"
   },
   "HOME": {
     "TITLE": "Explore Germany"

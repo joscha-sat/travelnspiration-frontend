@@ -55,6 +55,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BaseCheckUserComponent } from './components/a-custom-components/base-check-user/base-check-user.component';
+import { ImprintComponent } from './views/imprint/imprint.component';
 
 @NgModule({
     declarations: [
@@ -89,6 +90,7 @@ import { BaseCheckUserComponent } from './components/a-custom-components/base-ch
         BaseValidationErrorComponent,
         ResNavigationComponent,
         BaseCheckUserComponent,
+        ImprintComponent,
     ],
     imports: [
         GalleryModule,

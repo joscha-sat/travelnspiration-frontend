@@ -4,7 +4,10 @@
     "EDIT": "Bearbeiten",
     "FILTER": "Filter",
     "EMPTY": "Noch keine Einträge vorhanden!",
-    "SEARCH": "Suchen..."
+    "SEARCH": "Suchen...",
+    "CEO": "Geschäftsführer",
+    "COURT": "Amtsgericht",
+    "PHONE": "Tel."
   },
   "HOME": {
     "TITLE": "Gehe auf Ent DE ckung"

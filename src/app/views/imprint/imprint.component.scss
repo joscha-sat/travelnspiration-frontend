@@ -1,0 +1,16 @@
+.container {
+    width: min(100%, 80rem);
+    padding-inline: 1em;
+    margin-inline: auto;
+    margin-top: var(--mt, 0);
+    margin-bottom: var(--mb, 2rem);
+
+    .content {
+        margin-top: 5rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
