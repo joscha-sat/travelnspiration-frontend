@@ -102,6 +102,14 @@
                 </div>
             </a>
 
+            <!-- IMPRINT -->
+            <a mat-list-item routerLink="/imprint">
+                <div class="navItemMobile flex">
+                    <span>{{ 'NAV.IMPRINT' | translate }}</span>
+                    <mat-icon> sticky_note_2</mat-icon>
+                </div>
+            </a>
+
             <!-- LOGOUT -->
             <a (click)="logout()" *ngIf="this.auth.isLoggedIn" mat-list-item>
                 <div class="navItemMobile flex">
@@ -224,6 +232,18 @@
                             alt="uk_flag"
                             src="assets/flag/uk.png"
                         />
+                    </div>
+                </button>
+
+                <!-- IMPRINT -->
+
+                <button
+                    mat-icon-button
+                    matTooltip="{{ 'NAV.IMPRINT' | translate }}"
+                    routerLink="/imprint"
+                >
+                    <div class="navItemBtn flex">
+                        <mat-icon>sticky_note_2</mat-icon>
                     </div>
                 </button>
 

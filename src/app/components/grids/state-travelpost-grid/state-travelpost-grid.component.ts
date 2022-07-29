@@ -14,11 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class StateTravelpostGridComponent implements OnInit {
     title: string | null = '';
-
     baseUrl = 'http://localhost:3000/travelpost/image/';
-
     travelPosts: TravelPost[];
-    //    GET ALL POSTS OF THIS STATE AND GET THE IMAGES TO THOSE POSTS
     search: string = '';
 
     constructor(

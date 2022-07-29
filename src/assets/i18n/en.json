@@ -19,7 +19,8 @@
     "THEME": "Change theme",
     "THEME_MOBILE": "Theme",
     "LANGUAGE_CHANGE": "Change language",
-    "LANGUAGE_MOBILE": "English"
+    "LANGUAGE_MOBILE": "English",
+    "IMPRINT": "Imprint"
   },
   "STATE": {
     "TITLE": "explorations"
