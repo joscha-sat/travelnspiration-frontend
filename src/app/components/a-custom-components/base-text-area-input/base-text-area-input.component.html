@@ -1,12 +1,10 @@
-<!--<mat-label>{{ title }}</mat-label>-->
-
-<mat-form-field [formGroup]="anyFormGroup" appearance="outline" class="w100">
-    <mat-label>{{ title }}</mat-label>
-    <textarea
-        #text
-        (change)="setValue(text.value)"
-        [formControlName]="fName"
-        [required]="required"
-        matInput
-    ></textarea>
+<mat-form-field [formGroup]='anyFormGroup' appearance='outline' class='w100'>
+  <mat-label>{{ title }}</mat-label>
+  <textarea
+    #text
+    (change)='setValue(text.value)'
+    [formControlName]='fName'
+    [required]='required'
+    matInput
+  ></textarea>
 </mat-form-field>

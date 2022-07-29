@@ -3,6 +3,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ImageItem } from 'ng-gallery';
 import { TravelPostService } from '../../services/travel-post.service';
 import { TravelPost } from '../../interfaces/travel-post';
+import { AuthService } from '../../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SnackbarService } from '../a-custom-components/base-snackbar/snackbar.service';
 
 @Component({
     selector: 'app-travelpost-details',
@@ -19,12 +22,39 @@ export class TravelpostDetailsComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private travelPostService: TravelPostService
+        private travelPostService: TravelPostService,
+        public auth: AuthService,
+        private translate: TranslateService,
+        private snackBarService: SnackbarService
     ) {}
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
         this.screenWidth = event.target.innerWidth;
+    }
+
+    addFavPost() {
+        if (!this.auth.me.id) {
+            return;
+        }
+
+        this.travelPostService
+            .addTravelPostToFav(this.auth.me.id, this.id)
+            .subscribe(() => {
+                let snackInfoText;
+
+                this.translate
+                    .get('SNACKBAR.SUCCESSFUL_ADDED')
+                    .subscribe((res) => {
+                        snackInfoText = res;
+                    });
+
+                this.snackBarService.openSnackBar(
+                    snackInfoText,
+                    'ok',
+                    'success'
+                );
+            });
     }
 
     ngOnInit(): void {

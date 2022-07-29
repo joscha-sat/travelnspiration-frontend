@@ -1,15 +1,13 @@
-<!--<mat-label>{{ title }}</mat-label>-->
-
-<mat-form-field [formGroup]="anyFormGroup" appearance="outline" class="w100">
-    <mat-icon matSuffix>{{ icon }}</mat-icon>
-    <mat-label>{{ title }}</mat-label>
-    <input
-        #number
-        (change)="setValue(number.value)"
-        [formControlName]="fName"
-        [required]="required"
-        class="mInput"
-        matInput
-        type="number"
-    />
+<mat-form-field [formGroup]='anyFormGroup' appearance='outline' class='w100'>
+  <mat-icon matSuffix>{{ icon }}</mat-icon>
+  <mat-label>{{ title }}</mat-label>
+  <input
+    #number
+    (change)='setValue(number.value)'
+    [formControlName]='fName'
+    [required]='required'
+    class='mInput'
+    matInput
+    type='number'
+  />
 </mat-form-field>
