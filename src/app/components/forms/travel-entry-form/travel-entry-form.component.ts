@@ -4,6 +4,8 @@ import { TravelPostService } from '../../../services/travel-post.service';
 import { AuthService } from '../../../services/auth.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TravelPost } from '../../../interfaces/travel-post';
+import { SnackbarService } from '../../a-custom-components/base-snackbar/snackbar.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-travel-entry-form',
@@ -47,7 +49,9 @@ export class TravelEntryFormComponent implements OnInit {
         private travelPostService: TravelPostService,
         private auth: AuthService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private snackBarService: SnackbarService,
+        private translate: TranslateService
     ) {}
 
     onSubmit() {
@@ -106,6 +110,15 @@ export class TravelEntryFormComponent implements OnInit {
                     .subscribe(() => {
                         this.form.reset();
                         this.previews = [];
+
+                        let txt;
+                        this.translate
+                            .get('SNACKBAR.SUCCESSFUL_ADDED')
+                            .subscribe((res) => {
+                                txt = res;
+                            });
+
+                        this.snackBarService.openSnackBar(txt, 'ok', 'success');
                     });
             }
         } else {
