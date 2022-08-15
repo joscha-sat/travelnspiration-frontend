@@ -1,95 +1,100 @@
 <!-- TITLE -->
-<h1 class="title" style="text-align: center; padding-bottom: 1.5rem">
-    {{ travelpost.title }}
+<h1 class='title' style='text-align: center; padding-bottom: 1.5rem'>
+  {{ travelpost.title }}
 </h1>
 
 <!-- Carousel -->
-<div *ngIf="images && images.length" class="carousel">
-    <gallery
-        [imageSize]="'cover'"
-        [items]="images"
-        [loadingStrategy]="'lazy'"
-        [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
-        style="height: 100%; width: 100%"
-    ></gallery>
+<div *ngIf='images && images.length' class='carousel'>
+  <gallery
+    [imageSize]="'cover'"
+    [items]='images'
+    [loadingStrategy]="'lazy'"
+    [thumbPosition]="screenWidth > 650 ? 'left' : 'bottom'"
+    style='height: 100%; width: 100%'
+  ></gallery>
 </div>
 
-<div class="details-container">
-    <!-- DESCRIPTION -->
-    <ng-container *ngIf="travelpost.description">
-        <div class="desc_and_fav">
-            <div>
-                <div class="header">
-                    {{ 'TRAVELPOST.DESCRIPTION' | translate }}
-                </div>
-
-                <div class="text">
-                    {{ travelpost.description }}
-                </div>
-            </div>
-
-            <button
-                (click)="addFavPost(); $event.stopPropagation()"
-                *ngIf="auth.isLogged"
-                class="favBtn"
-                mat-icon-button
-            >
-                <mat-icon class="favIcon">favorite</mat-icon>
-            </button>
-        </div>
-    </ng-container>
-
-    <div class="container">
-        <!-- STATE -->
-        <app-single-info
-            [info]="travelpost.state"
-            ngTranslate="TRAVELPOST.STATE"
-        ></app-single-info>
-
-        <!-- LOCATION -->
-        <app-single-info
-            [info]="travelpost.location"
-            ngTranslate="TRAVELPOST.LOCATION"
-        ></app-single-info>
-    </div>
-
-    <div class="container">
-        <!-- HOUSING -->
-        <app-single-info
-            [info]="travelpost.housing"
-            ngTranslate="TRAVELPOST.HOUSING"
-        ></app-single-info>
-
-        <!-- TRAVEL TYPE -->
-        <app-single-info
-            [info]="travelpost.travelType"
-            ngTranslate="TRAVELPOST.TRAVELTYPE"
-        ></app-single-info>
-    </div>
-
-    <div class="container">
-        <!-- TOTAL COSTS -->
-        <app-single-info
-            [costs]="true"
-            [info]="travelpost.costsTotal"
-            ngTranslate="TRAVELPOST.TOTALCOSTS"
-        ></app-single-info>
-
-        <!-- INFOT TO COSTS -->
-        <app-single-info
-            [info]="travelpost.costDescription"
-            ngTranslate="TRAVELPOST.COSTSINFO"
-        ></app-single-info>
-    </div>
-
-    <ng-container *ngIf="travelpost.other">
-        <!-- OTHER -->
-        <div class="header" style="margin-top: 2rem">
-            {{ 'TRAVELPOST.OTHER' | translate }}
+<div class='details-container'>
+  <!-- DESCRIPTION -->
+  <ng-container *ngIf='travelpost.description'>
+    <div class='desc_and_fav'>
+      <div>
+        <div class='header'>
+          {{ 'TRAVELPOST.DESCRIPTION' | translate }}
         </div>
 
-        <div class="text">
-            {{ travelpost.other }}
+        <div class='text'>
+          {{ travelpost.description }}
         </div>
-    </ng-container>
+      </div>
+
+      <button
+        (click)='addFavPost(); $event.stopPropagation()'
+        *ngIf='auth.isLogged'
+        class='favBtn'
+        mat-icon-button
+      >
+        <mat-icon
+          class='favIcon'
+          matTooltip="{{ 'GENERAL.ADD_FAV' | translate }}"
+        >favorite
+        </mat-icon
+        >
+      </button>
+    </div>
+  </ng-container>
+
+  <div class='container'>
+    <!-- STATE -->
+    <app-single-info
+      [info]='travelpost.state'
+      ngTranslate='TRAVELPOST.STATE'
+    ></app-single-info>
+
+    <!-- LOCATION -->
+    <app-single-info
+      [info]='travelpost.location'
+      ngTranslate='TRAVELPOST.LOCATION'
+    ></app-single-info>
+  </div>
+
+  <div class='container'>
+    <!-- HOUSING -->
+    <app-single-info
+      [info]='travelpost.housing'
+      ngTranslate='TRAVELPOST.HOUSING'
+    ></app-single-info>
+
+    <!-- TRAVEL TYPE -->
+    <app-single-info
+      [info]='travelpost.travelType'
+      ngTranslate='TRAVELPOST.TRAVELTYPE'
+    ></app-single-info>
+  </div>
+
+  <div class='container'>
+    <!-- TOTAL COSTS -->
+    <app-single-info
+      [costs]='true'
+      [info]='travelpost.costsTotal'
+      ngTranslate='TRAVELPOST.TOTALCOSTS'
+    ></app-single-info>
+
+    <!-- INFOT TO COSTS -->
+    <app-single-info
+      [info]='travelpost.costDescription'
+      ngTranslate='TRAVELPOST.COSTSINFO'
+    ></app-single-info>
+  </div>
+
+  <ng-container *ngIf='travelpost.other'>
+    <!-- OTHER -->
+    <div class='header' style='margin-top: 2rem'>
+      {{ 'TRAVELPOST.OTHER' | translate }}
+    </div>
+
+    <div class='text'>
+      {{ travelpost.other }}
+    </div>
+  </ng-container>
 </div>
